@@ -26,7 +26,15 @@ button{padding:11px 15px;border:0;border-radius:9px;background:#7c5cff;color:#ff
 const modes=["AXE PVP","CART PVP","DIA KIT","E-MACE","NETPOT","SMP KIT","SPEAR MACE","TANK","UHC","VANILLA CRYSTAL"];
 const sb=window.VOID_SUPABASE&&window.VOID_SUPABASE.url&&window.VOID_SUPABASE.anonKey?supabase.createClient(window.VOID_SUPABASE.url,window.VOID_SUPABASE.anonKey):null;
 modes.forEach(m=>document.getElementById("mode").innerHTML+=`<option>${m}</option>`);
-async function signup(){if(!sb)return alert("Configure Supabase first.");let {error}=await sb.auth.signUp({email:email.value,password:password.value});alert(error?error.message:"Account created. Check your email if confirmation is enabled, then log in.");}
+async function signup(){
+  if(!sb)return alert("Configure Supabase first.");
+  const e=document.getElementById("email").value.trim();
+  const p=document.getElementById("password").value;
+  if(!e||!p)return alert("Please enter email and password.");
+  const {data,error}=await sb.auth.signUp({email:e,password:p});
+  if(error) return alert("SIGNUP ERROR: "+error.message);
+  alert("Account created! Check your email if confirmation is enabled.");
+}
 async function login(){if(!sb)return alert("Configure Supabase first.");let {data,error}=await sb.auth.signInWithPassword({email:email.value,password:password.value});if(error)return alert(error.message);showApp(data.user)}
 async function logout(){await sb.auth.signOut();location.reload()}
 async function init(){if(!sb)return;const {data}=await sb.auth.getSession();if(data.session)showApp(data.session.user)}
