@@ -11,35 +11,42 @@
   box-sizing:border-box;
 }
 
-:root{
-  --purple:#9b5cff;
-  --purple-dark:#6d28d9;
-  --red:#ff3b4f;
-  --green:#35e88f;
-  --bg:#050507;
-  --panel:#0d0d12;
-  --panel2:#12121a;
-  --border:#292432;
-  --text:#f5f5f7;
-  --muted:#88838f;
-}
-
 body{
   margin:0;
   background:
-    radial-gradient(circle at 15% 10%,rgba(155,92,255,.13),transparent 30%),
-    radial-gradient(circle at 85% 25%,rgba(255,59,79,.08),transparent 28%),
-    radial-gradient(circle at 50% 90%,rgba(53,232,143,.07),transparent 30%),
-    var(--bg);
-  color:var(--text);
+    radial-gradient(circle at 0% 0%,
+      rgba(60,110,255,.24) 0,
+      rgba(60,110,255,.08) 20%,
+      transparent 40%
+    ),
+    radial-gradient(circle at 100% 0%,
+      rgba(155,92,255,.28) 0,
+      rgba(155,92,255,.08) 20%,
+      transparent 40%
+    ),
+    radial-gradient(circle at 0% 100%,
+      rgba(155,92,255,.22) 0,
+      rgba(155,92,255,.06) 22%,
+      transparent 42%
+    ),
+    radial-gradient(circle at 100% 100%,
+      rgba(45,105,255,.24) 0,
+      rgba(45,105,255,.06) 22%,
+      transparent 42%
+    ),
+    #050505;
+
+  background-attachment:fixed;
+  color:#f5f5f5;
   font-family:Arial,Helvetica,sans-serif;
-  min-height:100vh;
 }
 
+/* ================= HEADER ================= */
+
 header{
-  height:66px;
-  background:rgba(7,7,10,.95);
-  border-bottom:1px solid #25202d;
+  height:64px;
+  background:rgba(5,5,8,.95);
+  border-bottom:1px solid #28202f;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -47,17 +54,17 @@ header{
   position:sticky;
   top:0;
   z-index:10;
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(10px);
 }
 
 .logo{
   font-size:20px;
   font-weight:900;
-  letter-spacing:.7px;
+  letter-spacing:.5px;
 }
 
 .logo span{
-  color:var(--purple);
+  color:#9b5cff;
 }
 
 .admin{
@@ -66,15 +73,17 @@ header{
   font-weight:800;
   padding:10px 15px;
   border-radius:9px;
-  background:linear-gradient(135deg,#18131f,#111116);
-  border:1px solid #362b46;
+  background:linear-gradient(135deg,#24123b,#351535);
+  border:1px solid #7138a5;
   transition:.2s;
 }
 
 .admin:hover{
-  border-color:var(--purple);
-  box-shadow:0 0 18px rgba(155,92,255,.25);
+  transform:translateY(-1px);
+  border-color:#a65cff;
 }
+
+/* ================= MAIN ================= */
 
 main{
   max-width:1100px;
@@ -84,26 +93,28 @@ main{
 
 .hero{
   text-align:center;
-  padding:42px 15px 45px;
+  padding:35px 15px 42px;
 }
 
 .hero h1{
   margin:0;
   font-size:clamp(42px,8vw,76px);
-  font-weight:950;
-  letter-spacing:-3px;
-  text-shadow:0 0 25px rgba(155,92,255,.2);
+  font-weight:900;
+  letter-spacing:-2px;
+  text-shadow:0 0 30px rgba(155,92,255,.18);
 }
 
 .hero h1 span{
-  color:var(--purple);
+  color:#9b5cff;
 }
 
 .hero p{
-  color:#8d8994;
-  margin-top:13px;
+  color:#999;
+  margin-top:12px;
   font-size:16px;
 }
+
+/* ================= CONTROLS ================= */
 
 .controls{
   display:grid;
@@ -114,26 +125,22 @@ main{
 
 input,select{
   width:100%;
-  background:#0e0e14;
+  background:#101016;
   color:#eee;
-  border:1px solid #2b2633;
-  border-radius:10px;
+  border:1px solid #30253b;
+  border-radius:9px;
   padding:15px;
   font-size:15px;
   outline:none;
-  transition:.2s;
-}
-
-input:hover,
-select:hover{
-  border-color:#49365d;
 }
 
 input:focus,
 select:focus{
-  border-color:var(--purple);
-  box-shadow:0 0 0 3px rgba(155,92,255,.08);
+  border-color:#9b5cff;
+  box-shadow:0 0 0 2px rgba(155,92,255,.1);
 }
+
+/* ================= TITLES ================= */
 
 .section-title{
   font-size:26px;
@@ -141,15 +148,17 @@ select:focus{
   margin:28px 0 15px;
 }
 
+/* ================= CARD ================= */
+
 .card{
-  background:linear-gradient(145deg,#101016,#0b0b0f);
-  border:1px solid var(--border);
+  background:rgba(14,14,18,.94);
+  border:1px solid #29232f;
   border-radius:14px;
   overflow:hidden;
-  box-shadow:
-    0 12px 40px rgba(0,0,0,.35),
-    inset 0 1px rgba(255,255,255,.02);
+  box-shadow:0 8px 30px rgba(0,0,0,.3);
 }
+
+/* ================= LEADERBOARD ================= */
 
 .table-wrap{
   overflow-x:auto;
@@ -158,41 +167,32 @@ select:focus{
 table{
   width:100%;
   border-collapse:collapse;
-  min-width:600px;
+  min-width:720px;
 }
 
 th{
-  background:#121119;
-  color:#85808c;
+  background:#15121a;
+  color:#9b96a3;
   font-size:12px;
   text-transform:uppercase;
   letter-spacing:.7px;
   text-align:left;
-  padding:16px 15px;
-  border-bottom:1px solid #292330;
+  padding:15px;
 }
 
 td{
   padding:15px;
-  border-top:1px solid #211e26;
+  border-top:1px solid #252129;
+  vertical-align:middle;
 }
 
-tbody tr{
-  transition:.18s;
-}
-
-tbody tr:hover td{
-  background:linear-gradient(
-    90deg,
-    rgba(155,92,255,.07),
-    rgba(255,59,79,.025)
-  );
+tr:hover td{
+  background:rgba(155,92,255,.035);
 }
 
 .position{
-  color:#77727e;
+  color:#777;
   font-weight:800;
-  width:55px;
 }
 
 .player-name{
@@ -201,59 +201,143 @@ tbody tr:hover td{
 
 .points{
   font-weight:900;
-  color:var(--green);
+  color:#fff;
 }
 
-/* =========================
-   PNG ICONS
-========================= */
-
-.mode-icons{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
-}
-
-.mode-icon-box{
-  width:42px;
-  height:42px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#111018;
-  border:1px solid #30273b;
-  border-radius:9px;
-  transition:.18s;
-}
-
-.mode-icon-box:hover{
-  transform:translateY(-2px) scale(1.06);
-  border-color:var(--purple);
-  box-shadow:0 0 14px rgba(155,92,255,.25);
-}
-
-.mode-icon{
-  width:34px;
-  height:34px;
-  object-fit:contain;
-  image-rendering:auto;
-  filter:drop-shadow(0 2px 4px rgba(0,0,0,.8));
+.muted{
+  color:#85818c;
 }
 
 .empty{
   padding:35px;
   text-align:center;
-  color:#77727e;
+  color:#777;
 }
+
+/* ================= MODE ICONS ================= */
+
+.mode-list{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  align-items:center;
+}
+
+.mode-item{
+  width:64px;
+  min-height:78px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  gap:5px;
+}
+
+.mode-icon{
+  width:48px;
+  height:48px;
+  object-fit:contain;
+  image-rendering:auto;
+  filter:drop-shadow(0 0 5px rgba(155,92,255,.15));
+}
+
+.mode-tier{
+  font-size:11px;
+  font-weight:900;
+  padding:3px 6px;
+  border-radius:5px;
+  background:#18151d;
+  border:1px solid #342b3c;
+}
+
+/* ================= TIER COLORS ================= */
+
+.tier-s{
+  color:#ffd84a;
+}
+
+.tier-a{
+  color:#b86cff;
+}
+
+.tier-b{
+  color:#51d8ff;
+}
+
+.tier-c{
+  color:#63e6a4;
+}
+
+.tier-d{
+  color:#ff6d78;
+}
+
+.tier-tag{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:5px 9px;
+  border-radius:6px;
+  font-size:13px;
+  font-weight:900;
+  background:#19171d;
+  border:1px solid #332d38;
+}
+
+/* ================= MODE INFO ================= */
+
+.info{
+  margin-top:35px;
+  padding:25px;
+}
+
+.info h3{
+  margin-top:0;
+}
+
+.mode-info-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.mode-info{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:#141219;
+  border:1px solid #29222f;
+  border-radius:10px;
+  padding:12px;
+}
+
+.mode-info img{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+}
+
+.mode-info b{
+  display:block;
+  margin-bottom:3px;
+}
+
+.mode-info span{
+  color:#888;
+  font-size:12px;
+}
+
+/* ================= FOOTER ================= */
 
 footer{
   text-align:center;
-  color:#66616d;
+  color:#666;
   padding:25px;
-  border-top:1px solid #19161e;
+  border-top:1px solid #17131b;
   font-size:13px;
 }
+
+/* ================= MOBILE ================= */
 
 @media(max-width:750px){
 
@@ -273,14 +357,12 @@ footer{
     font-size:48px;
   }
 
-  .mode-icon-box{
-    width:38px;
-    height:38px;
+  .mode-info-grid{
+    grid-template-columns:1fr;
   }
 
-  .mode-icon{
-    width:30px;
-    height:30px;
+  table{
+    min-width:680px;
   }
 }
 </style>
@@ -316,7 +398,7 @@ footer{
 </section>
 
 
-<!-- FILTERS -->
+<!-- ================= CONTROLS ================= -->
 
 <div class="controls">
 
@@ -373,7 +455,7 @@ footer{
 </div>
 
 
-<!-- LEADERBOARD -->
+<!-- ================= LEADERBOARD ================= -->
 
 <div class="section-title">
   📊 Leaderboard
@@ -384,12 +466,14 @@ footer{
 <table>
 
 <thead>
+
 <tr>
   <th>#</th>
   <th>Player</th>
-  <th>Gamemode</th>
+  <th>Gamemodes</th>
   <th>Points</th>
 </tr>
+
 </thead>
 
 <tbody id="leaderboard">
@@ -403,6 +487,119 @@ footer{
 </tbody>
 
 </table>
+
+</div>
+
+
+<!-- ================= MODE INFORMATION ================= -->
+
+<div class="section-title">
+  📜 Gamemode Information
+</div>
+
+<div class="card info">
+
+<h3 id="infoTitle">
+  All Gamemodes
+</h3>
+
+<p class="muted" id="infoText">
+  Select a gamemode above to see its information and player tiers.
+</p>
+
+
+<div class="mode-info-grid">
+
+  <div class="mode-info">
+    <img src="axe-pvp.png" alt="">
+    <div>
+      <b>AXE PVP</b>
+      <span>Diamond Axe combat</span>
+    </div>
+  </div>
+
+
+  <div class="mode-info">
+    <img src="cart-pvp.png" alt="">
+    <div>
+      <b>CART PVP</b>
+      <span>TNT Minecart combat</span>
+    </div>
+  </div>
+
+
+  <div class="mode-info">
+    <img src="dia-kit.png" alt="">
+    <div>
+      <b>DIA KIT</b>
+      <span>Diamond kit combat</span>
+    </div>
+  </div>
+
+
+  <div class="mode-info">
+    <img src="emace.png" alt="">
+    <div>
+      <b>E-MACE</b>
+      <span>Elytra + Minecraft Mace</span>
+    </div>
+  </div>
+
+
+  <div class="mode-info">
+    <img src="netpot.png" alt="">
+    <div>
+      <b>NETPOT</b>
+      <span>Healing potion combat</span>
+    </div>
+  </div>
+
+
+  <div class="mode-info">
+    <img src="smp-kit.png" alt="">
+    <div>
+      <b>SMP KIT</b>
+      <span>Kit-based combat</span>
+    </div>
+  </div>
+
+
+  <div class="mode-info">
+    <img src="spear-mace.png" alt="">
+    <div>
+      <b>SPEAR MACE</b>
+      <span>Spear + Minecraft Mace</span>
+    </div>
+  </div>
+
+
+  <div class="mode-info">
+    <img src="tank.png" alt="">
+    <div>
+      <b>TANK</b>
+      <span>Tank combat</span>
+    </div>
+  </div>
+
+
+  <div class="mode-info">
+    <img src="uhc.png" alt="">
+    <div>
+      <b>UHC</b>
+      <span>Lava bucket combat</span>
+    </div>
+  </div>
+
+
+  <div class="mode-info">
+    <img src="vanilla-crystal.png" alt="">
+    <div>
+      <b>VANILLA CRYSTAL</b>
+      <span>End Crystal combat</span>
+    </div>
+  </div>
+
+</div>
 
 </div>
 
@@ -449,40 +646,30 @@ const TIER_POINTS = {
 
 
 /* =========================
-   YOUR PNG ICONS
+   GAMEMODE ICONS
 ========================= */
 
 const MODE_ICONS = {
 
-  "VANILLA CRYSTAL":
-    ["Icons/vanilla-crystal.png"],
+  "AXE PVP":"axe-pvp.png",
 
-  "UHC":
-    ["Icons/uhc.png"],
+  "CART PVP":"cart-pvp.png",
 
-  "SMP KIT":
-    ["Icons/smp-kit.png"],
+  "DIA KIT":"dia-kit.png",
 
-  "NETPOT":
-    ["Icons/nethpot.png"],
+  "E-MACE":"emace.png",
 
-  "CART PVP":
-    ["Icons/cart-pvp.png"],
+  "NETPOT":"netpot.png",
 
-  "AXE PVP":
-    ["Icons/axe-pvp.png"],
+  "SMP KIT":"smp-kit.png",
 
-  "DIA KIT":
-    ["Icons/dia-kit.png"],
+  "SPEAR MACE":"spear-mace.png",
 
-  "TANK":
-    ["Icons/tank.png"],
+  "TANK":"tank.png",
 
-  "E-MACE":
-    ["Icons/emace.png"],
+  "UHC":"uhc.png",
 
-  "SPEAR MACE":
-    ["Icons/spear-mace.png"]
+  "VANILLA CRYSTAL":"vanilla-crystal.png"
 
 };
 
@@ -510,33 +697,31 @@ const sb = window.supabase.createClient(
 
 async function loadPlayers(){
 
-  const {data,error} =
-    await sb
-      .from("players")
-      .select("name,mode,tier,points");
-
+  const {data,error} = await sb
+    .from("players")
+    .select("name,mode,tier,points");
 
   if(error){
 
     console.error(error);
 
-    document.getElementById("leaderboard").innerHTML =
-      `<tr>
+    document.getElementById("leaderboard").innerHTML = `
+      <tr>
         <td colspan="4" class="empty">
           ⚠️ ${escapeHTML(error.message)}
         </td>
-      </tr>`;
+      </tr>
+    `;
 
     return;
   }
 
 
-  players =
-    (data || []).filter(p =>
-      p.name &&
-      p.mode &&
-      TIER_POINTS[p.tier]
-    );
+  players = (data || []).filter(p =>
+    p.name &&
+    p.mode &&
+    TIER_POINTS[p.tier]
+  );
 
 
   render();
@@ -545,7 +730,7 @@ async function loadPlayers(){
 
 
 /* =========================
-   FIXED POINTS
+   GET POINTS
 ========================= */
 
 function getPoints(player){
@@ -556,34 +741,26 @@ function getPoints(player){
 
 
 /* =========================
-   CREATE ICON HTML
+   TIER CLASS
 ========================= */
 
-function getModeIcons(mode){
+function getTierClass(tier){
 
-  const icons =
-    MODE_ICONS[mode] || [];
+  if(!tier) return "";
 
+  if(tier.includes("1"))
+    return "tier-s";
 
-  return `
-    <div class="mode-icons">
+  if(tier.includes("2"))
+    return "tier-a";
 
-      ${icons.map(src => `
+  if(tier.includes("3"))
+    return "tier-b";
 
-        <div class="mode-icon-box">
+  if(tier.includes("4"))
+    return "tier-c";
 
-          <img
-            class="mode-icon"
-            src="${src}"
-            alt=""
-          >
-
-        </div>
-
-      `).join("")}
-
-    </div>
-  `;
+  return "tier-d";
 
 }
 
@@ -610,12 +787,9 @@ function buildOverall(){
     }
 
 
-    const p =
-      map.get(player.name);
+    const p = map.get(player.name);
 
-
-    const pts =
-      getPoints(player);
+    const pts = getPoints(player);
 
 
     p.total += pts;
@@ -624,7 +798,9 @@ function buildOverall(){
     p.modes.push({
 
       mode:player.mode,
+
       tier:player.tier,
+
       points:pts
 
     });
@@ -634,6 +810,44 @@ function buildOverall(){
 
   return [...map.values()]
     .sort((a,b)=>b.total-a.total);
+
+}
+
+
+/* =========================
+   CREATE MODE ICONS
+========================= */
+
+function createModeIcons(modes){
+
+  return modes
+    .sort((a,b)=>b.points-a.points)
+    .map(x => {
+
+      const icon =
+        MODE_ICONS[x.mode];
+
+      return `
+
+        <div class="mode-item">
+
+          <img
+            class="mode-icon"
+            src="${icon}"
+            alt="${escapeHTML(x.mode)}"
+            title="${escapeHTML(x.mode)}"
+          >
+
+          <span class="mode-tier ${getTierClass(x.tier)}">
+            ${escapeHTML(x.tier)}
+          </span>
+
+        </div>
+
+      `;
+
+    })
+    .join("");
 
 }
 
@@ -700,6 +914,10 @@ function renderLeaderboard(){
     document.getElementById("mode").value;
 
 
+  const tier =
+    document.getElementById("tierFilter").value;
+
+
   const search =
     document
       .getElementById("search")
@@ -708,11 +926,9 @@ function renderLeaderboard(){
       .toLowerCase();
 
 
-  const tier =
-    document.getElementById("tierFilter").value;
-
-
-  /* OVERALL */
+  /* =========================
+     OVERALL
+  ========================= */
 
   if(mode === "ALL"){
 
@@ -725,10 +941,11 @@ function renderLeaderboard(){
 
         if(
           search &&
-          !p.name.toLowerCase().includes(search)
-        ){
+          !p.name
+            .toLowerCase()
+            .includes(search)
+        )
           return false;
-        }
 
 
         if(
@@ -736,9 +953,8 @@ function renderLeaderboard(){
           !p.modes.some(
             x => x.tier === tier
           )
-        ){
+        )
           return false;
-        }
 
 
         return true;
@@ -748,12 +964,15 @@ function renderLeaderboard(){
 
     if(!filtered.length){
 
-      tbody.innerHTML =
-        `<tr>
+      tbody.innerHTML = `
+        <tr>
           <td colspan="4" class="empty">
             No players found.
           </td>
-        </tr>`;
+        </tr>
+      `;
+
+      updateInfo();
 
       return;
 
@@ -763,56 +982,74 @@ function renderLeaderboard(){
     tbody.innerHTML =
       filtered.map((p,i)=>{
 
-        const uniqueModes =
-          [...new Set(
-            p.modes.map(
-              x => x.mode
-            )
-          )];
+        /*
+          OVERALL:
 
+          Each gamemode has its own
+          Minecraft PNG.
+
+          The player's tier appears
+          directly below that PNG.
+
+          Example:
+
+          AXE PNG
+          HT1
+
+          CRYSTAL PNG
+          HT3
+        */
 
         const icons =
-          uniqueModes
-            .map(
-              modeName =>
-                getModeIcons(modeName)
-            )
-            .join("");
+          createModeIcons(
+            [...p.modes]
+          );
 
 
         return `
+
           <tr>
 
             <td class="position">
               ${i+1}
             </td>
 
+
             <td class="player-name">
               ${escapeHTML(p.name)}
             </td>
 
+
             <td>
-              <div class="mode-icons">
+
+              <div class="mode-list">
                 ${icons}
               </div>
+
             </td>
+
 
             <td class="points">
               ${p.total}
             </td>
 
           </tr>
+
         `;
 
       }).join("");
 
+
+    updateInfo();
 
     return;
 
   }
 
 
-  /* SINGLE GAMEMODE */
+  /* =========================
+     SPECIFIC GAMEMODE
+  ========================= */
 
   const list =
     getFiltered()
@@ -824,12 +1061,15 @@ function renderLeaderboard(){
 
   if(!list.length){
 
-    tbody.innerHTML =
-      `<tr>
+    tbody.innerHTML = `
+      <tr>
         <td colspan="4" class="empty">
           No players found.
         </td>
-      </tr>`;
+      </tr>
+    `;
+
+    updateInfo();
 
     return;
 
@@ -840,28 +1080,132 @@ function renderLeaderboard(){
     list.map((p,i)=>{
 
       return `
+
         <tr>
 
           <td class="position">
             ${i+1}
           </td>
 
+
           <td class="player-name">
             ${escapeHTML(p.name)}
           </td>
 
+
           <td>
-            ${getModeIcons(p.mode)}
+
+            <div class="mode-list">
+
+              <div class="mode-item">
+
+                <img
+                  class="mode-icon"
+                  src="${MODE_ICONS[p.mode]}"
+                  alt="${escapeHTML(p.mode)}"
+                >
+
+                <span
+                  class="mode-tier ${getTierClass(p.tier)}"
+                >
+                  ${escapeHTML(p.tier)}
+                </span>
+
+              </div>
+
+            </div>
+
           </td>
+
 
           <td class="points">
             ${getPoints(p)}
           </td>
 
         </tr>
+
       `;
 
     }).join("");
+
+
+  updateInfo();
+
+}
+
+
+/* =========================
+   INFO SECTION
+========================= */
+
+function updateInfo(){
+
+  const mode =
+    document.getElementById("mode").value;
+
+
+  const title =
+    document.getElementById("infoTitle");
+
+
+  const text =
+    document.getElementById("infoText");
+
+
+  if(mode === "ALL"){
+
+    title.textContent =
+      "All Gamemodes";
+
+    text.textContent =
+      "Each Minecraft icon represents a gamemode. The tier directly below each icon is that player's tier for that gamemode.";
+
+    return;
+
+  }
+
+
+  title.textContent =
+    mode;
+
+
+  const descriptions = {
+
+    "AXE PVP":
+      "Diamond Axe combat.",
+
+    "CART PVP":
+      "TNT Minecart combat.",
+
+    "DIA KIT":
+      "Diamond kit combat.",
+
+    "E-MACE":
+      "Elytra + Minecraft Mace combat.",
+
+    "NETPOT":
+      "Healing potion combat.",
+
+    "SMP KIT":
+      "Kit-based SMP combat.",
+
+    "SPEAR MACE":
+      "Spear + Minecraft Mace combat.",
+
+    "TANK":
+      "Tank combat using the tank setup.",
+
+    "UHC":
+      "Lava bucket UHC combat.",
+
+    "VANILLA CRYSTAL":
+      "Vanilla End Crystal combat."
+
+  };
+
+
+  text.textContent =
+    descriptions[mode] || "";
 
 }
 
@@ -885,30 +1229,11 @@ function escapeHTML(value){
 
   return String(value)
 
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
 }
 
