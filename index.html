@@ -3,46 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>VOID MC TIERS</title>
 
 <style>
+*{box-sizing:border-box}
 
-*{
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
-  background:
-    radial-gradient(circle at 0% 0%,
-      rgba(50,110,255,.25),
-      transparent 36%),
-    radial-gradient(circle at 100% 0%,
-      rgba(155,92,255,.27),
-      transparent 36%),
-    radial-gradient(circle at 0% 100%,
-      rgba(155,92,255,.20),
-      transparent 38%),
-    radial-gradient(circle at 100% 100%,
-      rgba(40,120,255,.20),
-      transparent 38%),
-    #050505;
-  background-attachment:fixed;
   color:#f5f5f5;
   font-family:Arial,Helvetica,sans-serif;
+  background:
+    radial-gradient(circle at 0% 0%,rgba(65,105,255,.25),transparent 32%),
+    radial-gradient(circle at 100% 0%,rgba(155,70,255,.25),transparent 32%),
+    radial-gradient(circle at 100% 100%,rgba(255,40,70,.15),transparent 32%),
+    radial-gradient(circle at 0% 100%,rgba(40,210,120,.10),transparent 32%),
+    #050505;
+  background-attachment:fixed;
 }
-
-/* ================= HEADER ================= */
 
 header{
   height:66px;
-  background:rgba(5,5,8,.93);
-  border-bottom:1px solid #30223c;
+  background:rgba(6,6,9,.94);
+  border-bottom:1px solid #30213d;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -50,41 +34,40 @@ header{
   position:sticky;
   top:0;
   z-index:100;
-  backdrop-filter:blur(14px);
+  backdrop-filter:blur(15px);
 }
 
 .logo{
   font-size:20px;
-  font-weight:900;
-  letter-spacing:.5px;
+  font-weight:950;
+  letter-spacing:.4px;
 }
 
 .logo span{
   color:#a45cff;
-  text-shadow:0 0 14px rgba(164,92,255,.45);
+  text-shadow:0 0 15px rgba(164,92,255,.6);
 }
 
 .header-buttons{
   display:flex;
   gap:8px;
-  align-items:center;
 }
 
 .header-btn{
-  color:white;
+  color:#fff;
   text-decoration:none;
   font-weight:800;
   padding:9px 13px;
   border-radius:9px;
-  border:1px solid #34253f;
-  background:#141018;
+  border:1px solid #382842;
+  background:#151017;
   transition:.2s;
 }
 
 .header-btn:hover{
-  transform:translateY(-1px);
-  border-color:#9b5cff;
-  box-shadow:0 0 15px rgba(155,92,255,.2);
+  transform:translateY(-2px);
+  border-color:#a45cff;
+  box-shadow:0 0 18px rgba(164,92,255,.25);
 }
 
 .discord-btn{
@@ -92,15 +75,11 @@ header{
   border-color:#9658ef;
 }
 
-/* ================= MAIN ================= */
-
 main{
   max-width:1150px;
   margin:auto;
   padding:35px 20px 70px;
 }
-
-/* ================= HERO ================= */
 
 .hero{
   text-align:center;
@@ -112,7 +91,7 @@ main{
   font-size:clamp(44px,8vw,78px);
   font-weight:950;
   letter-spacing:-3px;
-  text-shadow:0 0 35px rgba(155,92,255,.2);
+  text-shadow:0 0 35px rgba(155,92,255,.22);
 }
 
 .hero h1 span{
@@ -125,28 +104,27 @@ main{
   font-size:16px;
 }
 
-/* ================= STATS ================= */
-
 .stats{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:12px;
-  margin-bottom:28px;
+  margin-bottom:30px;
 }
 
 .stat{
-  background:rgba(15,14,19,.9);
-  border:1px solid #2b2333;
-  border-radius:13px;
+  background:rgba(14,13,18,.94);
+  border:1px solid #30243a;
+  border-radius:14px;
   padding:20px;
   text-align:center;
-  box-shadow:0 10px 30px rgba(0,0,0,.2);
+  box-shadow:0 10px 35px rgba(0,0,0,.25);
 }
 
 .stat-value{
-  font-size:28px;
+  font-size:30px;
   font-weight:950;
   color:#b86cff;
+  text-shadow:0 0 15px rgba(184,108,255,.3);
 }
 
 .stat-label{
@@ -157,17 +135,14 @@ main{
   letter-spacing:.7px;
 }
 
-/* ================= CONTROLS ================= */
-
 .controls{
   display:grid;
   grid-template-columns:1.5fr 1fr 1fr;
   gap:12px;
-  margin-bottom:28px;
+  margin-bottom:30px;
 }
 
-input,
-select{
+input,select{
   width:100%;
   background:#101016;
   color:#eee;
@@ -178,21 +153,16 @@ select{
   outline:none;
 }
 
-input:focus,
-select:focus{
+input:focus,select:focus{
   border-color:#9b5cff;
-  box-shadow:0 0 0 2px rgba(155,92,255,.09);
+  box-shadow:0 0 0 2px rgba(155,92,255,.1);
 }
-
-/* ================= SECTION ================= */
 
 .section-title{
   font-size:25px;
   font-weight:950;
   margin:28px 0 14px;
 }
-
-/* ================= PODIUM ================= */
 
 .podium{
   display:grid;
@@ -203,37 +173,30 @@ select:focus{
 }
 
 .podium-card{
-  position:relative;
-  background:rgba(15,14,19,.94);
+  background:rgba(14,13,18,.95);
   border:1px solid #33283d;
-  border-radius:15px;
+  border-radius:16px;
   padding:22px 15px;
   text-align:center;
-  overflow:hidden;
   transition:.25s;
+  cursor:pointer;
 }
 
 .podium-card:hover{
-  transform:translateY(-4px);
+  transform:translateY(-5px);
+  box-shadow:0 12px 35px rgba(0,0,0,.4);
 }
 
 .podium-card.first{
   padding-top:30px;
-  border-color:#8d67ff;
-  box-shadow:0 0 30px rgba(155,92,255,.14);
+  border-color:#955cff;
+  box-shadow:0 0 30px rgba(155,92,255,.18);
 }
 
-.podium-card.second{
-  border-color:#686879;
-}
+.podium-card.second{border-color:#67677a}
+.podium-card.third{border-color:#875039}
 
-.podium-card.third{
-  border-color:#874d35;
-}
-
-.medal{
-  font-size:30px;
-}
+.medal{font-size:32px}
 
 .podium-rank{
   color:#85818c;
@@ -254,26 +217,20 @@ select:focus{
   font-weight:900;
 }
 
-/* ================= CARD ================= */
-
 .card{
-  background:rgba(13,13,17,.94);
+  background:rgba(13,13,17,.95);
   border:1px solid #29232f;
   border-radius:14px;
   overflow:hidden;
   box-shadow:0 10px 35px rgba(0,0,0,.28);
 }
 
-/* ================= TABLE ================= */
-
-.table-wrap{
-  overflow-x:auto;
-}
+.table-wrap{overflow-x:auto}
 
 table{
   width:100%;
   border-collapse:collapse;
-  min-width:700px;
+  min-width:680px;
 }
 
 th{
@@ -307,43 +264,41 @@ tr:hover td{
   transition:.15s;
 }
 
-.player-name:hover{
-  color:#b978ff;
-}
-
-/* ================= MODE ICONS ================= */
+.player-name:hover{color:#b978ff}
 
 .mode-list{
   display:flex;
   flex-wrap:wrap;
-  gap:9px;
   align-items:flex-start;
+  gap:8px;
 }
 
 .mode-item{
-  width:60px;
-  min-height:75px;
+  width:58px;
+  min-height:78px;
   display:flex;
   flex-direction:column;
   align-items:center;
+  justify-content:flex-start;
   gap:5px;
 }
 
 .mode-icon{
-  width:46px;
-  height:46px;
+  width:42px;
+  height:42px;
   object-fit:contain;
+  display:block;
+  filter:drop-shadow(0 0 5px rgba(155,92,255,.25));
   transition:.2s;
-  filter:drop-shadow(0 0 5px rgba(155,92,255,.18));
 }
 
 .mode-item:hover .mode-icon{
-  transform:scale(1.1);
-  filter:drop-shadow(0 0 10px rgba(155,92,255,.5));
+  transform:scale(1.12);
+  filter:drop-shadow(0 0 11px rgba(155,92,255,.65));
 }
 
 .mode-tier{
-  font-size:11px;
+  font-size:10px;
   font-weight:950;
   padding:3px 6px;
   border-radius:5px;
@@ -351,51 +306,45 @@ tr:hover td{
   border:1px solid #342b3c;
 }
 
-/* ================= TIER COLORS ================= */
-
 .tier-1{
   color:#ffd84a;
-  border-color:#765d16;
+  border-color:#806516;
   background:rgba(255,210,60,.07);
-  box-shadow:0 0 10px rgba(255,210,60,.12);
+  box-shadow:0 0 9px rgba(255,210,60,.13);
 }
 
 .tier-2{
   color:#c078ff;
   border-color:#69399a;
   background:rgba(155,92,255,.08);
-  box-shadow:0 0 10px rgba(155,92,255,.14);
+  box-shadow:0 0 9px rgba(155,92,255,.14);
 }
 
 .tier-3{
   color:#55d9ff;
   border-color:#23657a;
   background:rgba(50,190,230,.07);
-  box-shadow:0 0 10px rgba(50,190,230,.1);
+  box-shadow:0 0 9px rgba(50,190,230,.1);
 }
 
 .tier-4{
   color:#63e6a4;
   border-color:#26734d;
   background:rgba(50,220,130,.07);
-  box-shadow:0 0 10px rgba(50,220,130,.1);
+  box-shadow:0 0 9px rgba(50,220,130,.1);
 }
 
 .tier-5{
   color:#ff6975;
   border-color:#79323a;
   background:rgba(255,70,85,.07);
-  box-shadow:0 0 10px rgba(255,70,85,.1);
+  box-shadow:0 0 9px rgba(255,70,85,.1);
 }
-
-/* ================= POINTS ================= */
 
 .points{
   font-weight:950;
   color:#fff;
 }
-
-/* ================= INFO ================= */
 
 .info{
   padding:25px;
@@ -409,23 +358,20 @@ tr:hover td{
 
 .info h4{
   margin-bottom:5px;
+  color:#fff;
 }
 
 .info li{
-  margin:6px 0;
+  margin:7px 0;
   color:#c5c5c5;
 }
 
-.info strong{
-  color:#ff6975;
-}
-
-/* ================= MODAL ================= */
+.info strong{color:#ff5968}
 
 .modal-bg{
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,.72);
+  background:rgba(0,0,0,.75);
   backdrop-filter:blur(8px);
   display:none;
   align-items:center;
@@ -434,9 +380,7 @@ tr:hover td{
   padding:15px;
 }
 
-.modal-bg.show{
-  display:flex;
-}
+.modal-bg.show{display:flex}
 
 .profile{
   width:min(650px,100%);
@@ -467,6 +411,7 @@ tr:hover td{
 .profile-total{
   color:#b978ff;
   font-weight:900;
+  margin-top:5px;
 }
 
 .close{
@@ -477,7 +422,7 @@ tr:hover td{
   height:38px;
   border-radius:9px;
   cursor:pointer;
-  font-size:18px;
+  font-size:20px;
 }
 
 .profile-grid{
@@ -508,15 +453,16 @@ tr:hover td{
   margin-bottom:4px;
 }
 
-/* ================= EMPTY ================= */
+.profile-mode-tier{
+  font-size:14px;
+  font-weight:950;
+}
 
 .empty{
   padding:35px;
   text-align:center;
   color:#777;
 }
-
-/* ================= FOOTER ================= */
 
 footer{
   text-align:center;
@@ -526,275 +472,177 @@ footer{
   font-size:13px;
 }
 
-/* ================= MOBILE ================= */
-
 @media(max-width:750px){
 
-  header{
-    padding:0 12px;
-  }
+  header{padding:0 12px}
 
   .header-btn{
     padding:8px 9px;
     font-size:12px;
   }
 
-  .stats{
-    grid-template-columns:1fr;
-  }
+  .stats{grid-template-columns:1fr}
 
-  .controls{
-    grid-template-columns:1fr;
-  }
+  .controls{grid-template-columns:1fr}
 
   .podium{
     grid-template-columns:1fr;
     align-items:stretch;
   }
 
-  .podium-card.first{
-    order:-1;
-  }
+  .podium-card.first{order:-1}
 
-  .profile-grid{
-    grid-template-columns:1fr;
-  }
+  .profile-grid{grid-template-columns:1fr}
 
-  main{
-    padding:25px 12px 50px;
-  }
+  main{padding:25px 12px 50px}
 
-  .hero h1{
-    font-size:47px;
-  }
-
+  .hero h1{font-size:47px}
 }
 
 </style>
 </head>
 
-
 <body>
-
-
-<!-- ================= HEADER ================= -->
 
 <header>
 
-  <div class="logo">
-    VOID MC <span>TIERS</span>
-  </div>
+<div class="logo">
+  VOID MC <span>TIERS</span>
+</div>
 
-  <div class="header-buttons">
+<div class="header-buttons">
 
-    <a
-      class="header-btn discord-btn"
-      href="YOUR_DISCORD_INVITE"
-      target="_blank"
-    >
-      💬 Discord
-    </a>
+<a
+  class="header-btn discord-btn"
+  href="YOUR_DISCORD_INVITE"
+  target="_blank">
+  💬 Discord
+</a>
 
-    <a
-      class="header-btn"
-      href="admin.html"
-    >
-      🔐 Admin
-    </a>
+<a
+  class="header-btn"
+  href="admin.html">
+  🔐 Admin
+</a>
 
-  </div>
+</div>
 
 </header>
 
 
 <main>
 
-
-<!-- ================= HERO ================= -->
-
 <section class="hero">
 
-  <h1>
-    VOID MC <span>TIERS</span>
-  </h1>
+<h1>
+  VOID MC <span>TIERS</span>
+</h1>
 
-  <p>
-    MCPE Tier Testing • S → D • High / Mid / Low
-  </p>
+<p>
+  MCPE Tier Testing • S → D • High / Mid / Low
+</p>
 
 </section>
 
 
-<!-- ================= STATS ================= -->
+<!-- STATISTICS -->
 
 <div class="stats">
 
-  <div class="stat">
+<div class="stat">
+  <div id="statPlayers" class="stat-value">0</div>
+  <div class="stat-label">Players</div>
+</div>
 
-    <div
-      id="statPlayers"
-      class="stat-value"
-    >
-      0
-    </div>
+<div class="stat">
+  <div id="statTests" class="stat-value">0</div>
+  <div class="stat-label">Tests</div>
+</div>
 
-    <div class="stat-label">
-      Players
-    </div>
-
-  </div>
-
-
-  <div class="stat">
-
-    <div
-      id="statTests"
-      class="stat-value"
-    >
-      0
-    </div>
-
-    <div class="stat-label">
-      Tests
-    </div>
-
-  </div>
-
-
-  <div class="stat">
-
-    <div
-      id="statHT1"
-      class="stat-value"
-    >
-      0
-    </div>
-
-    <div class="stat-label">
-      HT1 Players
-    </div>
-
-  </div>
+<div class="stat">
+  <div id="statHT1" class="stat-value">0</div>
+  <div class="stat-label">HT1 Players</div>
+</div>
 
 </div>
 
 
-<!-- ================= TOP 3 ================= -->
+<!-- PODIUM -->
 
 <div class="section-title">
   🏆 Top Players
 </div>
 
-
-<div
-  id="podium"
-  class="podium"
->
-
-  <div class="empty">
-    Loading...
-  </div>
-
+<div id="podium" class="podium">
+  <div class="empty">Loading...</div>
 </div>
 
 
-<!-- ================= FILTERS ================= -->
+<!-- FILTERS -->
 
 <div class="controls">
 
-  <input
-    id="search"
-    type="text"
-    placeholder="🔎 Search player..."
-  >
+<input
+  id="search"
+  type="text"
+  placeholder="🔎 Search player..."
+>
 
 
-  <select id="mode">
+<select id="mode">
 
-    <option value="ALL">
-      Overall
-    </option>
+<option value="ALL">Overall</option>
 
-    <option value="AXE PVP">
-      AXE PVP
-    </option>
+<option value="AXE PVP">AXE PVP</option>
+<option value="CART PVP">CART PVP</option>
+<option value="DIA KIT">DIA KIT</option>
+<option value="E-MACE">E-MACE</option>
 
-    <option value="CART PVP">
-      CART PVP
-    </option>
+<option value="NETHPOT">NETHPOT</option>
 
-    <option value="DIA KIT">
-      DIA KIT
-    </option>
+<option value="SMP KIT">SMP KIT</option>
+<option value="SPEAR MACE">SPEAR MACE</option>
+<option value="TANK">TANK</option>
+<option value="UHC">UHC</option>
+<option value="VANILLA CRYSTAL">VANILLA CRYSTAL</option>
 
-    <option value="E-MACE">
-      E-MACE
-    </option>
-
-    <option value="NETPOT">
-      NETPOT
-    </option>
-
-    <option value="SMP KIT">
-      SMP KIT
-    </option>
-
-    <option value="SPEAR MACE">
-      SPEAR MACE
-    </option>
-
-    <option value="TANK">
-      TANK
-    </option>
-
-    <option value="UHC">
-      UHC
-    </option>
-
-    <option value="VANILLA CRYSTAL">
-      VANILLA CRYSTAL
-    </option>
-
-  </select>
+</select>
 
 
-  <select id="tierFilter">
+<select id="tierFilter">
 
-    <option value="ALL">
-      All Tiers
-    </option>
+<option value="ALL">All Tiers</option>
 
-    <option value="HT1">HT1</option>
-    <option value="MT1">MT1</option>
-    <option value="LT1">LT1</option>
+<option value="HT1">HT1</option>
+<option value="MT1">MT1</option>
+<option value="LT1">LT1</option>
 
-    <option value="HT2">HT2</option>
-    <option value="MT2">MT2</option>
-    <option value="LT2">LT2</option>
+<option value="HT2">HT2</option>
+<option value="MT2">MT2</option>
+<option value="LT2">LT2</option>
 
-    <option value="HT3">HT3</option>
-    <option value="MT3">MT3</option>
-    <option value="LT3">LT3</option>
+<option value="HT3">HT3</option>
+<option value="MT3">MT3</option>
+<option value="LT3">LT3</option>
 
-    <option value="HT4">HT4</option>
-    <option value="MT4">MT4</option>
-    <option value="LT4">LT4</option>
+<option value="HT4">HT4</option>
+<option value="MT4">MT4</option>
+<option value="LT4">LT4</option>
 
-    <option value="HT5">HT5</option>
-    <option value="MT5">MT5</option>
-    <option value="LT5">LT5</option>
+<option value="HT5">HT5</option>
+<option value="MT5">MT5</option>
+<option value="LT5">LT5</option>
 
-  </select>
+</select>
 
 </div>
 
 
-<!-- ================= LEADERBOARD ================= -->
+<!-- LEADERBOARD -->
 
 <div class="section-title">
   📊 Leaderboard
 </div>
-
 
 <div class="card table-wrap">
 
@@ -803,39 +651,20 @@ footer{
 <thead>
 
 <tr>
-
-  <th>
-    #
-  </th>
-
-  <th>
-    Player
-  </th>
-
-  <th>
-    Gamemodes
-  </th>
-
-  <th>
-    Points
-  </th>
-
+<th>#</th>
+<th>Player</th>
+<th>Gamemodes</th>
+<th>Points</th>
 </tr>
 
 </thead>
 
-
 <tbody id="leaderboard">
 
 <tr>
-
-  <td
-    colspan="4"
-    class="empty"
-  >
-    Loading...
-  </td>
-
+<td colspan="4" class="empty">
+Loading...
+</td>
 </tr>
 
 </tbody>
@@ -845,246 +674,199 @@ footer{
 </div>
 
 
-<!-- ================= RULES ================= -->
+<!-- RULES -->
 
 <div class="section-title">
   📜 Tier Test Information
 </div>
 
-
 <div class="card info">
 
-  <h3>
-    ┃ Tier Test Information
-  </h3>
+<h3>┃ Tier Test Information</h3>
 
-  <p>
-    This tier testing tests your tier in java combat while being a mcpe player.
-  </p>
+<p>
+This tier testing tests your tier in java combat while being a mcpe player.
+</p>
 
+<h3>┃ Tier Test Rules</h3>
 
-  <h3>
-    ┃ Tier Test Rules
-  </h3>
+<h4>In Discord:</h4>
 
+<ul>
 
-  <h4>
-    In Discord:
-  </h4>
+<li>
+You must read all test rules before requesting.
+</li>
 
-  <ul>
+<li>
+Provide complete and correct information.
+</li>
 
-    <li>
-      You must read all test rules before requesting.
-    </li>
+<li>
+Do not ping or annoy testers unnecessarily.
+</li>
 
-    <li>
-      Provide complete and correct information.
-    </li>
+<li>
+You are required to confirm a test time within 12 hours.
+</li>
 
-    <li>
-      Do not ping or annoy testers unnecessarily.
-    </li>
+</ul>
 
-    <li>
-      You are required to confirm a test time within 12 hours.
-    </li>
+<h4>In-Game:</h4>
 
-  </ul>
+<ul>
 
+<li>Hacking is strictly prohibited.</li>
 
-  <h4>
-    In-Game:
-  </h4>
+<li>Illegal clients are not allowed.</li>
 
-  <ul>
+<li>Follow all tester instructions without question.</li>
 
-    <li>
-      Hacking is strictly prohibited.
-    </li>
+<li>Do not leave during the test for any reason.</li>
 
-    <li>
-      Illegal clients are not allowed.
-    </li>
+<li>Your ping must be under 135ms.</li>
 
-    <li>
-      Follow all tester instructions without question.
-    </li>
+<li><strong>KBM strictly BANNED</strong></li>
 
-    <li>
-      Do not leave during the test for any reason.
-    </li>
-
-    <li>
-      Your ping must be under 135ms.
-    </li>
-
-    <li>
-      <strong>
-        KBM strictly BANNED
-      </strong>
-    </li>
-
-  </ul>
+</ul>
 
 </div>
-
 
 </main>
 
 
 <footer>
-  VOID MC TIERS • MCPE Tier Testing
+VOID MC TIERS • MCPE Tier Testing
 </footer>
 
 
-<!-- ================= PROFILE MODAL ================= -->
+<!-- PLAYER PROFILE -->
 
 <div
   id="modal"
   class="modal-bg"
-  onclick="closeProfile(event)"
+  onclick="closeProfile()"
 >
 
-  <div
-    class="profile"
-    onclick="event.stopPropagation()"
-  >
+<div
+  class="profile"
+  onclick="event.stopPropagation()"
+>
 
-    <div class="profile-head">
+<div class="profile-head">
 
-      <div>
+<div>
 
-        <div
-          id="profileName"
-          class="profile-name"
-        >
-          Player
-        </div>
+<div id="profileName" class="profile-name">
+Player
+</div>
 
-        <div
-          id="profileTotal"
-          class="profile-total"
-        >
-          0 Points
-        </div>
-
-      </div>
-
-
-      <button
-        class="close"
-        onclick="closeProfile()"
-      >
-        ×
-      </button>
-
-    </div>
-
-
-    <div
-      id="profileGrid"
-      class="profile-grid"
-    ></div>
-
-  </div>
+<div id="profileTotal" class="profile-total">
+0 Points
+</div>
 
 </div>
 
+<button
+  class="close"
+  onclick="closeProfile()">
+×
+</button>
 
-<!-- ================= SUPABASE ================= -->
+</div>
+
+<div id="profileGrid" class="profile-grid"></div>
+
+</div>
+
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="supabase-config.js"></script>
 
-
 <script>
 
 /* =========================
-   FIXED POINTS
+   FIXED TIER POINTS
 ========================= */
 
-const TIER_POINTS = {
+const TIER_POINTS={
 
-  HT1:1000,
-  MT1:950,
-  LT1:900,
+HT1:1000,
+MT1:950,
+LT1:900,
 
-  HT2:850,
-  MT2:800,
-  LT2:750,
+HT2:850,
+MT2:800,
+LT2:750,
 
-  HT3:700,
-  MT3:650,
-  LT3:600,
+HT3:700,
+MT3:650,
+LT3:600,
 
-  HT4:550,
-  MT4:500,
-  LT4:450,
+HT4:550,
+MT4:500,
+LT4:450,
 
-  HT5:400,
-  MT5:350,
-  LT5:300
+HT5:400,
+MT5:350,
+LT5:300
 
 };
 
 
 /* =========================
-   ICONS
+   PNG ICONS
 ========================= */
 
-const MODE_ICONS = {
+const MODE_ICONS={
 
-  "AXE PVP":
-    "icons/axe-pvp.png",
+"AXE PVP":
+"icons/axe-pvp.png",
 
-  "CART PVP":
-    "icons/cart-pvp.png",
+"CART PVP":
+"icons/cart-pvp.png",
 
-  "DIA KIT":
-    "icons/dia-kit.png",
+"DIA KIT":
+"icons/dia-kit.png",
 
-  "E-MACE":
-    "icons/emace.png",
+"E-MACE":
+"icons/emace.png",
 
-  "NETHPOT":
-    "icons/nethpot.png",
+"NETHPOT":
+"icons/nethpot.png",
 
-  "SMP KIT":
-    "icons/smp-kit.png",
+"SMP KIT":
+"icons/smp-kit.png",
 
-  "SPEAR MACE":
-    "icons/spear-mace.png",
+"SPEAR MACE":
+"icons/spear-mace.png",
 
-  "TANK":
-    "icons/tank.png",
+"TANK":
+"icons/tank.png",
 
-  "UHC":
-    "icons/uhc.png",
+"UHC":
+"icons/uhc.png",
 
-  "VANILLA CRYSTAL":
-    "icons/vanilla-crystal.png"
+"VANILLA CRYSTAL":
+"icons/vanilla-crystal.png"
 
 };
 
 
-/* =========================
-   VARIABLES
-========================= */
-
-let players = [];
+let players=[];
 
 
 /* =========================
    SUPABASE
 ========================= */
 
-const sb =
-  window.supabase.createClient(
-    window.VOID_SUPABASE.url,
-    window.VOID_SUPABASE.anonKey
-  );
+const sb=window.supabase.createClient(
+  window.VOID_SUPABASE.url,
+  window.VOID_SUPABASE.anonKey
+);
 
 
 /* =========================
@@ -1092,9 +874,7 @@ const sb =
 ========================= */
 
 function getPoints(player){
-
-  return TIER_POINTS[player.tier] || 0;
-
+  return TIER_POINTS[player.tier]||0;
 }
 
 
@@ -1104,22 +884,21 @@ function getPoints(player){
 
 function getTierClass(tier){
 
-  if(!tier)
-    return "";
+if(!tier)return "";
 
-  if(tier.includes("1"))
-    return "tier-1";
+if(tier.includes("1"))
+return "tier-1";
 
-  if(tier.includes("2"))
-    return "tier-2";
+if(tier.includes("2"))
+return "tier-2";
 
-  if(tier.includes("3"))
-    return "tier-3";
+if(tier.includes("3"))
+return "tier-3";
 
-  if(tier.includes("4"))
-    return "tier-4";
+if(tier.includes("4"))
+return "tier-4";
 
-  return "tier-5";
+return "tier-5";
 
 }
 
@@ -1130,101 +909,69 @@ function getTierClass(tier){
 
 async function loadPlayers(){
 
-  const {
-    data,
-    error
-  } = await sb
-    .from("players")
-    .select("name,mode,tier,points,tests");
+const {data,error}=await sb
+.from("players")
+.select("name,mode,tier,points,tests");
 
+if(error){
 
-  if(error){
+console.error(error);
 
-    console.error(error);
+document.getElementById("leaderboard").innerHTML=`
 
-    document
-      .getElementById("leaderboard")
-      .innerHTML = `
+<tr>
+<td colspan="4" class="empty">
+⚠️ ${escapeHTML(error.message)}
+</td>
+</tr>
 
-        <tr>
+`;
 
-          <td
-            colspan="4"
-            class="empty"
-          >
-            ⚠️ ${escapeHTML(error.message)}
-          </td>
+return;
 
-        </tr>
+}
 
-      `;
+players=(data||[]).filter(
+p=>p.name&&p.mode&&TIER_POINTS[p.tier]
+);
 
-    return;
-
-  }
-
-
-  players =
-    (data || []).filter(p =>
-      p.name &&
-      p.mode &&
-      TIER_POINTS[p.tier]
-    );
-
-
-  updateStats();
-
-  renderPodium();
-
-  renderLeaderboard();
+updateStats();
+renderPodium();
+renderLeaderboard();
 
 }
 
 
 /* =========================
-   STATS
+   STATISTICS
 ========================= */
 
 function updateStats(){
 
-  const uniquePlayers =
-    new Set(
-      players.map(p => p.name)
-    ).size;
+const uniquePlayers=
+new Set(players.map(p=>p.name)).size;
 
+const tests=
+players.reduce(
+(sum,p)=>sum+(Number(p.tests)||1),
+0
+);
 
-  const tests =
-    players.reduce(
-      (sum,p)=>
-        sum + (Number(p.tests) || 1),
-      0
-    );
+const ht1=
+new Set(
+players
+.filter(p=>p.tier==="HT1")
+.map(p=>p.name)
+).size;
 
+document.getElementById("statPlayers").textContent=
+uniquePlayers;
 
-  const ht1 =
-    new Set(
-      players
-        .filter(p => p.tier === "HT1")
-        .map(p => p.name)
-    ).size;
+document.getElementById("statTests").textContent=
+tests;
 
-
-  document
-    .getElementById("statPlayers")
-    .textContent =
-      uniquePlayers;
-
-
-  document
-    .getElementById("statTests")
-    .textContent =
-      tests;
-
-
-  document
-    .getElementById("statHT1")
-    .textContent =
-      ht1;
+document.getElementById("statHT1").textContent=
+ht1;
 
 }
 
@@ -1235,55 +982,62 @@ function updateStats(){
 
 function buildOverall(){
 
-  const map =
-    new Map();
+const map=new Map();
+
+players.forEach(player=>{
+
+if(!map.has(player.name)){
+
+map.set(player.name,{
+name:player.name,
+total:0,
+modes:[]
+});
+
+}
+
+const p=map.get(player.name);
+
+const points=getPoints(player);
+
+p.total+=points;
+
+p.modes.push({
+mode:player.mode,
+tier:player.tier,
+points:points
+});
+
+});
+
+return [...map.values()]
+.sort((a,b)=>b.total-a.total);
+
+}
 
 
-  players.forEach(player => {
+/* =========================
+   FILTERS
+========================= */
 
-    if(!map.has(player.name)){
+function getFilters(){
 
-      map.set(
-        player.name,
-        {
-          name:player.name,
-          total:0,
-          modes:[]
-        }
-      );
+return{
 
-    }
+search:
+document.getElementById("search")
+.value.trim()
+.toLowerCase(),
 
+mode:
+document.getElementById("mode")
+.value,
 
-    const p =
-      map.get(player.name);
+tier:
+document.getElementById("tierFilter")
+.value
 
-
-    const points =
-      getPoints(player);
-
-
-    p.total += points;
-
-
-    p.modes.push({
-
-      mode:player.mode,
-
-      tier:player.tier,
-
-      points:points
-
-    });
-
-  });
-
-
-  return [...map.values()]
-    .sort(
-      (a,b)=>
-        b.total-a.total
-    );
+};
 
 }
 
@@ -1294,156 +1048,121 @@ function buildOverall(){
 
 function renderPodium(){
 
-  const container =
-    document.getElementById("podium");
+const container=
+document.getElementById("podium");
 
+const filters=getFilters();
 
-  const top =
-    buildOverall().slice(0,3);
+let overall=buildOverall();
 
+if(filters.search){
 
-  if(!top.length){
+overall=overall.filter(
+p=>p.name.toLowerCase().includes(filters.search)
+);
 
-    container.innerHTML =
-      `<div class="empty">No players yet.</div>`;
+}
 
-    return;
+if(filters.mode!=="ALL"){
 
-  }
+overall=overall.filter(
+p=>p.modes.some(x=>x.mode===filters.mode)
+);
 
+}
 
-  const medals =
-    ["🥇","🥈","🥉"];
+if(filters.tier!=="ALL"){
 
+overall=overall.filter(
+p=>p.modes.some(x=>x.tier===filters.tier)
+);
 
-  const classes =
-    ["first","second","third"];
+}
 
+const top=overall.slice(0,3);
 
-  container.innerHTML =
-    top.map((p,i)=>`
+if(!top.length){
 
-      <div
-        class="podium-card ${classes[i]}"
-        onclick="openProfile('${encodeURIComponent(p.name)}')"
-      >
+container.innerHTML=
+`<div class="empty">No players found.</div>`;
 
-        <div class="medal">
-          ${medals[i]}
-        </div>
+return;
 
-        <div class="podium-rank">
-          #${i+1}
-        </div>
+}
 
-        <div class="podium-name">
-          ${escapeHTML(p.name)}
-        </div>
+const medals=["🥈","🥇","🥉"];
+const classes=["second","first","third"];
+const order=[1,0,2];
 
-        <div class="podium-points">
-          ${p.total.toLocaleString()} Points
-        </div>
+container.innerHTML=
 
-      </div>
+order
+.filter(i=>top[i])
+.map(i=>{
 
-    `).join("");
+const p=top[i];
+
+return`
+
+<div
+class="podium-card ${classes[i]}"
+onclick="openProfile('${escapeJS(p.name)}')"
+>
+
+<div class="medal">
+${medals[i]}
+</div>
+
+<div class="podium-rank">
+#${i+1}
+</div>
+
+<div class="podium-name">
+${escapeHTML(p.name)}
+</div>
+
+<div class="podium-points">
+${p.total} Points
+</div>
+
+</div>
+
+`;
+
+})
+.join("");
 
 }
 
 
 /* =========================
-   CREATE ICONS
+   ICON
 ========================= */
 
-function createModeIcons(modes){
+function modeIcon(mode,tier){
 
-  return modes
+const src=MODE_ICONS[mode];
 
-    .sort(
-      (a,b)=>
-        b.points-a.points
-    )
+if(!src)return "";
 
-    .map(x => `
+return`
 
-      <div
-        class="mode-item"
-        title="${escapeHTML(x.mode)}"
-      >
+<div class="mode-item">
 
-        <img
-          class="mode-icon"
-          src="${MODE_ICONS[x.mode]}"
-          alt=""
-        >
+<img
+class="mode-icon"
+src="${src}"
+alt=""
+title="${escapeHTML(mode)}"
+>
 
-        <span
-          class="mode-tier ${getTierClass(x.tier)}"
-        >
-          ${escapeHTML(x.tier)}
-        </span>
+<span class="mode-tier ${getTierClass(tier)}">
+${escapeHTML(tier)}
+</span>
 
-      </div>
+</div>
 
-    `)
-
-    .join("");
-
-}
-
-
-/* =========================
-   FILTER
-========================= */
-
-function getFiltered(){
-
-  const search =
-    document
-      .getElementById("search")
-      .value
-      .trim()
-      .toLowerCase();
-
-
-  const mode =
-    document
-      .getElementById("mode")
-      .value;
-
-
-  const tier =
-    document
-      .getElementById("tierFilter")
-      .value;
-
-
-  return players.filter(p => {
-
-    const searchOK =
-      !search ||
-      p.name
-        .toLowerCase()
-        .includes(search);
-
-
-    const modeOK =
-      mode === "ALL" ||
-      p.mode === mode;
-
-
-    const tierOK =
-      tier === "ALL" ||
-      p.tier === tier;
-
-
-    return (
-      searchOK &&
-      modeOK &&
-      tierOK
-    );
-
-  });
+`;
 
 }
 
@@ -1454,325 +1173,257 @@ function getFiltered(){
 
 function renderLeaderboard(){
 
-  const tbody =
-    document
-      .getElementById("leaderboard");
+const tbody=
+document.getElementById("leaderboard");
 
+const{
+search,
+mode,
+tier
+}=getFilters();
 
-  const mode =
-    document
-      .getElementById("mode")
-      .value;
 
+/* OVERALL */
 
-  const tier =
-    document
-      .getElementById("tierFilter")
-      .value;
+if(mode==="ALL"){
 
+let overall=buildOverall();
 
-  const search =
-    document
-      .getElementById("search")
-      .value
-      .trim()
-      .toLowerCase();
+if(search){
 
+overall=overall.filter(
+p=>p.name.toLowerCase().includes(search)
+);
 
-  /* =========================
-     OVERALL
-  ========================= */
+}
 
-  if(mode === "ALL"){
+if(tier!=="ALL"){
 
-    let overall =
-      buildOverall();
+overall=overall.filter(
+p=>p.modes.some(x=>x.tier===tier)
+);
 
+}
 
-    overall =
-      overall.filter(p => {
+if(!overall.length){
 
-        if(
-          search &&
-          !p.name
-            .toLowerCase()
-            .includes(search)
-        )
-          return false;
+tbody.innerHTML=`
 
+<tr>
+<td colspan="4" class="empty">
+No players found.
+</td>
+</tr>
 
-        if(
-          tier !== "ALL" &&
-          !p.modes.some(
-            x => x.tier === tier
-          )
-        )
-          return false;
+`;
 
+return;
 
-        return true;
+}
 
-      });
+tbody.innerHTML=
 
+overall.map((p,i)=>{
 
-    if(!overall.length){
+const modeIcons=
+p.modes
+.sort((a,b)=>b.points-a.points)
+.map(x=>modeIcon(x.mode,x.tier))
+.join("");
 
-      tbody.innerHTML = `
+return`
 
-        <tr>
+<tr>
 
-          <td
-            colspan="4"
-            class="empty"
-          >
-            No players found.
-          </td>
+<td class="position">
+${i+1}
+</td>
 
-        </tr>
+<td
+class="player-name"
+onclick="openProfile('${escapeJS(p.name)}')"
+>
+${escapeHTML(p.name)}
+</td>
 
-      `;
+<td>
 
-      return;
+<div class="mode-list">
 
-    }
+${modeIcons}
 
+</div>
 
-    tbody.innerHTML =
-      overall.map((p,i)=>`
+</td>
 
-        <tr>
+<td class="points">
+${p.total}
+</td>
 
-          <td class="position">
-            ${i+1}
-          </td>
+</tr>
 
+`;
 
-          <td
-            class="player-name"
-            onclick="openProfile('${encodeURIComponent(p.name)}')"
-          >
-            ${escapeHTML(p.name)}
-          </td>
+}).join("");
 
+return;
 
-          <td>
+}
 
-            <div class="mode-list">
 
-              ${createModeIcons(
-                [...p.modes]
-              )}
+/* SINGLE GAMEMODE */
 
-            </div>
+let list=players.filter(p=>{
 
-          </td>
+if(p.mode!==mode)return false;
 
+if(
+search &&
+!p.name.toLowerCase().includes(search)
+)
+return false;
 
-          <td class="points">
-            ${p.total.toLocaleString()}
-          </td>
+if(
+tier!=="ALL" &&
+p.tier!==tier
+)
+return false;
 
-        </tr>
+return true;
 
-      `).join("");
+});
 
-    return;
 
-  }
+list.sort(
+(a,b)=>getPoints(b)-getPoints(a)
+);
 
 
-  /* =========================
-     SPECIFIC MODE
-  ========================= */
+if(!list.length){
 
-  const list =
-    getFiltered()
-      .sort(
-        (a,b)=>
-          getPoints(b) -
-          getPoints(a)
-      );
+tbody.innerHTML=`
 
+<tr>
+<td colspan="4" class="empty">
+No players found.
+</td>
+</tr>
 
-  if(!list.length){
+`;
 
-    tbody.innerHTML = `
+return;
 
-      <tr>
+}
 
-        <td
-          colspan="4"
-          class="empty"
-        >
-          No players found.
-        </td>
 
-      </tr>
+tbody.innerHTML=
 
-    `;
+list.map((p,i)=>{
 
-    return;
+return`
 
-  }
+<tr>
 
+<td class="position">
+${i+1}
+</td>
 
-  tbody.innerHTML =
-    list.map((p,i)=>`
+<td
+class="player-name"
+onclick="openProfile('${escapeJS(p.name)}')"
+>
+${escapeHTML(p.name)}
+</td>
 
-      <tr>
+<td>
 
-        <td class="position">
-          ${i+1}
-        </td>
+<div class="mode-list">
 
+${modeIcon(p.mode,p.tier)}
 
-        <td
-          class="player-name"
-          onclick="openProfile('${encodeURIComponent(p.name)}')"
-        >
-          ${escapeHTML(p.name)}
-        </td>
+</div>
 
+</td>
 
-        <td>
+<td class="points">
+${getPoints(p)}
+</td>
 
-          <div class="mode-list">
+</tr>
 
-            <div
-              class="mode-item"
-              title="${escapeHTML(p.mode)}"
-            >
+`;
 
-              <img
-                class="mode-icon"
-                src="${MODE_ICONS[p.mode]}"
-                alt=""
-              >
-
-              <span
-                class="mode-tier ${getTierClass(p.tier)}"
-              >
-                ${escapeHTML(p.tier)}
-              </span>
-
-            </div>
-
-          </div>
-
-        </td>
-
-
-        <td class="points">
-          ${getPoints(p).toLocaleString()}
-        </td>
-
-      </tr>
-
-    `).join("");
+}).join("");
 
 }
 
 
 /* =========================
-   PLAYER PROFILE
+   PROFILE
 ========================= */
 
-function openProfile(encodedName){
+function openProfile(name){
 
-  const name =
-    decodeURIComponent(
-      encodedName
-    );
+const playerModes=
+players.filter(p=>p.name===name);
 
+if(!playerModes.length)return;
 
-  const playerModes =
-    players.filter(
-      p => p.name === name
-    );
+const total=
+playerModes.reduce(
+(sum,p)=>sum+getPoints(p),
+0
+);
 
+document.getElementById("profileName")
+.textContent=name;
 
-  if(!playerModes.length)
-    return;
+document.getElementById("profileTotal")
+.textContent=total+" Points";
 
+document.getElementById("profileGrid")
+.innerHTML=
 
-  const total =
-    playerModes.reduce(
-      (sum,p)=>
-        sum + getPoints(p),
-      0
-    );
+playerModes
+.sort((a,b)=>getPoints(b)-getPoints(a))
+.map(p=>`
 
+<div class="profile-mode">
 
-  document
-    .getElementById("profileName")
-    .textContent =
-      name;
+<img
+src="${MODE_ICONS[p.mode]}"
+alt=""
+>
 
+<div>
 
-  document
-    .getElementById("profileTotal")
-    .textContent =
-      total.toLocaleString() +
-      " Points";
+<div class="profile-mode-name">
+${escapeHTML(p.mode)}
+</div>
 
+<div
+class="profile-mode-tier ${getTierClass(p.tier)}"
+>
+${escapeHTML(p.tier)}
+</div>
 
-  document
-    .getElementById("profileGrid")
-    .innerHTML =
+</div>
 
-      playerModes
-        .sort(
-          (a,b)=>
-            getPoints(b) -
-            getPoints(a)
-        )
-        .map(p=>`
+</div>
 
-          <div class="profile-mode">
+`)
+.join("");
 
-            <img
-              src="${MODE_ICONS[p.mode]}"
-              alt=""
-            >
-
-            <div>
-
-              <div class="profile-mode-name">
-                ${escapeHTML(p.mode)}
-              </div>
-
-              <span
-                class="mode-tier ${getTierClass(p.tier)}"
-              >
-                ${escapeHTML(p.tier)}
-              </span>
-
-              <div
-                style="margin-top:5px;font-weight:800"
-              >
-                ${getPoints(p).toLocaleString()} pts
-              </div>
-
-            </div>
-
-          </div>
-
-        `)
-        .join("");
-
-
-  document
-    .getElementById("modal")
-    .classList.add("show");
+document.getElementById("modal")
+.classList.add("show");
 
 }
 
 
 function closeProfile(){
 
-  document
-    .getElementById("modal")
-    .classList.remove("show");
+document.getElementById("modal")
+.classList.remove("show");
 
 }
 
@@ -1783,32 +1434,22 @@ function closeProfile(){
 
 function escapeHTML(value){
 
-  return String(value)
+return String(value)
+.replaceAll("&","&amp;")
+.replaceAll("<","&lt;")
+.replaceAll(">","&gt;")
+.replaceAll('"',"&quot;")
+.replaceAll("'","&#039;");
 
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
+}
 
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
+function escapeJS(value){
 
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
+return String(value)
+.replaceAll("\\","\\\\")
+.replaceAll("'","\\'")
+.replaceAll("\n","\\n")
+.replaceAll("\r","\\r");
 
 }
 
@@ -1818,42 +1459,33 @@ function escapeHTML(value){
 ========================= */
 
 document
-  .getElementById("search")
-  .addEventListener(
-    "input",
-    renderLeaderboard
-  );
+.getElementById("search")
+.addEventListener("input",()=>{
+
+renderPodium();
+renderLeaderboard();
+
+});
 
 
 document
-  .getElementById("mode")
-  .addEventListener(
-    "change",
-    renderLeaderboard
-  );
+.getElementById("mode")
+.addEventListener("change",()=>{
+
+renderPodium();
+renderLeaderboard();
+
+});
 
 
 document
-  .getElementById("tierFilter")
-  .addEventListener(
-    "change",
-    renderLeaderboard
-  );
+.getElementById("tierFilter")
+.addEventListener("change",()=>{
 
+renderPodium();
+renderLeaderboard();
 
-/* =========================
-   ESCAPE MODAL
-========================= */
-
-document.addEventListener(
-  "keydown",
-  e => {
-
-    if(e.key === "Escape")
-      closeProfile();
-
-  }
-);
+});
 
 
 /* =========================
@@ -1865,4 +1497,4 @@ loadPlayers();
 </script>
 
 </body>
-</html>
+  </html>
