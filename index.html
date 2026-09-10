@@ -13,7 +13,7 @@
 
 :root{
   --purple:#9b5cff;
-  --purple2:#6d28d9;
+  --purple-dark:#6d28d9;
   --red:#ff3b4f;
   --green:#35e88f;
   --bg:#050507;
@@ -27,22 +27,18 @@
 body{
   margin:0;
   background:
-    radial-gradient(circle at 15% 10%,rgba(155,92,255,.12),transparent 30%),
+    radial-gradient(circle at 15% 10%,rgba(155,92,255,.13),transparent 30%),
     radial-gradient(circle at 85% 25%,rgba(255,59,79,.08),transparent 28%),
-    radial-gradient(circle at 50% 90%,rgba(53,232,143,.06),transparent 30%),
+    radial-gradient(circle at 50% 90%,rgba(53,232,143,.07),transparent 30%),
     var(--bg);
   color:var(--text);
   font-family:Arial,Helvetica,sans-serif;
   min-height:100vh;
 }
 
-/* =========================
-   HEADER
-========================= */
-
 header{
   height:66px;
-  background:rgba(7,7,10,.94);
+  background:rgba(7,7,10,.95);
   border-bottom:1px solid #25202d;
   display:flex;
   align-items:center;
@@ -78,22 +74,13 @@ header{
 .admin:hover{
   border-color:var(--purple);
   box-shadow:0 0 18px rgba(155,92,255,.25);
-  transform:translateY(-1px);
 }
-
-/* =========================
-   MAIN
-========================= */
 
 main{
   max-width:1100px;
   margin:auto;
   padding:42px 20px 70px;
 }
-
-/* =========================
-   HERO
-========================= */
 
 .hero{
   text-align:center;
@@ -105,8 +92,7 @@ main{
   font-size:clamp(42px,8vw,76px);
   font-weight:950;
   letter-spacing:-3px;
-  text-shadow:
-    0 0 25px rgba(155,92,255,.2);
+  text-shadow:0 0 25px rgba(155,92,255,.2);
 }
 
 .hero h1 span{
@@ -118,10 +104,6 @@ main{
   margin-top:13px;
   font-size:16px;
 }
-
-/* =========================
-   CONTROLS
-========================= */
 
 .controls{
   display:grid;
@@ -142,28 +124,22 @@ input,select{
   transition:.2s;
 }
 
-input:hover,select:hover{
+input:hover,
+select:hover{
   border-color:#49365d;
 }
 
-input:focus,select:focus{
+input:focus,
+select:focus{
   border-color:var(--purple);
   box-shadow:0 0 0 3px rgba(155,92,255,.08);
 }
-
-/* =========================
-   SECTION
-========================= */
 
 .section-title{
   font-size:26px;
   font-weight:900;
   margin:28px 0 15px;
 }
-
-/* =========================
-   CARD
-========================= */
 
 .card{
   background:linear-gradient(145deg,#101016,#0b0b0f);
@@ -175,10 +151,6 @@ input:focus,select:focus{
     inset 0 1px rgba(255,255,255,.02);
 }
 
-/* =========================
-   TABLE
-========================= */
-
 .table-wrap{
   overflow-x:auto;
 }
@@ -186,7 +158,7 @@ input:focus,select:focus{
 table{
   width:100%;
   border-collapse:collapse;
-  min-width:620px;
+  min-width:600px;
 }
 
 th{
@@ -210,12 +182,11 @@ tbody tr{
 }
 
 tbody tr:hover td{
-  background:
-    linear-gradient(
-      90deg,
-      rgba(155,92,255,.07),
-      rgba(255,59,79,.025)
-    );
+  background:linear-gradient(
+    90deg,
+    rgba(155,92,255,.07),
+    rgba(255,59,79,.025)
+  );
 }
 
 .position{
@@ -234,60 +205,47 @@ tbody tr:hover td{
 }
 
 /* =========================
-   GAMEMODE ICONS
+   PNG ICONS
 ========================= */
 
 .mode-icons{
   display:flex;
   align-items:center;
-  gap:7px;
+  gap:8px;
   flex-wrap:wrap;
 }
 
-.mode-icon{
-  width:30px;
-  height:30px;
-  object-fit:contain;
-  image-rendering:auto;
-  filter:
-    drop-shadow(0 2px 4px rgba(0,0,0,.7));
-  transition:.18s;
-}
-
-.mode-icon:hover{
-  transform:scale(1.18);
-  filter:
-    drop-shadow(0 0 7px rgba(155,92,255,.65));
-}
-
 .mode-icon-box{
-  width:38px;
-  height:38px;
+  width:42px;
+  height:42px;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#17151d;
-  border:1px solid #2b2535;
-  border-radius:8px;
+  background:#111018;
+  border:1px solid #30273b;
+  border-radius:9px;
+  transition:.18s;
 }
 
-.muted{
-  color:#88838f;
+.mode-icon-box:hover{
+  transform:translateY(-2px) scale(1.06);
+  border-color:var(--purple);
+  box-shadow:0 0 14px rgba(155,92,255,.25);
 }
 
-/* =========================
-   EMPTY
-========================= */
+.mode-icon{
+  width:34px;
+  height:34px;
+  object-fit:contain;
+  image-rendering:auto;
+  filter:drop-shadow(0 2px 4px rgba(0,0,0,.8));
+}
 
 .empty{
   padding:35px;
   text-align:center;
   color:#77727e;
 }
-
-/* =========================
-   FOOTER
-========================= */
 
 footer{
   text-align:center;
@@ -296,10 +254,6 @@ footer{
   border-top:1px solid #19161e;
   font-size:13px;
 }
-
-/* =========================
-   RESPONSIVE
-========================= */
 
 @media(max-width:750px){
 
@@ -319,18 +273,14 @@ footer{
     font-size:48px;
   }
 
-  .hero{
-    padding-top:30px;
+  .mode-icon-box{
+    width:38px;
+    height:38px;
   }
 
   .mode-icon{
-    width:27px;
-    height:27px;
-  }
-
-  .mode-icon-box{
-    width:34px;
-    height:34px;
+    width:30px;
+    height:30px;
   }
 }
 </style>
@@ -366,9 +316,7 @@ footer{
 </section>
 
 
-<!-- =========================
-     FILTERS
-========================= -->
+<!-- FILTERS -->
 
 <div class="controls">
 
@@ -425,30 +373,24 @@ footer{
 </div>
 
 
-<!-- =========================
-     LEADERBOARD
-========================= -->
+<!-- LEADERBOARD -->
 
 <div class="section-title">
   📊 Leaderboard
 </div>
-
 
 <div class="card table-wrap">
 
 <table>
 
 <thead>
-
 <tr>
   <th>#</th>
   <th>Player</th>
   <th>Gamemode</th>
   <th>Points</th>
 </tr>
-
 </thead>
-
 
 <tbody id="leaderboard">
 
@@ -507,53 +449,40 @@ const TIER_POINTS = {
 
 
 /* =========================
-   MINECRAFT ICONS
+   YOUR PNG ICONS
 ========================= */
 
 const MODE_ICONS = {
 
-  "VANILLA CRYSTAL":[
-    "https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/end_crystal.png"
-  ],
+  "VANILLA CRYSTAL":
+    ["icons/vanilla-crystal.png"],
 
-  "UHC":[
-    "https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/lava_bucket.png"
-  ],
+  "UHC":
+    ["icons/uhc.png"],
 
-  "SMP KIT":[
-    "https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/cobweb.png"
-  ],
+  "SMP KIT":
+    ["icons/smp-kit.png"],
 
-  "NETPOT":[
-    "https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/potion.png"
-  ],
+  "NETPOT":
+    ["icons/nethpot.png"],
 
-  "CART PVP":[
-    "https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/tnt_minecart.png"
-  ],
+  "CART PVP":
+    ["icons/cart-pvp.png"],
 
-  "AXE PVP":[
-    "https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/diamond_axe.png"
-  ],
+  "AXE PVP":
+    ["icons/axe-pvp.png"],
 
-  "DIA KIT":[
-    "https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/diamond_chestplate.png",
-    "https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/cobweb.png"
-  ],
+  "DIA KIT":
+    ["icons/dia-kit.png"],
 
-  "TANK":[
-    "https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/diamond_sword.png"
-  ],
+  "TANK":
+    ["icons/tank.png"],
 
-  "E-MACE":[
-    "https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/elytra.png",
-    "https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/mace.png"
-  ],
+  "E-MACE":
+    ["icons/emace.png"],
 
-  "SPEAR MACE":[
-    "https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/diamond_spear.png",
-    "https://mcasset.cloud/1.21.11/assets/minecraft/textures/item/mace.png"
-  ]
+  "SPEAR MACE":
+    ["icons/spear-mace.png"]
 
 };
 
@@ -581,9 +510,10 @@ const sb = window.supabase.createClient(
 
 async function loadPlayers(){
 
-  const {data,error} = await sb
-    .from("players")
-    .select("name,mode,tier,points");
+  const {data,error} =
+    await sb
+      .from("players")
+      .select("name,mode,tier,points");
 
 
   if(error){
@@ -601,11 +531,12 @@ async function loadPlayers(){
   }
 
 
-  players = (data || []).filter(p =>
-    p.name &&
-    p.mode &&
-    TIER_POINTS[p.tier]
-  );
+  players =
+    (data || []).filter(p =>
+      p.name &&
+      p.mode &&
+      TIER_POINTS[p.tier]
+    );
 
 
   render();
@@ -625,17 +556,20 @@ function getPoints(player){
 
 
 /* =========================
-   GET ICONS
+   CREATE ICON HTML
 ========================= */
 
 function getModeIcons(mode){
 
-  const icons = MODE_ICONS[mode] || [];
+  const icons =
+    MODE_ICONS[mode] || [];
+
 
   return `
     <div class="mode-icons">
 
       ${icons.map(src => `
+
         <div class="mode-icon-box">
 
           <img
@@ -645,6 +579,7 @@ function getModeIcons(mode){
           >
 
         </div>
+
       `).join("")}
 
     </div>
@@ -654,7 +589,7 @@ function getModeIcons(mode){
 
 
 /* =========================
-   OVERALL
+   BUILD OVERALL
 ========================= */
 
 function buildOverall(){
@@ -675,9 +610,12 @@ function buildOverall(){
     }
 
 
-    const p = map.get(player.name);
+    const p =
+      map.get(player.name);
 
-    const pts = getPoints(player);
+
+    const pts =
+      getPoints(player);
 
 
     p.total += pts;
@@ -774,9 +712,7 @@ function renderLeaderboard(){
     document.getElementById("tierFilter").value;
 
 
-  /* =========================
-     OVERALL
-  ========================= */
+  /* OVERALL */
 
   if(mode === "ALL"){
 
@@ -797,7 +733,9 @@ function renderLeaderboard(){
 
         if(
           tier !== "ALL" &&
-          !p.modes.some(x => x.tier === tier)
+          !p.modes.some(
+            x => x.tier === tier
+          )
         ){
           return false;
         }
@@ -825,18 +763,21 @@ function renderLeaderboard(){
     tbody.innerHTML =
       filtered.map((p,i)=>{
 
-
-        const uniqueModes = [
-          ...new Set(
-            p.modes.map(x=>x.mode)
-          )
-        ];
+        const uniqueModes =
+          [...new Set(
+            p.modes.map(
+              x => x.mode
+            )
+          )];
 
 
         const icons =
-          uniqueModes.map(modeName =>
-            getModeIcons(modeName)
-          ).join("");
+          uniqueModes
+            .map(
+              modeName =>
+                getModeIcons(modeName)
+            )
+            .join("");
 
 
         return `
@@ -846,18 +787,15 @@ function renderLeaderboard(){
               ${i+1}
             </td>
 
-
             <td class="player-name">
               ${escapeHTML(p.name)}
             </td>
-
 
             <td>
               <div class="mode-icons">
                 ${icons}
               </div>
             </td>
-
 
             <td class="points">
               ${p.total}
@@ -874,14 +812,13 @@ function renderLeaderboard(){
   }
 
 
-  /* =========================
-     SINGLE GAMEMODE
-  ========================= */
+  /* SINGLE GAMEMODE */
 
   const list =
     getFiltered()
-      .sort((a,b)=>
-        getPoints(b)-getPoints(a)
+      .sort(
+        (a,b)=>
+          getPoints(b)-getPoints(a)
       );
 
 
@@ -909,16 +846,13 @@ function renderLeaderboard(){
             ${i+1}
           </td>
 
-
           <td class="player-name">
             ${escapeHTML(p.name)}
           </td>
 
-
           <td>
             ${getModeIcons(p.mode)}
           </td>
-
 
           <td class="points">
             ${getPoints(p)}
@@ -951,11 +885,30 @@ function escapeHTML(value){
 
   return String(value)
 
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#039;");
+    .replaceAll(
+      "&",
+      "&amp;"
+    )
+
+    .replaceAll(
+      "<",
+      "&lt;"
+    )
+
+    .replaceAll(
+      ">",
+      "&gt;"
+    )
+
+    .replaceAll(
+      '"',
+      "&quot;"
+    )
+
+    .replaceAll(
+      "'",
+      "&#039;"
+    );
 
 }
 
