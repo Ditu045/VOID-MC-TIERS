@@ -1,71 +1,995 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>VOID MC TIERS</title>
+
 <style>
-:root{--bg:#07090e;--p:#111621;--p2:#181e2a;--line:#2a3241;--text:#f5f7fb;--muted:#929aaa;--a:#7c5cff}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% -10%,#282044,#07090e 45%);color:var(--text);font-family:Arial,sans-serif}
-header{position:sticky;top:0;z-index:5;background:#07090eee;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}
-.nav{max-width:1100px;margin:auto;padding:15px 18px;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:1000;font-size:20px;letter-spacing:1px}.logo b{color:var(--a)}
-main{max-width:1100px;margin:auto;padding:35px 18px 70px}.hero{text-align:center;padding:25px 0}.hero h1{font-size:clamp(42px,9vw,76px);margin:0;font-weight:1000}.hero h1 span{color:var(--a)}.hero p{color:var(--muted)}
-.controls{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:10px;max-width:900px;margin:20px auto 30px}
-input,select{width:100%;padding:13px;border-radius:10px;border:1px solid var(--line);background:var(--p);color:var(--text);outline:0}
-.section{display:flex;justify-content:space-between;align-items:center;margin:25px 0 13px}.section h2{margin:0}.muted{color:var(--muted);font-size:13px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px}.card{background:linear-gradient(145deg,var(--p),var(--p2));border:1px solid var(--line);border-radius:16px;padding:17px}
-.player{display:flex;align-items:center;gap:12px}.avatar{width:48px;height:48px;border-radius:12px;background:#262d3c;display:grid;place-items:center;font-size:22px}.name{font-weight:900}.sub{color:var(--muted);font-size:12px;margin-top:3px}.tier{margin-left:auto;padding:7px 9px;border-radius:8px;font-weight:1000}
-.ht1{background:#e5ad22;color:#111}.mt1{background:#c98c13;color:#111}.lt1{background:#9b6b0d}.ht2{background:#b76b2c}.mt2{background:#955323}.lt2{background:#713e1b}.ht3{background:#477edc}.mt3{background:#365faa}.lt3{background:#294a85}.ht4{background:#319b86}.mt4{background:#267765}.lt4{background:#1d5d50}.ht5{background:#68707e}.mt5{background:#515966}.lt5{background:#3e454f}
-.info{display:flex;justify-content:space-between;border-top:1px solid var(--line);margin-top:13px;padding-top:11px;color:var(--muted);font-size:12px}
-.tablewrap{overflow:auto}.table{width:100%;min-width:650px;border-collapse:collapse}.table th,.table td{padding:13px;text-align:left;border-bottom:1px solid var(--line)}th{color:var(--muted);font-size:11px;text-transform:uppercase}
-.rules{line-height:1.7;color:#d5dae3}.rules strong{color:#fff}footer{text-align:center;color:var(--muted);padding:25px;border-top:1px solid var(--line);font-size:12px}
-.status{text-align:center;color:var(--muted);padding:18px}.error{color:#ff8c8c}
-@media(max-width:700px){.controls{grid-template-columns:1fr}}
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  background:#050505;
+  color:#f5f5f5;
+  font-family:Arial,Helvetica,sans-serif;
+}
+
+header{
+  height:64px;
+  background:#080808;
+  border-bottom:1px solid #202020;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 24px;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:800;
+  letter-spacing:.5px;
+}
+
+.logo span{
+  color:#8b5cf6;
+}
+
+.admin{
+  color:#fff;
+  text-decoration:none;
+  font-weight:700;
+  padding:10px 15px;
+  border-radius:8px;
+  background:#171717;
+  border:1px solid #292929;
+}
+
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:42px 20px 70px;
+}
+
+.hero{
+  text-align:center;
+  padding:35px 15px 42px;
+}
+
+.hero h1{
+  margin:0;
+  font-size:clamp(42px,8vw,76px);
+  font-weight:900;
+  letter-spacing:-2px;
+}
+
+.hero h1 span{
+  color:#8b5cf6;
+}
+
+.hero p{
+  color:#929292;
+  margin-top:12px;
+  font-size:16px;
+}
+
+.controls{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:12px;
+  margin-bottom:32px;
+}
+
+input,select{
+  width:100%;
+  background:#111318;
+  color:#eee;
+  border:1px solid #282b33;
+  border-radius:9px;
+  padding:15px;
+  font-size:15px;
+  outline:none;
+}
+
+input:focus,select:focus{
+  border-color:#8b5cf6;
+}
+
+.section-title{
+  font-size:26px;
+  font-weight:800;
+  margin:28px 0 15px;
+}
+
+.card{
+  background:#111214;
+  border:1px solid #25262a;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 8px 30px rgba(0,0,0,.25);
+}
+
+.rank-card{
+  padding:20px;
+}
+
+.rank-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.rank-row{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  background:#18191c;
+  border:1px solid #28292d;
+  padding:13px 15px;
+  border-radius:9px;
+}
+
+.rank-number{
+  width:35px;
+  color:#888;
+  font-weight:700;
+}
+
+.rank-player{
+  flex:1;
+  font-weight:700;
+}
+
+.tier-tag{
+  display:inline-flex;
+  align-items:center;
+  padding:5px 9px;
+  border-radius:6px;
+  font-size:13px;
+  font-weight:800;
+  background:#22252b;
+  border:1px solid #343740;
+}
+
+.tier-s{
+  color:#ffcf40;
+}
+
+.tier-a{
+  color:#b978ff;
+}
+
+.tier-b{
+  color:#55d6ff;
+}
+
+.tier-c{
+  color:#63e6a4;
+}
+
+.tier-d{
+  color:#ff7777;
+}
+
+.mode-tag{
+  color:#aaa;
+  font-size:13px;
+}
+
+.points{
+  color:#fff;
+  font-weight:800;
+  min-width:80px;
+  text-align:right;
+}
+
+.table-wrap{
+  overflow-x:auto;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:650px;
+}
+
+th{
+  background:#17181c;
+  color:#92959c;
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.5px;
+  text-align:left;
+  padding:15px;
+}
+
+td{
+  padding:15px;
+  border-top:1px solid #242529;
+}
+
+tr:hover td{
+  background:#151619;
+}
+
+.position{
+  color:#777;
+  font-weight:700;
+}
+
+.player-name{
+  font-weight:800;
+}
+
+.muted{
+  color:#888;
+}
+
+.empty{
+  padding:35px;
+  text-align:center;
+  color:#777;
+}
+
+.info{
+  margin-top:35px;
+  padding:25px;
+}
+
+.info h3{
+  margin-top:0;
+}
+
+.tier-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.tier-info{
+  background:#18191c;
+  border:1px solid #28292d;
+  border-radius:8px;
+  padding:13px;
+}
+
+footer{
+  text-align:center;
+  color:#666;
+  padding:25px;
+  border-top:1px solid #171717;
+  font-size:13px;
+}
+
+@media(max-width:750px){
+  .controls{
+    grid-template-columns:1fr;
+  }
+
+  .tier-grid{
+    grid-template-columns:1fr;
+  }
+
+  main{
+    padding:25px 12px 50px;
+  }
+
+  header{
+    padding:0 14px;
+  }
+
+  .hero h1{
+    font-size:48px;
+  }
+}
 </style>
 </head>
+
 <body>
-<header><div class="nav"><div class="logo">VOID MC <b>TIERS</b></div><a href="admin.html" style="color:white;text-decoration:none">🔐 Admin</a></div></header>
+
+<header>
+  <div class="logo">
+    VOID MC <span>TIERS</span>
+  </div>
+
+  <a class="admin" href="admin.html">
+    🔐 Admin
+  </a>
+</header>
+
 <main>
-<section class="hero"><h1>VOID MC <span>TIERS</span></h1><p>MCPE Tier Testing • S → D • High / Mid / Low</p></section>
+
+<section class="hero">
+  <h1>VOID MC <span>TIERS</span></h1>
+  <p>MCPE Tier Testing • S → D • High / Mid / Low</p>
+</section>
+
 <div class="controls">
-<input id="search" placeholder="🔎 Search player..." oninput="render()">
-<select id="mode" onchange="render()"><option value="all">All Gamemodes</option></select>
-<select id="tier" onchange="render()"><option value="all">All Tiers</option>
-<option>HT1</option><option>MT1</option><option>LT1</option><option>HT2</option><option>MT2</option><option>LT2</option>
-<option>HT3</option><option>MT3</option><option>LT3</option><option>HT4</option><option>MT4</option><option>LT4</option>
-<option>HT5</option><option>MT5</option><option>LT5</option></select>
+
+  <input
+    id="search"
+    type="text"
+    placeholder="🔎 Search player..."
+  >
+
+  <select id="mode">
+    <option value="ALL">Overall</option>
+    <option value="AXE PVP">AXE PVP</option>
+    <option value="CART PVP">CART PVP</option>
+    <option value="DIA KIT">DIA KIT</option>
+    <option value="E-MACE">E-MACE</option>
+    <option value="NETPOT">NETPOT</option>
+    <option value="SMP KIT">SMP KIT</option>
+    <option value="SPEAR MACE">SPEAR MACE</option>
+    <option value="TANK">TANK</option>
+    <option value="UHC">UHC</option>
+    <option value="VANILLA CRYSTAL">VANILLA CRYSTAL</option>
+  </select>
+
+  <select id="tierFilter">
+    <option value="ALL">All Tiers</option>
+    <option value="HT1">HT1</option>
+    <option value="MT1">MT1</option>
+    <option value="LT1">LT1</option>
+    <option value="HT2">HT2</option>
+    <option value="MT2">MT2</option>
+    <option value="LT2">LT2</option>
+    <option value="HT3">HT3</option>
+    <option value="MT3">MT3</option>
+    <option value="LT3">LT3</option>
+    <option value="HT4">HT4</option>
+    <option value="MT4">MT4</option>
+    <option value="LT4">LT4</option>
+    <option value="HT5">HT5</option>
+    <option value="MT5">MT5</option>
+    <option value="LT5">LT5</option>
+  </select>
+
 </div>
-<div class="section"><h2>🏆 Tier Rankings</h2><span id="count" class="muted"></span></div>
-<div id="status" class="status">Loading players…</div><div id="players" class="grid"></div>
-<section><div class="section"><h2>📊 Leaderboard</h2></div><div class="card tablewrap"><table class="table"><thead><tr><th>#</th><th>Player</th><th>Gamemode</th><th>Tier</th><th>Points</th><th>Tests</th></tr></thead><tbody id="board"></tbody></table></div></section>
-<section><div class="section"><h2>📜 Tier Information</h2></div><div class="card rules">
-<strong>Tier ranks</strong><br>S Tier — High S [HT1], Mid S [MT1], Low S [LT1]<br>
-A Tier — High A [HT2], Mid A [MT2], Low A [LT2]<br>B Tier — High B [HT3], Mid B [MT3], Low B [LT3]<br>
-C Tier — High C [HT4], Mid C [MT4], Low C [LT4]<br>D Tier — High D [HT5], Mid D [MT5], Low D [LT5]<br><br>
-<strong>Testing rules</strong><br>• Read all test rules before requesting a test.<br>• Provide complete and correct information.<br>
-• Do not ping or annoy testers unnecessarily.<br>• Confirm your test time within 12 hours.<br>• Hacking and illegal clients are prohibited.<br>
-• Follow tester instructions. • Do not leave during the test. • Ping should be under 135ms. • Results are final.
-</div></section>
-</main><footer>VOID MC TIERS • MCPE</footer>
+
+
+<!-- TIER RANKINGS -->
+
+<div class="section-title">
+  🏆 Tier Rankings
+</div>
+
+<div class="card rank-card">
+  <div id="tierRankings" class="rank-list">
+    <div class="empty">Loading...</div>
+  </div>
+</div>
+
+
+<!-- LEADERBOARD -->
+
+<div class="section-title">
+  📊 Leaderboard
+</div>
+
+<div class="card table-wrap">
+
+<table>
+
+<thead>
+<tr>
+  <th>#</th>
+  <th>Player</th>
+  <th>Gamemode</th>
+  <th>Tier</th>
+  <th>Points</th>
+</tr>
+</thead>
+
+<tbody id="leaderboard">
+<tr>
+  <td colspan="5" class="empty">Loading...</td>
+</tr>
+</tbody>
+
+</table>
+
+</div>
+
+
+<!-- TIER INFORMATION -->
+
+<div class="section-title">
+  📜 Tier Information
+</div>
+
+<div class="card info">
+
+<h3>Tier ranks</h3>
+
+<div class="tier-grid">
+
+<div class="tier-info"><b class="tier-s">HT1</b> — High S — 1000 pts</div>
+<div class="tier-info"><b class="tier-s">MT1</b> — Mid S — 950 pts</div>
+<div class="tier-info"><b class="tier-s">LT1</b> — Low S — 900 pts</div>
+
+<div class="tier-info"><b class="tier-a">HT2</b> — High A — 850 pts</div>
+<div class="tier-info"><b class="tier-a">MT2</b> — Mid A — 800 pts</div>
+<div class="tier-info"><b class="tier-a">LT2</b> — Low A — 750 pts</div>
+
+<div class="tier-info"><b class="tier-b">HT3</b> — High B — 700 pts</div>
+<div class="tier-info"><b class="tier-b">MT3</b> — Mid B — 650 pts</div>
+<div class="tier-info"><b class="tier-b">LT3</b> — Low B — 600 pts</div>
+
+<div class="tier-info"><b class="tier-c">HT4</b> — High C — 550 pts</div>
+<div class="tier-info"><b class="tier-c">MT4</b> — Mid C — 500 pts</div>
+<div class="tier-info"><b class="tier-c">LT4</b> — Low C — 450 pts</div>
+
+<div class="tier-info"><b class="tier-d">HT5</b> — High D — 400 pts</div>
+<div class="tier-info"><b class="tier-d">MT5</b> — Mid D — 350 pts</div>
+<div class="tier-info"><b class="tier-d">LT5</b> — Low D — 300 pts</div>
+
+</div>
+
+</div>
+
+</main>
+
+<footer>
+VOID MC TIERS • MCPE Tier Testing
+</footer>
+
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="supabase-config.js"></script>
+
 <script>
-const modes=["AXE PVP","CART PVP","DIA KIT","E-MACE","NETPOT","SMP KIT","SPEAR MACE","TANK","UHC","VANILLA CRYSTAL"];
-modes.forEach(m=>document.getElementById("mode").innerHTML+=`<option>${m}</option>`);
-const sb=window.VOID_SUPABASE&&window.VOID_SUPABASE.url&&window.VOID_SUPABASE.anonKey?supabase.createClient(window.VOID_SUPABASE.url,window.VOID_SUPABASE.anonKey):null;
-let players=[];
-async function load(){if(!sb){showError("Add your Supabase URL and anon key in supabase-config.js first.");return}
-const {data,error}=await sb.from("players").select("*").order("points",{ascending:false});
-if(error){showError(error.message);return}players=data||[];render()}
-function showError(x){document.getElementById("status").className="status error";document.getElementById("status").textContent="⚠ "+x}
-function render(){
-const q=document.getElementById("search").value.toLowerCase(),m=document.getElementById("mode").value,t=document.getElementById("tier").value;
-const list=players.filter(p=>(p.name||"").toLowerCase().includes(q)&&(m==="all"||p.mode===m)&&(t==="all"||p.tier===t)).sort((a,b)=>b.points-a.points);
-document.getElementById("status").style.display=list.length?"none":"block";if(!list.length)document.getElementById("status").textContent="No players match your filters.";
-document.getElementById("count").textContent=list.length+" results";
-document.getElementById("players").innerHTML=list.map(p=>`<div class="card"><div class="player"><div class="avatar">${p.icon||"👤"}</div><div><div class="name">${esc(p.name)}</div><div class="sub">${esc(p.mode)}</div></div><div class="tier ${p.tier.toLowerCase()}">${p.tier}</div></div><div class="info"><span>⭐ ${p.points} points</span><span>🧪 ${p.tests} tests</span></div></div>`).join("");
-document.getElementById("board").innerHTML=list.map((p,i)=>`<tr><td>${i+1}</td><td><b>${esc(p.name)}</b></td><td>${esc(p.mode)}</td><td><b>${p.tier}</b></td><td>${p.points}</td><td>${p.tests}</td></tr>`).join("");
+
+/* =========================
+   FIXED TIER POINTS
+========================= */
+
+const TIER_POINTS = {
+  HT1:1000,
+  MT1:950,
+  LT1:900,
+
+  HT2:850,
+  MT2:800,
+  LT2:750,
+
+  HT3:700,
+  MT3:650,
+  LT3:600,
+
+  HT4:550,
+  MT4:500,
+  LT4:450,
+
+  HT5:400,
+  MT5:350,
+  LT5:300
+};
+
+
+/* =========================
+   TIER ORDER
+========================= */
+
+const TIER_ORDER = [
+  "HT1","MT1","LT1",
+  "HT2","MT2","LT2",
+  "HT3","MT3","LT3",
+  "HT4","MT4","LT4",
+  "HT5","MT5","LT5"
+];
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+let players = [];
+
+
+/* =========================
+   SUPABASE
+========================= */
+
+const sb = window.supabase.createClient(
+  window.VOID_SUPABASE.url,
+  window.VOID_SUPABASE.anonKey
+);
+
+
+/* =========================
+   LOAD PLAYERS
+========================= */
+
+async function loadPlayers(){
+
+  const {data,error} = await sb
+    .from("players")
+    .select("name,mode,tier,points");
+
+  if(error){
+    console.error(error);
+
+    document.getElementById("leaderboard").innerHTML =
+      `<tr>
+        <td colspan="5" class="empty">
+          ⚠️ ${escapeHTML(error.message)}
+        </td>
+      </tr>`;
+
+    return;
+  }
+
+  players = (data || []).filter(p =>
+    p.name &&
+    p.mode &&
+    TIER_POINTS[p.tier]
+  );
+
+  render();
+
 }
-function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
-load();
+
+
+/* =========================
+   GET POINTS
+========================= */
+
+function getPoints(player){
+
+  /*
+    Always use the fixed tier points.
+    Database points are ignored.
+  */
+
+  return TIER_POINTS[player.tier] || 0;
+
+}
+
+
+/* =========================
+   BUILD OVERALL
+========================= */
+
+function buildOverall(){
+
+  const map = new Map();
+
+  players.forEach(player => {
+
+    if(!map.has(player.name)){
+      map.set(player.name,{
+        name:player.name,
+        total:0,
+        modes:[]
+      });
+    }
+
+    const p = map.get(player.name);
+
+    const pts = getPoints(player);
+
+    p.total += pts;
+
+    p.modes.push({
+      mode:player.mode,
+      tier:player.tier,
+      points:pts
+    });
+
+  });
+
+  return [...map.values()]
+    .sort((a,b)=>b.total-a.total);
+
+}
+
+
+/* =========================
+   FILTER PLAYERS
+========================= */
+
+function getFiltered(){
+
+  const search =
+    document.getElementById("search")
+      .value
+      .trim()
+      .toLowerCase();
+
+  const mode =
+    document.getElementById("mode").value;
+
+  const tier =
+    document.getElementById("tierFilter").value;
+
+
+  return players.filter(p => {
+
+    const searchOK =
+      !search ||
+      p.name.toLowerCase().includes(search);
+
+    const modeOK =
+      mode === "ALL" ||
+      p.mode === mode;
+
+    const tierOK =
+      tier === "ALL" ||
+      p.tier === tier;
+
+    return searchOK && modeOK && tierOK;
+
+  });
+
+}
+
+
+/* =========================
+   TIER RANKINGS
+========================= */
+
+function renderTierRankings(){
+
+  const container =
+    document.getElementById("tierRankings");
+
+  const mode =
+    document.getElementById("mode").value;
+
+  const tier =
+    document.getElementById("tierFilter").value;
+
+  const search =
+    document.getElementById("search")
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  let list;
+
+
+  if(mode === "ALL"){
+
+    /*
+      Overall:
+      show every player's individual
+      gamemode tier tags.
+    */
+
+    list = players
+      .filter(p =>
+        (!search || p.name.toLowerCase().includes(search)) &&
+        (tier === "ALL" || p.tier === tier)
+      )
+      .sort((a,b)=>
+        getPoints(b)-getPoints(a)
+      );
+
+  }else{
+
+    /*
+      Single gamemode:
+      show only that gamemode.
+    */
+
+    list = players
+      .filter(p =>
+        p.mode === mode &&
+        (!search || p.name.toLowerCase().includes(search)) &&
+        (tier === "ALL" || p.tier === tier)
+      )
+      .sort((a,b)=>
+        getPoints(b)-getPoints(a)
+      );
+
+  }
+
+
+  if(!list.length){
+
+    container.innerHTML =
+      `<div class="empty">No players found.</div>`;
+
+    return;
+  }
+
+
+  container.innerHTML = list.map((p,i)=>{
+
+    const tierClass =
+      p.tier.startsWith("HT1") ||
+      p.tier.startsWith("MT1") ||
+      p.tier.startsWith("LT1")
+      ? "tier-s"
+      : p.tier.startsWith("HT2") ||
+        p.tier.startsWith("MT2") ||
+        p.tier.startsWith("LT2")
+      ? "tier-a"
+      : p.tier.startsWith("HT3") ||
+        p.tier.startsWith("MT3") ||
+        p.tier.startsWith("LT3")
+      ? "tier-b"
+      : p.tier.startsWith("HT4") ||
+        p.tier.startsWith("MT4") ||
+        p.tier.startsWith("LT4")
+      ? "tier-c"
+      : "tier-d";
+
+
+    return `
+      <div class="rank-row">
+
+        <div class="rank-number">
+          #${i+1}
+        </div>
+
+        <div class="rank-player">
+          ${escapeHTML(p.name)}
+        </div>
+
+        <span class="mode-tag">
+          ${escapeHTML(p.mode)}
+        </span>
+
+        <span class="tier-tag ${tierClass}">
+          ${escapeHTML(p.tier)}
+        </span>
+
+        <div class="points">
+          ${getPoints(p)} pts
+        </div>
+
+      </div>
+    `;
+
+  }).join("");
+
+}
+
+
+/* =========================
+   LEADERBOARD
+========================= */
+
+function renderLeaderboard(){
+
+  const tbody =
+    document.getElementById("leaderboard");
+
+  const mode =
+    document.getElementById("mode").value;
+
+
+  /* OVERALL */
+
+  if(mode === "ALL"){
+
+    const overall = buildOverall();
+
+    const search =
+      document.getElementById("search")
+        .value
+        .trim()
+        .toLowerCase();
+
+
+    const tier =
+      document.getElementById("tierFilter").value;
+
+
+    const filtered = overall.filter(p => {
+
+      if(search &&
+        !p.name.toLowerCase().includes(search))
+        return false;
+
+
+      if(tier !== "ALL" &&
+        !p.modes.some(x=>x.tier===tier))
+        return false;
+
+
+      return true;
+
+    });
+
+
+    if(!filtered.length){
+
+      tbody.innerHTML =
+        `<tr>
+          <td colspan="5" class="empty">
+            No players found.
+          </td>
+        </tr>`;
+
+      return;
+    }
+
+
+    tbody.innerHTML = filtered.map((p,i)=>{
+
+      /*
+        Display all tier tags belonging
+        to the player.
+      */
+
+      const tags = p.modes
+        .sort((a,b)=>b.points-a.points)
+        .map(x=>`
+          <span class="tier-tag" style="margin:2px">
+            ${escapeHTML(x.tier)}
+          </span>
+        `)
+        .join(" ");
+
+
+      const modes = p.modes
+        .map(x=>escapeHTML(x.mode))
+        .join(", ");
+
+
+      return `
+        <tr>
+
+          <td class="position">
+            ${i+1}
+          </td>
+
+          <td class="player-name">
+            ${escapeHTML(p.name)}
+          </td>
+
+          <td class="muted">
+            ${modes}
+          </td>
+
+          <td>
+            ${tags}
+          </td>
+
+          <td>
+            <b>${p.total}</b>
+          </td>
+
+        </tr>
+      `;
+
+    }).join("");
+
+    return;
+
+  }
+
+
+  /* SINGLE GAMEMODE */
+
+  const list = getFiltered()
+    .sort((a,b)=>
+      getPoints(b)-getPoints(a)
+    );
+
+
+  if(!list.length){
+
+    tbody.innerHTML =
+      `<tr>
+        <td colspan="5" class="empty">
+          No players found.
+        </td>
+      </tr>`;
+
+    return;
+  }
+
+
+  tbody.innerHTML = list.map((p,i)=>{
+
+    const tierClass =
+      p.tier.includes("1")
+      ? "tier-s"
+      : p.tier.includes("2")
+      ? "tier-a"
+      : p.tier.includes("3")
+      ? "tier-b"
+      : p.tier.includes("4")
+      ? "tier-c"
+      : "tier-d";
+
+
+    return `
+      <tr>
+
+        <td class="position">
+          ${i+1}
+        </td>
+
+        <td class="player-name">
+          ${escapeHTML(p.name)}
+        </td>
+
+        <td>
+          ${escapeHTML(p.mode)}
+        </td>
+
+        <td>
+          <span class="tier-tag ${tierClass}">
+            ${escapeHTML(p.tier)}
+          </span>
+        </td>
+
+        <td>
+          <b>${getPoints(p)}</b>
+        </td>
+
+      </tr>
+    `;
+
+  }).join("");
+
+}
+
+
+/* =========================
+   RENDER EVERYTHING
+========================= */
+
+function render(){
+
+  renderTierRankings();
+  renderLeaderboard();
+
+}
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+document
+  .getElementById("search")
+  .addEventListener("input",render);
+
+document
+  .getElementById("mode")
+  .addEventListener("change",render);
+
+document
+  .getElementById("tierFilter")
+  .addEventListener("change",render);
+
+
+/* =========================
+   START
+========================= */
+
+loadPlayers();
+
 </script>
-</body></html>
+
+</body>
+</html>
