@@ -38,16 +38,3 @@ on public.players for delete
 to authenticated
 using (true);
 
--- Optional demo data:
-insert into public.players (name,mode,tier,points,tests,icon) values
-('ClutchKing','AXE PVP','HT1',982,14,'⚔️'),
-('VoidX','NETPOT','MT1',955,11,'🌑'),
-('Deet','DIA KIT','HT2',918,9,'🔥'),
-('PixelRush','SMP KIT','LT2',876,12,'⚡'),
-('Bedrocker','UHC','HT3',820,8,'⛏️'),
-('ComboGod','E-MACE','MT3',794,10,'🎯'),
-('SkyPvper','CART PVP','HT4',730,7,'☁️'),
-('NetherAce','VANILLA CRYSTAL','LT4',698,9,'🌋'),
-('IronFang','TANK','HT5',620,6,'🛡️'),
-('BlockStorm','SPEAR MACE','LT5',584,8,'🧱')
-on conflict (name,mode) do nothing;
