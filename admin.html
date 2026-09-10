@@ -1,49 +1,543 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>VOID MC TIERS — Admin</title>
+
 <style>
-body{margin:0;background:#07090e;color:#f5f7fb;font-family:Arial,sans-serif}main{max-width:900px;margin:auto;padding:30px 18px}.box{background:#111621;border:1px solid #2a3241;border-radius:16px;padding:20px;margin-bottom:15px}
-h1{margin-top:0}input,select{width:100%;padding:12px;margin:7px 0 12px;box-sizing:border-box;background:#181e2a;color:#fff;border:1px solid #2a3241;border-radius:9px}
-button{padding:11px 15px;border:0;border-radius:9px;background:#7c5cff;color:#fff;font-weight:800;cursor:pointer;margin:4px}button.red{background:#8d3040}button.gray{background:#252d3b}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}.row{display:flex;justify-content:space-between;gap:10px;align-items:center}.muted{color:#929aaa;font-size:13px}.msg{padding:10px;border-radius:9px;background:#171d28;margin-bottom:10px}
-</style></head><body><main>
-<div class="box"><a href="index.html" style="color:white">← Public website</a><h1>🔐 VOID MC TIERS Admin</h1>
-<div id="auth">
-<p class="muted">Create/sign in to the admin account you made in Supabase Authentication.</p>
-<input id="email" type="email" placeholder="Admin email"><input id="password" type="password" placeholder="Password">
-<button onclick="login()">Login</button><button class="gray" onclick="signup()">Create account</button>
-</div><div id="app" style="display:none">
-<div id="who" class="muted"></div><button class="gray" onclick="logout()">Logout</button>
-<hr style="border-color:#2a3241;margin:18px 0">
-<h2>Add / Update Player</h2><input id="name" placeholder="Minecraft username">
-<select id="mode"></select><select id="tier"><option>HT1</option><option>MT1</option><option>LT1</option><option>HT2</option><option>MT2</option><option>LT2</option><option>HT3</option><option>MT3</option><option>LT3</option><option>HT4</option><option>MT4</option><option>LT4</option><option>HT5</option><option>MT5</option><option>LT5</option></select>
-<input id="points" type="number" value="100" min="0" placeholder="Points"><button onclick="savePlayer()">Publish Player</button><div id="msg" class="msg" style="display:none"></div>
-</div></div>
-<div class="box" id="listBox" style="display:none"><div class="row"><h2>Current Players</h2><button class="gray" onclick="loadPlayers()">Refresh</button></div><div id="list" class="grid"></div></div>
-</main>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script>
-<script>
-const modes=["AXE PVP","CART PVP","DIA KIT","E-MACE","NETPOT","SMP KIT","SPEAR MACE","TANK","UHC","VANILLA CRYSTAL"];
-const sb=window.VOID_SUPABASE&&window.VOID_SUPABASE.url&&window.VOID_SUPABASE.anonKey?supabase.createClient(window.VOID_SUPABASE.url,window.VOID_SUPABASE.anonKey):null;
-modes.forEach(m=>document.getElementById("mode").innerHTML+=`<option>${m}</option>`);
-async function signup(){
-  if(!sb)return alert("Configure Supabase first.");
-  const e=document.getElementById("email").value.trim();
-  const p=document.getElementById("password").value;
-  if(!e||!p)return alert("Please enter email and password.");
-  const {data,error}=await sb.auth.signUp({email:e,password:p});
-  if(error) return alert("SIGNUP ERROR: "+error.message);
-  alert("Account created! Check your email if confirmation is enabled.");
+body{
+  margin:0;
+  background:#07090e;
+  color:#f5f7fb;
+  font-family:Arial,sans-serif
 }
-async function login(){if(!sb)return alert("Configure Supabase first.");let {data,error}=await sb.auth.signInWithPassword({email:email.value,password:password.value});if(error)return alert(error.message);showApp(data.user)}
-async function logout(){await sb.auth.signOut();location.reload()}
-async function init(){if(!sb)return;const {data}=await sb.auth.getSession();if(data.session)showApp(data.session.user)}
-function showApp(u){document.getElementById("auth").style.display="none";document.getElementById("app").style.display="block";document.getElementById("listBox").style.display="block";document.getElementById("who").textContent="Signed in as "+u.email;loadPlayers()}
-async function savePlayer(){const name=document.getElementById("name").value.trim();if(!name)return alert("Enter a player name.");
-const row={name,mode:document.getElementById("mode").value,tier:document.getElementById("tier").value,points:Number(document.getElementById("points").value)||0,tests:1,icon:"👤"};
-const {error}=await sb.from("players").upsert(row,{onConflict:"name,mode"});if(error)return show(error.message);show("✅ Player published!");document.getElementById("name").value="";loadPlayers()}
-async function loadPlayers(){const {data,error}=await sb.from("players").select("*").order("points",{ascending:false});if(error)return show(error.message);document.getElementById("list").innerHTML=(data||[]).map(p=>`<div class="box"><b>${esc(p.name)}</b><br><span class="muted">${esc(p.mode)} • ${p.tier} • ${p.points} pts • ${p.tests} tests</span><br><button class="red" onclick="del('${p.id}')">Delete</button></div>`).join("")}
-async function del(id){if(!confirm("Delete this player?"))return;const {error}=await sb.from("players").delete().eq("id",id);if(error)return show(error.message);loadPlayers()}
-function show(x){const m=document.getElementById("msg");m.textContent=x;m.style.display="block"}function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+
+main{
+  max-width:900px;
+  margin:auto;
+  padding:30px 18px
+}
+
+.box{
+  background:#111621;
+  border:1px solid #2a3241;
+  border-radius:16px;
+  padding:20px;
+  margin-bottom:15px
+}
+
+h1{
+  margin-top:0
+}
+
+input,select{
+  width:100%;
+  padding:12px;
+  margin:7px 0 12px;
+  box-sizing:border-box;
+  background:#181e2a;
+  color:#fff;
+  border:1px solid #2a3241;
+  border-radius:9px
+}
+
+button{
+  padding:11px 15px;
+  border:0;
+  border-radius:9px;
+  background:#7c5cff;
+  color:#fff;
+  font-weight:800;
+  cursor:pointer;
+  margin:4px
+}
+
+button.red{
+  background:#8d3040
+}
+
+button.gray{
+  background:#252d3b
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:12px
+}
+
+.row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center
+}
+
+.muted{
+  color:#929aaa;
+  font-size:13px
+}
+
+.msg{
+  padding:10px;
+  border-radius:9px;
+  background:#171d28;
+  margin-bottom:10px
+}
+</style>
+</head>
+
+<body>
+
+<main>
+
+<div class="box">
+
+<a href="index.html" style="color:white">
+← Public website
+</a>
+
+<h1>🔐 VOID MC TIERS Admin</h1>
+
+<div id="auth">
+
+<p class="muted">
+Create/sign in to the admin account you made in Supabase Authentication.
+</p>
+
+<input
+  id="email"
+  type="email"
+  placeholder="Admin email"
+>
+
+<input
+  id="password"
+  type="password"
+  placeholder="Password"
+>
+
+<button onclick="login()">Login</button>
+
+<button class="gray" onclick="signup()">
+Create account
+</button>
+
+</div>
+
+
+<div id="app" style="display:none">
+
+<div id="who" class="muted"></div>
+
+<button class="gray" onclick="logout()">
+Logout
+</button>
+
+<hr style="border-color:#2a3241;margin:18px 0">
+
+<h2>Add / Update Player</h2>
+
+<input
+  id="name"
+  placeholder="Minecraft username"
+>
+
+<select id="mode"></select>
+
+<select id="tier">
+
+<option>HT1</option>
+<option>MT1</option>
+<option>LT1</option>
+
+<option>HT2</option>
+<option>MT2</option>
+<option>LT2</option>
+
+<option>HT3</option>
+<option>MT3</option>
+<option>LT3</option>
+
+<option>HT4</option>
+<option>MT4</option>
+<option>LT4</option>
+
+<option>HT5</option>
+<option>MT5</option>
+<option>LT5</option>
+
+</select>
+
+<!-- POINTS INPUT REMOVED -->
+
+<button onclick="savePlayer()">
+Publish Player
+</button>
+
+<div
+  id="msg"
+  class="msg"
+  style="display:none"
+></div>
+
+</div>
+
+</div>
+
+
+<div
+  class="box"
+  id="listBox"
+  style="display:none"
+>
+
+<div class="row">
+
+<h2>Current Players</h2>
+
+<button
+  class="gray"
+  onclick="loadPlayers()"
+>
+Refresh
+</button>
+
+</div>
+
+<div
+  id="list"
+  class="grid"
+></div>
+
+</div>
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="supabase-config.js"></script>
+
+<script>
+
+const modes=[
+  "AXE PVP",
+  "CART PVP",
+  "DIA KIT",
+  "E-MACE",
+  "NETPOT",
+  "SMP KIT",
+  "SPEAR MACE",
+  "TANK",
+  "UHC",
+  "VANILLA CRYSTAL"
+];
+
+
+const sb =
+  window.VOID_SUPABASE &&
+  window.VOID_SUPABASE.url &&
+  window.VOID_SUPABASE.anonKey
+  ? supabase.createClient(
+      window.VOID_SUPABASE.url,
+      window.VOID_SUPABASE.anonKey
+    )
+  : null;
+
+
+modes.forEach(m => {
+
+  document.getElementById("mode").innerHTML +=
+    `<option>${m}</option>`;
+
+});
+
+
+async function signup(){
+
+  if(!sb)
+    return alert("Configure Supabase first.");
+
+  const e =
+    document.getElementById("email")
+      .value
+      .trim();
+
+  const p =
+    document.getElementById("password")
+      .value;
+
+  if(!e || !p)
+    return alert(
+      "Please enter email and password."
+    );
+
+  const {data,error} =
+    await sb.auth.signUp({
+      email:e,
+      password:p
+    });
+
+  if(error)
+    return alert(
+      "SIGNUP ERROR: "+error.message
+    );
+
+  alert(
+    "Account created! Check your email if confirmation is enabled."
+  );
+}
+
+
+async function login(){
+
+  if(!sb)
+    return alert(
+      "Configure Supabase first."
+    );
+
+  const {
+    data,
+    error
+  } =
+    await sb.auth.signInWithPassword({
+
+      email:
+        document.getElementById("email").value,
+
+      password:
+        document.getElementById("password").value
+
+    });
+
+
+  if(error)
+    return alert(error.message);
+
+  showApp(data.user);
+}
+
+
+async function logout(){
+
+  await sb.auth.signOut();
+
+  location.reload();
+
+}
+
+
+async function init(){
+
+  if(!sb)
+    return;
+
+  const {data} =
+    await sb.auth.getSession();
+
+  if(data.session)
+    showApp(data.session.user);
+
+}
+
+
+function showApp(u){
+
+  document.getElementById("auth")
+    .style.display="none";
+
+  document.getElementById("app")
+    .style.display="block";
+
+  document.getElementById("listBox")
+    .style.display="block";
+
+  document.getElementById("who")
+    .textContent=
+      "Signed in as "+u.email;
+
+  loadPlayers();
+
+}
+
+
+async function savePlayer(){
+
+  const name =
+    document.getElementById("name")
+      .value
+      .trim();
+
+
+  if(!name)
+    return alert(
+      "Enter a player name."
+    );
+
+
+  /*
+    Points are NOT entered manually.
+
+    The public website calculates the
+    correct fixed points from the tier.
+  */
+
+  const row={
+
+    name:name,
+
+    mode:
+      document.getElementById("mode").value,
+
+    tier:
+      document.getElementById("tier").value,
+
+    icon:"👤"
+
+  };
+
+
+  const {error} =
+    await sb
+      .from("players")
+      .upsert(
+        row,
+        {
+          onConflict:"name,mode"
+        }
+      );
+
+
+  if(error)
+    return show(error.message);
+
+
+  show("✅ Player published!");
+
+  document.getElementById("name")
+    .value="";
+
+  loadPlayers();
+
+}
+
+
+async function loadPlayers(){
+
+  const {
+    data,
+    error
+  } =
+    await sb
+      .from("players")
+      .select("*")
+      .order(
+        "name",
+        {
+          ascending:true
+        }
+      );
+
+
+  if(error)
+    return show(error.message);
+
+
+  document.getElementById("list")
+    .innerHTML=
+      (data || [])
+        .map(p => `
+
+          <div class="box">
+
+            <b>
+              ${esc(p.name)}
+            </b>
+
+            <br>
+
+            <span class="muted">
+              ${esc(p.mode)} • ${p.tier}
+            </span>
+
+            <br>
+
+            <button
+              class="red"
+              onclick="del('${p.id}')"
+            >
+              Delete
+            </button>
+
+          </div>
+
+        `)
+        .join("");
+
+}
+
+
+async function del(id){
+
+  if(
+    !confirm(
+      "Delete this player?"
+    )
+  )
+    return;
+
+
+  const {error} =
+    await sb
+      .from("players")
+      .delete()
+      .eq("id",id);
+
+
+  if(error)
+    return show(error.message);
+
+
+  loadPlayers();
+
+}
+
+
+function show(x){
+
+  const m =
+    document.getElementById("msg");
+
+  m.textContent=x;
+
+  m.style.display="block";
+
+}
+
+
+function esc(s){
+
+  return String(s ?? "")
+    .replace(
+      /[&<>"']/g,
+      c =>
+        ({
+          "&":"&amp;",
+          "<":"&lt;",
+          ">":"&gt;",
+          '"':"&quot;",
+          "'":"&#039;"
+        }[c])
+    );
+
+}
+
+
 init();
-</script></body></html>
+
+</script>
+
+</body>
+</html>
