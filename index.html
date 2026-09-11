@@ -166,8 +166,94 @@ input:focus,select:focus{
 
 .medal{font-size:30px}
 .podium-rank{color:#85818c;font-size:12px;font-weight:900;margin-top:5px}
-.podium-name{font-size:20px;font-weight:950;margin:8px 0;word-break:break-word}
-.podium-points{color:#b86cff;font-weight:900}
+.podium-name{font-size:20px;font-weight:950;margin:8px 0 3px;word-break:break-word}
+.podium-points{color:#b86cff;font-weight:900;margin-top:9px}
+
+
+/* =====================================================
+   COMBAT TITLES
+===================================================== */
+
+.combat-title{
+  display:block;
+  margin-top:4px;
+  font-size:11px;
+  font-weight:950;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  line-height:1.2;
+}
+
+
+/* COMBAT ACE */
+
+.combat-ace{
+  color:#55d9ff;
+  text-shadow:
+    0 0 5px rgba(85,217,255,.8),
+    0 0 12px rgba(85,217,255,.45);
+}
+
+
+/* COMBAT MASTER */
+
+.combat-master{
+  color:#bd78ff;
+  text-shadow:
+    0 0 5px rgba(189,120,255,.9),
+    0 0 13px rgba(155,92,255,.6),
+    0 0 22px rgba(155,92,255,.25);
+}
+
+
+/* COMBAT GRANDMASTER */
+
+.combat-grandmaster{
+  color:#ffd65a;
+  text-shadow:
+    0 0 5px rgba(255,214,90,.95),
+    0 0 13px rgba(255,180,40,.65),
+    0 0 25px rgba(255,160,20,.3);
+}
+
+
+/* THE APEX */
+
+.combat-apex{
+  color:#ffffff;
+  font-size:12px;
+  letter-spacing:1.2px;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #ffd75a,
+    0 0 18px #ffb300,
+    0 0 30px rgba(255,180,40,.7);
+  animation:apexGlow 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes apexGlow{
+  from{
+    filter:brightness(1);
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #ffd75a,
+      0 0 18px #ffb300;
+  }
+
+  to{
+    filter:brightness(1.3);
+    text-shadow:
+      0 0 7px #fff,
+      0 0 14px #ffe48a,
+      0 0 25px #ffb300,
+      0 0 38px rgba(255,170,20,.75);
+  }
+}
+
+
+/* =====================================================
+   LEADERBOARD
+===================================================== */
 
 .card{
   background:rgba(13,13,17,.94);
@@ -211,6 +297,18 @@ tr:hover td{background:rgba(155,92,255,.035)}
 }
 
 .player-name:hover{color:#b978ff}
+
+.player-name-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+
+.player-name-text{
+  font-weight:900;
+  line-height:1.2;
+}
+
 
 /* =========================
    MC TIERS ICONS
@@ -373,6 +471,12 @@ tr:hover td{background:rgba(155,92,255,.035)}
 .profile-total{
   color:#b978ff;
   font-weight:900;
+  margin-top:5px;
+}
+
+.profile-combat{
+  margin-top:7px;
+  font-size:13px;
 }
 
 .close{
@@ -670,6 +774,11 @@ footer{
         </div>
 
         <div
+          id="profileCombat"
+          class="profile-combat"
+        ></div>
+
+        <div
           id="profileTotal"
           class="profile-total"
         >
@@ -732,9 +841,161 @@ const TIER_POINTS = {
 
 
 /* =====================================================
-   PHOTO-BASED MC TIERS SVG ICONS
+   COMBAT RANK SYSTEM
+===================================================== */
 
-   These SVG files go inside /icons/
+function getCombatRank(points){
+
+  /*
+    Below 1200:
+    Return nothing.
+    We do NOT display "Unranked".
+  */
+
+  if(points < 1200)
+    return null;
+
+
+  /* =========================
+     COMBAT ACE
+  ========================= */
+
+  if(points <= 2100){
+
+    return {
+      name:"COMBAT ACE I",
+      className:"combat-ace"
+    };
+
+  }
+
+  if(points <= 3000){
+
+    return {
+      name:"COMBAT ACE II",
+      className:"combat-ace"
+    };
+
+  }
+
+  if(points <= 3900){
+
+    return {
+      name:"COMBAT ACE III",
+      className:"combat-ace"
+    };
+
+  }
+
+
+  /* =========================
+     COMBAT MASTER
+  ========================= */
+
+  if(points <= 4800){
+
+    return {
+      name:"COMBAT MASTER I",
+      className:"combat-master"
+    };
+
+  }
+
+  if(points <= 5700){
+
+    return {
+      name:"COMBAT MASTER II",
+      className:"combat-master"
+    };
+
+  }
+
+  if(points <= 6600){
+
+    return {
+      name:"COMBAT MASTER III",
+      className:"combat-master"
+    };
+
+  }
+
+
+  /* =========================
+     COMBAT GRANDMASTER
+  ========================= */
+
+  if(points <= 7400){
+
+    return {
+      name:"COMBAT GRANDMASTER I",
+      className:"combat-grandmaster"
+    };
+
+  }
+
+  if(points <= 8200){
+
+    return {
+      name:"COMBAT GRANDMASTER II",
+      className:"combat-grandmaster"
+    };
+
+  }
+
+  if(points < 9000){
+
+    return {
+      name:"COMBAT GRANDMASTER III",
+      className:"combat-grandmaster"
+    };
+
+  }
+
+
+  /* =========================
+     THE APEX
+  ========================= */
+
+  if(points <= 10000){
+
+    return {
+      name:"THE APEX",
+      className:"combat-apex"
+    };
+
+  }
+
+
+  return null;
+
+}
+
+
+/* =========================
+   COMBAT TITLE HTML
+========================= */
+
+function combatTitleHTML(points){
+
+  const rank =
+    getCombatRank(points);
+
+
+  if(!rank)
+    return "";
+
+
+  return `
+    <span class="combat-title ${rank.className}">
+      ${rank.name}
+    </span>
+  `;
+
+}
+
+
+/* =====================================================
+   PHOTO-BASED MC TIERS SVG ICONS
 ===================================================== */
 
 const MODE_ICONS = {
@@ -846,11 +1107,6 @@ function getPoints(player){
 ========================= */
 
 function getDisplayTier(player){
-
-  /*
-    Keep the real tier as LT2/HT1/etc.
-    Only change what is displayed.
-  */
 
   if(player.retired === true){
 
@@ -1086,7 +1342,13 @@ function renderPodium(){
         </div>
 
         <div class="podium-name">
-          ${escapeHTML(p.name)}
+
+          <div>
+            ${escapeHTML(p.name)}
+          </div>
+
+          ${combatTitleHTML(p.total)}
+
         </div>
 
         <div class="podium-points">
@@ -1297,7 +1559,17 @@ function renderLeaderboard(){
             class="player-name"
             onclick="openProfile('${encodeURIComponent(p.name)}')"
           >
-            ${escapeHTML(p.name)}
+
+            <div class="player-name-wrap">
+
+              <div class="player-name-text">
+                ${escapeHTML(p.name)}
+              </div>
+
+              ${combatTitleHTML(p.total)}
+
+            </div>
+
           </td>
 
 
@@ -1372,7 +1644,17 @@ function renderLeaderboard(){
           class="player-name"
           onclick="openProfile('${encodeURIComponent(p.name)}')"
         >
-          ${escapeHTML(p.name)}
+
+          <div class="player-name-wrap">
+
+            <div class="player-name-text">
+              ${escapeHTML(p.name)}
+            </div>
+
+            ${combatTitleHTML(getPoints(p))}
+
+          </div>
+
         </td>
 
 
@@ -1451,6 +1733,12 @@ function openProfile(encodedName){
     .getElementById("profileName")
     .textContent =
       name;
+
+
+  document
+    .getElementById("profileCombat")
+    .innerHTML =
+      combatTitleHTML(total);
 
 
   document
