@@ -271,6 +271,7 @@ tr:hover td{background:rgba(155,92,255,.035)}
   border-radius:5px;
   background:#18151d;
   border:1px solid #342b3c;
+  white-space:nowrap;
 }
 
 .tier-1{
@@ -841,6 +842,28 @@ function getPoints(player){
 
 
 /* =========================
+   DISPLAY TIER
+========================= */
+
+function getDisplayTier(player){
+
+  /*
+    Keep the real tier as LT2/HT1/etc.
+    Only change what is displayed.
+  */
+
+  if(player.retired === true){
+
+    return `R-${player.tier}`;
+
+  }
+
+  return player.tier;
+
+}
+
+
+/* =========================
    TIER CLASS
 ========================= */
 
@@ -877,7 +900,7 @@ async function loadPlayers(){
     error
   } = await sb
     .from("players")
-    .select("name,mode,tier,points,tests");
+    .select("name,mode,tier,points,tests,retired");
 
 
   if(error){
@@ -997,6 +1020,7 @@ function buildOverall(){
 
       mode:player.mode,
       tier:player.tier,
+      retired:player.retired === true,
       points:points
 
     });
@@ -1103,7 +1127,11 @@ function createModeIcons(modes){
         <span
           class="mode-tier ${getTierClass(x.tier)}"
         >
-          ${escapeHTML(x.tier)}
+          ${escapeHTML(
+            x.retired === true
+              ? `R-${x.tier}`
+              : x.tier
+          )}
         </span>
 
       </div>
@@ -1366,7 +1394,11 @@ function renderLeaderboard(){
               <span
                 class="mode-tier ${getTierClass(p.tier)}"
               >
-                ${escapeHTML(p.tier)}
+                ${escapeHTML(
+                  p.retired === true
+                    ? `R-${p.tier}`
+                    : p.tier
+                )}
               </span>
 
             </div>
@@ -1457,7 +1489,7 @@ function openProfile(encodedName){
               <span
                 class="mode-tier ${getTierClass(p.tier)}"
               >
-                ${escapeHTML(p.tier)}
+                ${escapeHTML(getDisplayTier(p))}
               </span>
 
               <div
@@ -1559,4 +1591,4 @@ loadPlayers();
 </script>
 
 </body>
-  </html>
+</html>
