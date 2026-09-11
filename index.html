@@ -3,13 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-
 <title>VOID MC TIERS</title>
 
 <style>
-
 *{box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -25,8 +22,6 @@ body{
   font-family:Arial,Helvetica,sans-serif;
 }
 
-/* ================= HEADER ================= */
-
 header{
   height:66px;
   background:rgba(5,5,8,.93);
@@ -41,22 +36,10 @@ header{
   backdrop-filter:blur(14px);
 }
 
-.logo{
-  font-size:20px;
-  font-weight:900;
-  letter-spacing:.5px;
-}
+.logo{font-size:20px;font-weight:900;letter-spacing:.5px}
+.logo span{color:#a45cff;text-shadow:0 0 14px rgba(164,92,255,.45)}
 
-.logo span{
-  color:#a45cff;
-  text-shadow:0 0 14px rgba(164,92,255,.45);
-}
-
-.header-buttons{
-  display:flex;
-  gap:8px;
-  align-items:center;
-}
+.header-buttons{display:flex;gap:8px;align-items:center}
 
 .header-btn{
   color:white;
@@ -80,20 +63,9 @@ header{
   border-color:#9658ef;
 }
 
-/* ================= MAIN ================= */
+main{max-width:1150px;margin:auto;padding:35px 20px 70px}
 
-main{
-  max-width:1150px;
-  margin:auto;
-  padding:35px 20px 70px;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-  text-align:center;
-  padding:40px 15px 35px;
-}
+.hero{text-align:center;padding:40px 15px 35px}
 
 .hero h1{
   margin:0;
@@ -103,21 +75,12 @@ main{
   text-shadow:0 0 35px rgba(155,92,255,.2);
 }
 
-.hero h1 span{
-  color:#a45cff;
-}
-
-.hero p{
-  color:#929292;
-  margin:13px 0 0;
-  font-size:16px;
-}
-
-/* ================= STATS ================= */
+.hero h1 span{color:#a45cff}
+.hero p{color:#929292;margin:13px 0 0;font-size:16px}
 
 .stats{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:1fr 1fr;
   gap:12px;
   margin-bottom:28px;
 }
@@ -131,11 +94,7 @@ main{
   box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
-.stat-value{
-  font-size:28px;
-  font-weight:950;
-  color:#b86cff;
-}
+.stat-value{font-size:28px;font-weight:950;color:#b86cff}
 
 .stat-label{
   margin-top:5px;
@@ -144,8 +103,6 @@ main{
   text-transform:uppercase;
   letter-spacing:.7px;
 }
-
-/* ================= CONTROLS ================= */
 
 .controls{
   display:grid;
@@ -170,15 +127,11 @@ input:focus,select:focus{
   box-shadow:0 0 0 2px rgba(155,92,255,.09);
 }
 
-/* ================= SECTION ================= */
-
 .section-title{
   font-size:25px;
   font-weight:950;
   margin:28px 0 14px;
 }
-
-/* ================= PODIUM ================= */
 
 .podium{
   display:grid;
@@ -197,11 +150,10 @@ input:focus,select:focus{
   text-align:center;
   overflow:hidden;
   transition:.25s;
+  cursor:pointer;
 }
 
-.podium-card:hover{
-  transform:translateY(-4px);
-}
+.podium-card:hover{transform:translateY(-4px)}
 
 .podium-card.first{
   padding-top:30px;
@@ -209,38 +161,13 @@ input:focus,select:focus{
   box-shadow:0 0 30px rgba(155,92,255,.14);
 }
 
-.podium-card.second{
-  border-color:#686879;
-}
+.podium-card.second{border-color:#686879}
+.podium-card.third{border-color:#874d35}
 
-.podium-card.third{
-  border-color:#874d35;
-}
-
-.medal{
-  font-size:30px;
-}
-
-.podium-rank{
-  color:#85818c;
-  font-size:12px;
-  font-weight:900;
-  margin-top:5px;
-}
-
-.podium-name{
-  font-size:20px;
-  font-weight:950;
-  margin:8px 0;
-  word-break:break-word;
-}
-
-.podium-points{
-  color:#b86cff;
-  font-weight:900;
-}
-
-/* ================= CARD ================= */
+.medal{font-size:30px}
+.podium-rank{color:#85818c;font-size:12px;font-weight:900;margin-top:5px}
+.podium-name{font-size:20px;font-weight:950;margin:8px 0;word-break:break-word}
+.podium-points{color:#b86cff;font-weight:900}
 
 .card{
   background:rgba(13,13,17,.94);
@@ -250,11 +177,7 @@ input:focus,select:focus{
   box-shadow:0 10px 35px rgba(0,0,0,.28);
 }
 
-/* ================= TABLE ================= */
-
-.table-wrap{
-  overflow-x:auto;
-}
+.table-wrap{overflow-x:auto}
 
 table{
   width:100%;
@@ -278,14 +201,8 @@ td{
   vertical-align:middle;
 }
 
-tr:hover td{
-  background:rgba(155,92,255,.035);
-}
-
-.position{
-  color:#777;
-  font-weight:900;
-}
+tr:hover td{background:rgba(155,92,255,.035)}
+.position{color:#777;font-weight:900}
 
 .player-name{
   font-weight:900;
@@ -293,18 +210,16 @@ tr:hover td{
   transition:.15s;
 }
 
-.player-name:hover{
-  color:#b978ff;
-}
+.player-name:hover{color:#b978ff}
 
-/* =====================================================
-   MC TIERS STYLE ICON SYSTEM
-===================================================== */
+/* =========================
+   MC TIERS ICONS
+========================= */
 
 .mode-list{
   display:flex;
   flex-wrap:wrap;
-  gap:8px;
+  gap:9px;
   align-items:flex-start;
 }
 
@@ -322,29 +237,31 @@ tr:hover td{
   height:46px;
   border-radius:50%;
   background:
-    radial-gradient(circle at 35% 28%,#252934,#10131a 68%);
-  border:2px solid #272c38;
+    radial-gradient(circle at 35% 28%,#252531,#111119 65%);
+  border:2px solid #2e2d3c;
   display:flex;
   align-items:center;
   justify-content:center;
   box-shadow:
-    inset 0 0 9px rgba(255,255,255,.035),
-    0 3px 12px rgba(0,0,0,.4);
+    inset 0 0 8px rgba(255,255,255,.025),
+    0 3px 12px rgba(0,0,0,.35);
   transition:.2s;
+  overflow:hidden;
 }
 
 .mode-item:hover .mode-icon-wrap{
-  transform:scale(1.08);
+  transform:scale(1.1);
   border-color:#9b5cff;
   box-shadow:
     0 0 14px rgba(155,92,255,.4),
-    inset 0 0 9px rgba(255,255,255,.05);
+    inset 0 0 8px rgba(255,255,255,.04);
 }
 
 .mode-svg{
-  width:31px;
-  height:31px;
-  overflow:visible;
+  width:34px;
+  height:34px;
+  display:block;
+  object-fit:contain;
 }
 
 .mode-tier{
@@ -355,8 +272,6 @@ tr:hover td{
   background:#18151d;
   border:1px solid #342b3c;
 }
-
-/* ================= TIER COLORS ================= */
 
 .tier-1{
   color:#ffd84a;
@@ -393,14 +308,7 @@ tr:hover td{
   box-shadow:0 0 10px rgba(255,70,85,.1);
 }
 
-/* ================= POINTS ================= */
-
-.points{
-  font-weight:950;
-  color:#fff;
-}
-
-/* ================= INFO ================= */
+.points{font-weight:950;color:#fff}
 
 .info{
   padding:25px;
@@ -412,20 +320,14 @@ tr:hover td{
   margin-top:0;
 }
 
-.info h4{
-  margin-bottom:5px;
-}
+.info h4{margin-bottom:5px}
 
 .info li{
   margin:6px 0;
   color:#c5c5c5;
 }
 
-.info strong{
-  color:#ff6975;
-}
-
-/* ================= MODAL ================= */
+.info strong{color:#ff6975}
 
 .modal-bg{
   position:fixed;
@@ -439,9 +341,7 @@ tr:hover td{
   padding:15px;
 }
 
-.modal-bg.show{
-  display:flex;
-}
+.modal-bg.show{display:flex}
 
 .profile{
   width:min(650px,100%);
@@ -501,9 +401,7 @@ tr:hover td{
   gap:12px;
 }
 
-.profile-mode .mode-icon-wrap{
-  flex-shrink:0;
-}
+.profile-mode .mode-icon-wrap{flex-shrink:0}
 
 .profile-mode-name{
   color:#85818c;
@@ -511,15 +409,11 @@ tr:hover td{
   margin-bottom:4px;
 }
 
-/* ================= EMPTY ================= */
-
 .empty{
   padding:35px;
   text-align:center;
   color:#777;
 }
-
-/* ================= FOOTER ================= */
 
 footer{
   text-align:center;
@@ -529,50 +423,32 @@ footer{
   font-size:13px;
 }
 
-/* ================= MOBILE ================= */
-
 @media(max-width:750px){
 
-  header{
-    padding:0 12px;
-  }
+  header{padding:0 12px}
 
   .header-btn{
     padding:8px 9px;
     font-size:12px;
   }
 
-  .stats{
-    grid-template-columns:1fr;
-  }
+  .stats{grid-template-columns:1fr}
 
-  .controls{
-    grid-template-columns:1fr;
-  }
+  .controls{grid-template-columns:1fr}
 
   .podium{
     grid-template-columns:1fr;
     align-items:stretch;
   }
 
-  .podium-card.first{
-    order:-1;
-  }
+  .podium-card.first{order:-1}
 
-  .profile-grid{
-    grid-template-columns:1fr;
-  }
+  .profile-grid{grid-template-columns:1fr}
 
-  main{
-    padding:25px 12px 50px;
-  }
+  main{padding:25px 12px 50px}
 
-  .hero h1{
-    font-size:47px;
-  }
-
+  .hero h1{font-size:47px}
 }
-
 </style>
 </head>
 
@@ -590,6 +466,7 @@ footer{
       class="header-btn discord-btn"
       href="YOUR_DISCORD_INVITE"
       target="_blank"
+      rel="noopener noreferrer"
     >
       💬 Discord
     </a>
@@ -627,11 +504,6 @@ footer{
   </div>
 
   <div class="stat">
-    <div id="statTests" class="stat-value">0</div>
-    <div class="stat-label">Tests</div>
-  </div>
-
-  <div class="stat">
     <div id="statHT1" class="stat-value">0</div>
     <div class="stat-label">HT1 Players</div>
   </div>
@@ -657,9 +529,10 @@ footer{
   <select id="mode">
 
     <option value="ALL">Overall</option>
+
     <option value="AXE PVP">AXE PVP</option>
     <option value="CART PVP">CART PVP</option>
-    <option value="DIA KIT">DIA KIT</option>
+    <option value="DIA-SMP-KIT">DIA-SMP-KIT</option>
     <option value="E-MACE">E-MACE</option>
     <option value="NETHPOT">NETHPOT</option>
     <option value="SMP KIT">SMP KIT</option>
@@ -858,398 +731,81 @@ const TIER_POINTS = {
 
 
 /* =====================================================
-   MC TIERS STYLE SVG ICONS
+   PHOTO-BASED MC TIERS SVG ICONS
+
+   These SVG files go inside /icons/
 ===================================================== */
+
+const MODE_ICONS = {
+
+  "AXE PVP":
+    "icons/axe-pvp.svg",
+
+  "CART PVP":
+    "icons/minecart.svg",
+
+  "DIA-SMP-KIT":
+    "icons/dia-smp-kit.svg",
+
+  "E-MACE":
+    "icons/emace.svg",
+
+  "NETHPOT":
+    "icons/nethpot.svg",
+
+  "SMP KIT":
+    "icons/smp-kit.svg",
+
+  "SPEAR MACE":
+    "icons/spear-mace.svg",
+
+  "TANK":
+    "icons/tank.svg",
+
+  "UHC":
+    "icons/uhc.svg",
+
+  "VANILLA CRYSTAL":
+    "icons/vanilla-crystal.svg"
+
+};
+
 
 function svgIcon(mode){
 
-  const icons = {
+  const src = MODE_ICONS[mode];
 
-    /* ================= AXE ================= */
+  if(!src){
 
-    "AXE PVP": `
-      <svg class="mode-svg" viewBox="0 0 48 48">
-
-        <path
-          d="M13 39 L31 20"
-          stroke="#a9b0bd"
-          stroke-width="4"
-          stroke-linecap="round"
-        />
-
-        <path
-          d="M10 9
-             C16 5 24 6 30 12
-             L38 20
-             L29 29
-             L21 21
-             L13 22
-             L8 17
-             Z"
-          fill="#777d89"
-          stroke="#e5e8ed"
-          stroke-width="2"
-        />
-
-        <path
-          d="M12 10 L30 28"
-          stroke="#424752"
-          stroke-width="3"
-        />
-
-      </svg>
-    `,
-
-
-    /* ================= CART ================= */
-
-    "CART PVP": `
-      <svg class="mode-svg" viewBox="0 0 48 48">
-
-        <path
-          d="M8 12 H14 L17 31 H37 L40 17 H15"
-          fill="none"
-          stroke="#e1e4ea"
-          stroke-width="3"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-
-        <path
-          d="M17 18 H38 L36 29 H19 Z"
-          fill="#666d79"
-          stroke="#cdd2db"
-          stroke-width="2"
-        />
-
+    return `
+      <svg
+        class="mode-svg"
+        viewBox="0 0 40 40"
+        aria-hidden="true"
+      >
         <circle
-          cx="21"
-          cy="36"
-          r="3.5"
-          fill="#aeb4bf"
-        />
-
-        <circle
-          cx="34"
-          cy="36"
-          r="3.5"
-          fill="#aeb4bf"
-        />
-
-      </svg>
-    `,
-
-
-    /* ================= DIAMOND KIT ================= */
-
-    "DIA KIT": `
-      <svg class="mode-svg" viewBox="0 0 48 48">
-
-        <path
-          d="M6 17 L14 8 H34 L42 17 L24 41 Z"
-          fill="#42c9dc"
-          stroke="#d5fbff"
-          stroke-width="2"
-        />
-
-        <path
-          d="M6 17 H42 L24 41 Z"
-          fill="#238da9"
-          opacity=".75"
-        />
-
-        <path
-          d="M14 8 L24 17 L34 8"
-          fill="none"
-          stroke="#eaffff"
-          stroke-width="2"
-        />
-
-        <path
-          d="M24 17 V41"
-          stroke="#55e4ee"
-          stroke-width="2"
-        />
-
-      </svg>
-    `,
-
-
-    /* ================= MACE ================= */
-
-    "E-MACE": `
-      <svg class="mode-svg" viewBox="0 0 48 48">
-
-        <path
-          d="M24 18 V42"
-          stroke="#c8ccd4"
-          stroke-width="5"
-          stroke-linecap="round"
-        />
-
-        <path
-          d="M12 7
-             H36
-             L40 15
-             H8
-             Z"
-          fill="#747a86"
-          stroke="#f0f2f5"
-          stroke-width="2"
-          stroke-linejoin="round"
-        />
-
-        <path
-          d="M12 15 L17 21 L24 15 L31 21 L36 15"
-          fill="none"
-          stroke="#aeb4be"
-          stroke-width="2"
-        />
-
-      </svg>
-    `,
-
-
-    /* ================= NETHPOT ================= */
-
-    "NETHPOT": `
-      <svg class="mode-svg" viewBox="0 0 48 48">
-
-        <path
-          d="M17 11 H31 L29 16 H19 Z"
-          fill="#777d88"
-          stroke="#e9ebef"
-          stroke-width="2"
-        />
-
-        <path
-          d="M19 15
-             L16 19
-             V34
-             C16 38 19 40 24 40
-             C29 40 32 38 32 34
-             V19
-             L29 15
-             Z"
-          fill="#803f9d"
-          stroke="#e9bfff"
-          stroke-width="2"
-        />
-
-        <path
-          d="M18 29
-             C21 27 27 34 31 29"
-          fill="none"
-          stroke="#c884e8"
-          stroke-width="2"
-        />
-
-      </svg>
-    `,
-
-
-    /* ================= SMP / ENDER PEARL ================= */
-
-    "SMP KIT": `
-      <svg class="mode-svg" viewBox="0 0 48 48">
-
-        <defs>
-          <radialGradient id="pearlGradient">
-            <stop offset="0%" stop-color="#75e0c3"/>
-            <stop offset="45%" stop-color="#15947c"/>
-            <stop offset="100%" stop-color="#064f48"/>
-          </radialGradient>
-        </defs>
-
-        <ellipse
-          cx="24"
-          cy="25"
-          rx="13"
-          ry="16"
-          fill="url(#pearlGradient)"
-          stroke="#55d9bd"
-          stroke-width="2"
-        />
-
-        <ellipse
           cx="20"
-          cy="19"
-          rx="4"
-          ry="6"
-          fill="#b1ffe9"
-          opacity=".4"
+          cy="20"
+          r="12"
+          fill="#777"
+          stroke="#ddd"
+          stroke-width="2"
         />
-
       </svg>
-    `,
+    `;
 
+  }
 
-    /* ================= SPEAR ================= */
+  return `
 
-    "SPEAR MACE": `
-      <svg class="mode-svg" viewBox="0 0 48 48">
+    <img
+      class="mode-svg"
+      src="${src}"
+      alt="${escapeHTML(mode)}"
+      loading="lazy"
+      draggable="false"
+    >
 
-        <path
-          d="M24 5 V43"
-          stroke="#bfc5ce"
-          stroke-width="3"
-          stroke-linecap="round"
-        />
-
-        <path
-          d="M24 5
-             L35 18
-             L27 15
-             L24 22
-             L21 15
-             L13 18
-             Z"
-          fill="#5bbfce"
-          stroke="#d9fbff"
-          stroke-width="2"
-          stroke-linejoin="round"
-        />
-
-        <path
-          d="M18 35 L24 43 L30 35"
-          fill="none"
-          stroke="#777e8b"
-          stroke-width="2"
-        />
-
-      </svg>
-    `,
-
-
-    /* ================= TANK ================= */
-
-    "TANK": `
-      <svg class="mode-svg" viewBox="0 0 48 48">
-
-        <path
-          d="M14 7
-             H34
-             L40 14
-             V34
-             L24 42
-             L8 34
-             V14
-             Z"
-          fill="#656b77"
-          stroke="#e2e5ea"
-          stroke-width="2"
-          stroke-linejoin="round"
-        />
-
-        <path
-          d="M14 7 L24 16 L34 7"
-          fill="none"
-          stroke="#f4f5f7"
-          stroke-width="2"
-        />
-
-        <path
-          d="M24 16 V42"
-          stroke="#9ea5b0"
-          stroke-width="2"
-        />
-
-      </svg>
-    `,
-
-
-    /* ================= UHC HEART ================= */
-
-    "UHC": `
-      <svg class="mode-svg" viewBox="0 0 48 48">
-
-        <path
-          d="M24 40
-             L8 24
-             C2 18 6 8 15 8
-             C20 8 23 11 24 15
-             C25 11 28 8 33 8
-             C42 8 46 18 40 24
-             Z"
-          fill="#d94a5a"
-          stroke="#ff9ba5"
-          stroke-width="2"
-        />
-
-        <path
-          d="M13 15
-             C16 12 20 13 22 17"
-          fill="none"
-          stroke="#ffccd1"
-          stroke-width="2"
-          opacity=".7"
-        />
-
-      </svg>
-    `,
-
-
-    /* ================= END CRYSTAL ================= */
-
-    "VANILLA CRYSTAL": `
-      <svg class="mode-svg" viewBox="0 0 48 48">
-
-        <path
-          d="M24 4
-             L38 14
-             L34 34
-             L24 44
-             L14 34
-             L10 14
-             Z"
-          fill="#a95de0"
-          stroke="#f0c7ff"
-          stroke-width="2"
-          stroke-linejoin="round"
-        />
-
-        <path
-          d="M24 4 V44
-             M10 14 H38
-             M14 34 H34"
-          fill="none"
-          stroke="#703694"
-          stroke-width="2"
-        />
-
-        <circle
-          cx="24"
-          cy="24"
-          r="6"
-          fill="#f7dcff"
-          opacity=".8"
-        />
-
-        <circle
-          cx="22"
-          cy="22"
-          r="2"
-          fill="#ffffff"
-        />
-
-      </svg>
-    `
-
-  };
-
-  return icons[mode] || `
-    <svg class="mode-svg" viewBox="0 0 48 48">
-
-      <circle
-        cx="24"
-        cy="24"
-        r="13"
-        fill="#777"
-        stroke="#ddd"
-        stroke-width="2"
-      />
-
-    </svg>
   `;
 
 }
@@ -1278,7 +834,9 @@ const sb =
 ========================= */
 
 function getPoints(player){
+
   return TIER_POINTS[player.tier] || 0;
+
 }
 
 
@@ -1288,12 +846,20 @@ function getPoints(player){
 
 function getTierClass(tier){
 
-  if(!tier) return "";
+  if(!tier)
+    return "";
 
-  if(tier.includes("1")) return "tier-1";
-  if(tier.includes("2")) return "tier-2";
-  if(tier.includes("3")) return "tier-3";
-  if(tier.includes("4")) return "tier-4";
+  if(tier.includes("1"))
+    return "tier-1";
+
+  if(tier.includes("2"))
+    return "tier-2";
+
+  if(tier.includes("3"))
+    return "tier-3";
+
+  if(tier.includes("4"))
+    return "tier-4";
 
   return "tier-5";
 
@@ -1349,7 +915,9 @@ async function loadPlayers(){
 
 
   updateStats();
+
   renderPodium();
+
   renderLeaderboard();
 
 }
@@ -1367,14 +935,6 @@ function updateStats(){
     ).size;
 
 
-  const tests =
-    players.reduce(
-      (sum,p)=>
-        sum + (Number(p.tests) || 1),
-      0
-    );
-
-
   const ht1 =
     new Set(
       players
@@ -1383,14 +943,16 @@ function updateStats(){
     ).size;
 
 
-  document.getElementById("statPlayers").textContent =
-    uniquePlayers;
+  document
+    .getElementById("statPlayers")
+    .textContent =
+      uniquePlayers;
 
-  document.getElementById("statTests").textContent =
-    tests;
 
-  document.getElementById("statHT1").textContent =
-    ht1;
+  document
+    .getElementById("statHT1")
+    .textContent =
+      ht1;
 
 }
 
@@ -1420,11 +982,16 @@ function buildOverall(){
     }
 
 
-    const p = map.get(player.name);
+    const p =
+      map.get(player.name);
 
-    const points = getPoints(player);
+
+    const points =
+      getPoints(player);
+
 
     p.total += points;
+
 
     p.modes.push({
 
@@ -1439,7 +1006,7 @@ function buildOverall(){
 
   return [...map.values()]
     .sort(
-      (a,b)=>
+      (a,b) =>
         b.total-a.total
     );
 
@@ -1517,7 +1084,7 @@ function createModeIcons(modes){
 
   return modes
     .sort(
-      (a,b)=>
+      (a,b) =>
         b.points-a.points
     )
     .map(x => `
@@ -1735,7 +1302,7 @@ function renderLeaderboard(){
   const list =
     getFiltered()
       .sort(
-        (a,b)=>
+        (a,b) =>
           getPoints(b) -
           getPoints(a)
       );
@@ -1842,7 +1409,7 @@ function openProfile(encodedName){
 
   const total =
     playerModes.reduce(
-      (sum,p)=>
+      (sum,p) =>
         sum + getPoints(p),
       0
     );
@@ -1867,7 +1434,7 @@ function openProfile(encodedName){
 
       playerModes
         .sort(
-          (a,b)=>
+          (a,b) =>
             getPoints(b) -
             getPoints(a)
         )
