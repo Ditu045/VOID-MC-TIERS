@@ -8,29 +8,17 @@
 
 <style>
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
   background:
-    radial-gradient(circle at 0% 0%,
-      rgba(50,110,255,.25),
-      transparent 36%),
-    radial-gradient(circle at 100% 0%,
-      rgba(155,92,255,.27),
-      transparent 36%),
-    radial-gradient(circle at 0% 100%,
-      rgba(155,92,255,.20),
-      transparent 38%),
-    radial-gradient(circle at 100% 100%,
-      rgba(40,120,255,.20),
-      transparent 38%),
+    radial-gradient(circle at 0% 0%,rgba(50,110,255,.25),transparent 36%),
+    radial-gradient(circle at 100% 0%,rgba(155,92,255,.27),transparent 36%),
+    radial-gradient(circle at 0% 100%,rgba(155,92,255,.20),transparent 38%),
+    radial-gradient(circle at 100% 100%,rgba(40,120,255,.20),transparent 38%),
     #050505;
   background-attachment:fixed;
   color:#f5f5f5;
@@ -115,9 +103,7 @@ main{
   text-shadow:0 0 35px rgba(155,92,255,.2);
 }
 
-.hero h1 span{
-  color:#a45cff;
-}
+.hero h1 span{color:#a45cff}
 
 .hero p{
   color:#929292;
@@ -166,8 +152,7 @@ main{
   margin-bottom:28px;
 }
 
-input,
-select{
+input,select{
   width:100%;
   background:#101016;
   color:#eee;
@@ -178,8 +163,7 @@ select{
   outline:none;
 }
 
-input:focus,
-select:focus{
+input:focus,select:focus{
   border-color:#9b5cff;
   box-shadow:0 0 0 2px rgba(155,92,255,.09);
 }
@@ -213,9 +197,7 @@ select:focus{
   transition:.25s;
 }
 
-.podium-card:hover{
-  transform:translateY(-4px);
-}
+.podium-card:hover{transform:translateY(-4px)}
 
 .podium-card.first{
   padding-top:30px;
@@ -223,17 +205,10 @@ select:focus{
   box-shadow:0 0 30px rgba(155,92,255,.14);
 }
 
-.podium-card.second{
-  border-color:#686879;
-}
+.podium-card.second{border-color:#686879}
+.podium-card.third{border-color:#874d35}
 
-.podium-card.third{
-  border-color:#874d35;
-}
-
-.medal{
-  font-size:30px;
-}
+.medal{font-size:30px}
 
 .podium-rank{
   color:#85818c;
@@ -266,9 +241,7 @@ select:focus{
 
 /* ================= TABLE ================= */
 
-.table-wrap{
-  overflow-x:auto;
-}
+.table-wrap{overflow-x:auto}
 
 table{
   width:100%;
@@ -307,11 +280,12 @@ tr:hover td{
   transition:.15s;
 }
 
-.player-name:hover{
-  color:#b978ff;
-}
+.player-name:hover{color:#b978ff}
 
-/* ================= MODE ICONS ================= */
+/* =====================================================
+   NEW ICON SYSTEM
+   No PNGs required
+===================================================== */
 
 .mode-list{
   display:flex;
@@ -321,25 +295,42 @@ tr:hover td{
 }
 
 .mode-item{
-  width:60px;
-  min-height:75px;
+  width:58px;
+  min-height:72px;
   display:flex;
   flex-direction:column;
   align-items:center;
   gap:5px;
 }
 
-.mode-icon{
+.mode-icon-wrap{
   width:46px;
   height:46px;
-  object-fit:contain;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 28%,#252531,#111119 65%);
+  border:2px solid #2e2d3c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:
+    inset 0 0 8px rgba(255,255,255,.025),
+    0 3px 12px rgba(0,0,0,.35);
   transition:.2s;
-  filter:drop-shadow(0 0 5px rgba(155,92,255,.18));
 }
 
-.mode-item:hover .mode-icon{
+.mode-item:hover .mode-icon-wrap{
   transform:scale(1.1);
-  filter:drop-shadow(0 0 10px rgba(155,92,255,.5));
+  border-color:#9b5cff;
+  box-shadow:
+    0 0 14px rgba(155,92,255,.4),
+    inset 0 0 8px rgba(255,255,255,.04);
+}
+
+.mode-svg{
+  width:30px;
+  height:30px;
+  overflow:visible;
 }
 
 .mode-tier{
@@ -407,18 +398,14 @@ tr:hover td{
   margin-top:0;
 }
 
-.info h4{
-  margin-bottom:5px;
-}
+.info h4{margin-bottom:5px}
 
 .info li{
   margin:6px 0;
   color:#c5c5c5;
 }
 
-.info strong{
-  color:#ff6975;
-}
+.info strong{color:#ff6975}
 
 /* ================= MODAL ================= */
 
@@ -434,9 +421,7 @@ tr:hover td{
   padding:15px;
 }
 
-.modal-bg.show{
-  display:flex;
-}
+.modal-bg.show{display:flex}
 
 .profile{
   width:min(650px,100%);
@@ -496,10 +481,8 @@ tr:hover td{
   gap:12px;
 }
 
-.profile-mode img{
-  width:45px;
-  height:45px;
-  object-fit:contain;
+.profile-mode .mode-icon-wrap{
+  flex-shrink:0;
 }
 
 .profile-mode-name{
@@ -530,54 +513,36 @@ footer{
 
 @media(max-width:750px){
 
-  header{
-    padding:0 12px;
-  }
+  header{padding:0 12px}
 
   .header-btn{
     padding:8px 9px;
     font-size:12px;
   }
 
-  .stats{
-    grid-template-columns:1fr;
-  }
+  .stats{grid-template-columns:1fr}
 
-  .controls{
-    grid-template-columns:1fr;
-  }
+  .controls{grid-template-columns:1fr}
 
   .podium{
     grid-template-columns:1fr;
     align-items:stretch;
   }
 
-  .podium-card.first{
-    order:-1;
-  }
+  .podium-card.first{order:-1}
 
-  .profile-grid{
-    grid-template-columns:1fr;
-  }
+  .profile-grid{grid-template-columns:1fr}
 
-  main{
-    padding:25px 12px 50px;
-  }
+  main{padding:25px 12px 50px}
 
-  .hero h1{
-    font-size:47px;
-  }
+  .hero h1{font-size:47px}
 
 }
 
 </style>
 </head>
 
-
 <body>
-
-
-<!-- ================= HEADER ================= -->
 
 <header>
 
@@ -606,11 +571,7 @@ footer{
 
 </header>
 
-
 <main>
-
-
-<!-- ================= HERO ================= -->
 
 <section class="hero">
 
@@ -624,81 +585,32 @@ footer{
 
 </section>
 
-
-<!-- ================= STATS ================= -->
-
 <div class="stats">
 
   <div class="stat">
-
-    <div
-      id="statPlayers"
-      class="stat-value"
-    >
-      0
-    </div>
-
-    <div class="stat-label">
-      Players
-    </div>
-
+    <div id="statPlayers" class="stat-value">0</div>
+    <div class="stat-label">Players</div>
   </div>
 
-
   <div class="stat">
-
-    <div
-      id="statTests"
-      class="stat-value"
-    >
-      0
-    </div>
-
-    <div class="stat-label">
-      Tests
-    </div>
-
+    <div id="statTests" class="stat-value">0</div>
+    <div class="stat-label">Tests</div>
   </div>
 
-
   <div class="stat">
-
-    <div
-      id="statHT1"
-      class="stat-value"
-    >
-      0
-    </div>
-
-    <div class="stat-label">
-      HT1 Players
-    </div>
-
+    <div id="statHT1" class="stat-value">0</div>
+    <div class="stat-label">HT1 Players</div>
   </div>
 
 </div>
-
-
-<!-- ================= TOP 3 ================= -->
 
 <div class="section-title">
   🏆 Top Players
 </div>
 
-
-<div
-  id="podium"
-  class="podium"
->
-
-  <div class="empty">
-    Loading...
-  </div>
-
+<div id="podium" class="podium">
+  <div class="empty">Loading...</div>
 </div>
-
-
-<!-- ================= FILTERS ================= -->
 
 <div class="controls">
 
@@ -708,61 +620,25 @@ footer{
     placeholder="🔎 Search player..."
   >
 
-
   <select id="mode">
 
-    <option value="ALL">
-      Overall
-    </option>
-
-    <option value="AXE PVP">
-      AXE PVP
-    </option>
-
-    <option value="CART PVP">
-      CART PVP
-    </option>
-
-    <option value="DIA KIT">
-      DIA KIT
-    </option>
-
-    <option value="E-MACE">
-      E-MACE
-    </option>
-
-    <option value="NETPOT">
-      NETPOT
-    </option>
-
-    <option value="SMP KIT">
-      SMP KIT
-    </option>
-
-    <option value="SPEAR MACE">
-      SPEAR MACE
-    </option>
-
-    <option value="TANK">
-      TANK
-    </option>
-
-    <option value="UHC">
-      UHC
-    </option>
-
-    <option value="VANILLA CRYSTAL">
-      VANILLA CRYSTAL
-    </option>
+    <option value="ALL">Overall</option>
+    <option value="AXE PVP">AXE PVP</option>
+    <option value="CART PVP">CART PVP</option>
+    <option value="DIA KIT">DIA KIT</option>
+    <option value="E-MACE">E-MACE</option>
+    <option value="NETPOT">NETPOT</option>
+    <option value="SMP KIT">SMP KIT</option>
+    <option value="SPEAR MACE">SPEAR MACE</option>
+    <option value="TANK">TANK</option>
+    <option value="UHC">UHC</option>
+    <option value="VANILLA CRYSTAL">VANILLA CRYSTAL</option>
 
   </select>
 
-
   <select id="tierFilter">
 
-    <option value="ALL">
-      All Tiers
-    </option>
+    <option value="ALL">All Tiers</option>
 
     <option value="HT1">HT1</option>
     <option value="MT1">MT1</option>
@@ -788,13 +664,9 @@ footer{
 
 </div>
 
-
-<!-- ================= LEADERBOARD ================= -->
-
 <div class="section-title">
   📊 Leaderboard
 </div>
-
 
 <div class="card table-wrap">
 
@@ -803,39 +675,20 @@ footer{
 <thead>
 
 <tr>
-
-  <th>
-    #
-  </th>
-
-  <th>
-    Player
-  </th>
-
-  <th>
-    Gamemodes
-  </th>
-
-  <th>
-    Points
-  </th>
-
+  <th>#</th>
+  <th>Player</th>
+  <th>Gamemodes</th>
+  <th>Points</th>
 </tr>
 
 </thead>
 
-
 <tbody id="leaderboard">
 
 <tr>
-
-  <td
-    colspan="4"
-    class="empty"
-  >
+  <td colspan="4" class="empty">
     Loading...
   </td>
-
 </tr>
 
 </tbody>
@@ -844,101 +697,47 @@ footer{
 
 </div>
 
-
-<!-- ================= RULES ================= -->
-
 <div class="section-title">
   📜 Tier Test Information
 </div>
 
-
 <div class="card info">
 
-  <h3>
-    ┃ Tier Test Information
-  </h3>
+  <h3>┃ Tier Test Information</h3>
 
   <p>
     This tier testing tests your tier in java combat while being a mcpe player.
   </p>
 
+  <h3>┃ Tier Test Rules</h3>
 
-  <h3>
-    ┃ Tier Test Rules
-  </h3>
-
-
-  <h4>
-    In Discord:
-  </h4>
+  <h4>In Discord:</h4>
 
   <ul>
-
-    <li>
-      You must read all test rules before requesting.
-    </li>
-
-    <li>
-      Provide complete and correct information.
-    </li>
-
-    <li>
-      Do not ping or annoy testers unnecessarily.
-    </li>
-
-    <li>
-      You are required to confirm a test time within 12 hours.
-    </li>
-
+    <li>You must read all test rules before requesting.</li>
+    <li>Provide complete and correct information.</li>
+    <li>Do not ping or annoy testers unnecessarily.</li>
+    <li>You are required to confirm a test time within 12 hours.</li>
   </ul>
 
-
-  <h4>
-    In-Game:
-  </h4>
+  <h4>In-Game:</h4>
 
   <ul>
-
-    <li>
-      Hacking is strictly prohibited.
-    </li>
-
-    <li>
-      Illegal clients are not allowed.
-    </li>
-
-    <li>
-      Follow all tester instructions without question.
-    </li>
-
-    <li>
-      Do not leave during the test for any reason.
-    </li>
-
-    <li>
-      Your ping must be under 135ms.
-    </li>
-
-    <li>
-      <strong>
-        KBM strictly BANNED
-      </strong>
-    </li>
-
+    <li>Hacking is strictly prohibited.</li>
+    <li>Illegal clients are not allowed.</li>
+    <li>Follow all tester instructions without question.</li>
+    <li>Do not leave during the test for any reason.</li>
+    <li>Your ping must be under 135ms.</li>
+    <li><strong>KBM strictly BANNED</strong></li>
   </ul>
 
 </div>
 
-
 </main>
-
 
 <footer>
   VOID MC TIERS • MCPE Tier Testing
 </footer>
-
-
-<!-- ================= PROFILE MODAL ================= -->
 
 <div
   id="modal"
@@ -971,7 +770,6 @@ footer{
 
       </div>
 
-
       <button
         class="close"
         onclick="closeProfile()"
@@ -980,7 +778,6 @@ footer{
       </button>
 
     </div>
-
 
     <div
       id="profileGrid"
@@ -991,13 +788,9 @@ footer{
 
 </div>
 
-
-<!-- ================= SUPABASE ================= -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script src="supabase-config.js"></script>
-
 
 <script>
 
@@ -1030,43 +823,132 @@ const TIER_POINTS = {
 };
 
 
-/* =========================
-   ICONS
-========================= */
+/* =====================================================
+   NEW SVG ICON SYSTEM
+===================================================== */
 
-const MODE_ICONS = {
+function svgIcon(mode){
 
-  "AXE PVP":
-    "icons/axe-pvp.png",
+  const common = `
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  `;
 
-  "CART PVP":
-    "icons/cart-pvp.png",
+  const icons = {
 
-  "DIA KIT":
-    "icons/dia-kit.png",
+    "AXE PVP": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+        <path d="M10 7 L33 30" stroke="#b8b8c5" stroke-width="4"/>
+        <path d="M7 8 L17 4 L30 17 L24 23 Z"
+          fill="#737383" stroke="#d5d5df" stroke-width="1.5"/>
+        <path d="M11 11 L25 25" stroke="#33333d" stroke-width="2"/>
+      </svg>
+    `,
 
-  "E-MACE":
-    "icons/emace.png",
+    "CART PVP": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+        <path d="M8 12 L32 12 L29 28 L11 28 Z"
+          fill="#7e7e8d" stroke="#dddde5" stroke-width="2"/>
+        <circle cx="15" cy="32" r="3" fill="#343440"/>
+        <circle cx="27" cy="32" r="3" fill="#343440"/>
+        <path d="M12 17 H29" stroke="#cfcfd8" stroke-width="2"/>
+      </svg>
+    `,
 
-  "NETPOT":
-    "icons/netpot.png",
+    "DIA KIT": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+        <path d="M7 14 L14 6 H26 L33 14 L20 34 Z"
+          fill="#4ee7ee" stroke="#b8ffff" stroke-width="1.7"/>
+        <path d="M7 14 H33 L20 34 Z"
+          fill="#28a9c9" opacity=".7"/>
+        <path d="M14 6 L20 14 L26 6"
+          stroke="#e1ffff" stroke-width="1.5"/>
+      </svg>
+    `,
 
-  "SMP KIT":
-    "icons/smp-kit.png",
+    "E-MACE": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+        <path d="M20 9 V32" stroke="#c8c8d2" stroke-width="4"/>
+        <path d="M11 7 H29 L32 13 H8 Z"
+          fill="#777786" stroke="#e5e5ec" stroke-width="1.5"/>
+        <path d="M12 18 L20 12 L28 18"
+          stroke="#9d9daa" stroke-width="2"/>
+      </svg>
+    `,
 
-  "SPEAR MACE":
-    "icons/spear-mace.png",
+    "NETPOT": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+        <circle cx="20" cy="20" r="11"
+          fill="#6b45a5" stroke="#d7b8ff" stroke-width="2"/>
+        <path d="M15 11 H25 L23 7 H17 Z"
+          fill="#777786" stroke="#d7d7df" stroke-width="1.5"/>
+        <path d="M14 24 Q20 29 26 24"
+          stroke="#a88cff" stroke-width="2"/>
+      </svg>
+    `,
 
-  "TANK":
-    "icons/tank.png",
+    "SMP KIT": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+        <path d="M8 15 L20 7 L32 15 V29 L20 35 L8 29 Z"
+          fill="#315f55" stroke="#8be4cc" stroke-width="1.7"/>
+        <path d="M20 7 V20 M8 15 L20 20 L32 15"
+          stroke="#b8fff0" stroke-width="1.5"/>
+      </svg>
+    `,
 
-  "UHC":
-    "icons/uhc.png",
+    "SPEAR MACE": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+        <path d="M20 6 V34" stroke="#b7b7c1" stroke-width="3"/>
+        <path d="M20 5 L28 15 L20 12 L12 15 Z"
+          fill="#62d4df" stroke="#d5ffff" stroke-width="1.5"/>
+        <path d="M16 28 L20 34 L24 28"
+          stroke="#888895" stroke-width="2"/>
+      </svg>
+    `,
 
-  "VANILLA CRYSTAL":
-    "icons/vanilla-crystal.png"
+    "TANK": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+        <path d="M12 8 H28 L33 14 V28 L20 35 L7 28 V14 Z"
+          fill="#646473" stroke="#d8d8e0" stroke-width="1.7"/>
+        <path d="M12 8 L20 15 L28 8"
+          stroke="#eeeeF5" stroke-width="1.5"/>
+        <path d="M20 15 V35"
+          stroke="#9e9eaa" stroke-width="1.5"/>
+      </svg>
+    `,
 
-};
+    "UHC": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+        <path d="M20 5 L34 10 V19 C34 27 28 32 20 35
+                 C12 32 6 27 6 19 V10 Z"
+          fill="#9c3945" stroke="#ff9ba5" stroke-width="1.8"/>
+        <path d="M12 20 L18 26 L29 14"
+          stroke="#fff" stroke-width="3"/>
+      </svg>
+    `,
+
+    "VANILLA CRYSTAL": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+        <path d="M20 4 L31 13 L27 29 L20 36 L13 29 L9 13 Z"
+          fill="#d95cff" stroke="#f0b6ff" stroke-width="1.5"/>
+        <path d="M20 4 V36 M9 13 L31 13 M13 29 L27 29"
+          stroke="#7c2d9d" stroke-width="1.5"/>
+        <circle cx="20" cy="20" r="4"
+          fill="#fff" opacity=".55"/>
+      </svg>
+    `
+
+  };
+
+  return icons[mode] || `
+    <svg class="mode-svg" viewBox="0 0 40 40">
+      <circle cx="20" cy="20" r="12"
+        fill="#777" stroke="#ddd" stroke-width="2"/>
+    </svg>
+  `;
+
+}
 
 
 /* =========================
@@ -1092,9 +974,7 @@ const sb =
 ========================= */
 
 function getPoints(player){
-
   return TIER_POINTS[player.tier] || 0;
-
 }
 
 
@@ -1104,20 +984,12 @@ function getPoints(player){
 
 function getTierClass(tier){
 
-  if(!tier)
-    return "";
+  if(!tier) return "";
 
-  if(tier.includes("1"))
-    return "tier-1";
-
-  if(tier.includes("2"))
-    return "tier-2";
-
-  if(tier.includes("3"))
-    return "tier-3";
-
-  if(tier.includes("4"))
-    return "tier-4";
+  if(tier.includes("1")) return "tier-1";
+  if(tier.includes("2")) return "tier-2";
+  if(tier.includes("3")) return "tier-3";
+  if(tier.includes("4")) return "tier-4";
 
   return "tier-5";
 
@@ -1173,9 +1045,7 @@ async function loadPlayers(){
 
 
   updateStats();
-
   renderPodium();
-
   renderLeaderboard();
 
 }
@@ -1209,22 +1079,14 @@ function updateStats(){
     ).size;
 
 
-  document
-    .getElementById("statPlayers")
-    .textContent =
-      uniquePlayers;
+  document.getElementById("statPlayers").textContent =
+    uniquePlayers;
 
+  document.getElementById("statTests").textContent =
+    tests;
 
-  document
-    .getElementById("statTests")
-    .textContent =
-      tests;
-
-
-  document
-    .getElementById("statHT1")
-    .textContent =
-      ht1;
+  document.getElementById("statHT1").textContent =
+    ht1;
 
 }
 
@@ -1235,8 +1097,7 @@ function updateStats(){
 
 function buildOverall(){
 
-  const map =
-    new Map();
+  const map = new Map();
 
 
   players.forEach(player => {
@@ -1255,23 +1116,16 @@ function buildOverall(){
     }
 
 
-    const p =
-      map.get(player.name);
+    const p = map.get(player.name);
 
-
-    const points =
-      getPoints(player);
-
+    const points = getPoints(player);
 
     p.total += points;
-
 
     p.modes.push({
 
       mode:player.mode,
-
       tier:player.tier,
-
       points:points
 
     });
@@ -1358,12 +1212,10 @@ function renderPodium(){
 function createModeIcons(modes){
 
   return modes
-
     .sort(
       (a,b)=>
         b.points-a.points
     )
-
     .map(x => `
 
       <div
@@ -1371,11 +1223,11 @@ function createModeIcons(modes){
         title="${escapeHTML(x.mode)}"
       >
 
-        <img
-          class="mode-icon"
-          src="${MODE_ICONS[x.mode]}"
-          alt=""
-        >
+        <div class="mode-icon-wrap">
+
+          ${svgIcon(x.mode)}
+
+        </div>
 
         <span
           class="mode-tier ${getTierClass(x.tier)}"
@@ -1386,7 +1238,6 @@ function createModeIcons(modes){
       </div>
 
     `)
-
     .join("");
 
 }
@@ -1478,10 +1329,6 @@ function renderLeaderboard(){
       .trim()
       .toLowerCase();
 
-
-  /* =========================
-     OVERALL
-  ========================= */
 
   if(mode === "ALL"){
 
@@ -1581,10 +1428,6 @@ function renderLeaderboard(){
   }
 
 
-  /* =========================
-     SPECIFIC MODE
-  ========================= */
-
   const list =
     getFiltered()
       .sort(
@@ -1643,11 +1486,11 @@ function renderLeaderboard(){
               title="${escapeHTML(p.mode)}"
             >
 
-              <img
-                class="mode-icon"
-                src="${MODE_ICONS[p.mode]}"
-                alt=""
-              >
+              <div class="mode-icon-wrap">
+
+                ${svgIcon(p.mode)}
+
+              </div>
 
               <span
                 class="mode-tier ${getTierClass(p.tier)}"
@@ -1680,9 +1523,7 @@ function renderLeaderboard(){
 function openProfile(encodedName){
 
   const name =
-    decodeURIComponent(
-      encodedName
-    );
+    decodeURIComponent(encodedName);
 
 
   const playerModes =
@@ -1730,10 +1571,11 @@ function openProfile(encodedName){
 
           <div class="profile-mode">
 
-            <img
-              src="${MODE_ICONS[p.mode]}"
-              alt=""
-            >
+            <div class="mode-icon-wrap">
+
+              ${svgIcon(p.mode)}
+
+            </div>
 
             <div>
 
@@ -1785,30 +1627,11 @@ function escapeHTML(value){
 
   return String(value)
 
-    .replaceAll(
-      "&",
-      "&amp;"
-    )
-
-    .replaceAll(
-      "<",
-      "&lt;"
-    )
-
-    .replaceAll(
-      ">",
-      "&gt;"
-    )
-
-    .replaceAll(
-      '"',
-      "&quot;"
-    )
-
-    .replaceAll(
-      "'",
-      "&#039;"
-    );
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
 
 }
 
@@ -1865,4 +1688,4 @@ loadPlayers();
 </script>
 
 </body>
-        </html>
+</html>
