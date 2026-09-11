@@ -3,10 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+
 <title>VOID MC TIERS</title>
 
 <style>
+
 *{box-sizing:border-box}
+
 html{scroll-behavior:smooth}
 
 body{
@@ -36,10 +39,22 @@ header{
   backdrop-filter:blur(14px);
 }
 
-.logo{font-size:20px;font-weight:900;letter-spacing:.5px}
-.logo span{color:#a45cff;text-shadow:0 0 14px rgba(164,92,255,.45)}
+.logo{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:.5px;
+}
 
-.header-buttons{display:flex;gap:8px;align-items:center}
+.logo span{
+  color:#a45cff;
+  text-shadow:0 0 14px rgba(164,92,255,.45);
+}
+
+.header-buttons{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
 
 .header-btn{
   color:white;
@@ -63,9 +78,16 @@ header{
   border-color:#9658ef;
 }
 
-main{max-width:1150px;margin:auto;padding:35px 20px 70px}
+main{
+  max-width:1150px;
+  margin:auto;
+  padding:35px 20px 70px;
+}
 
-.hero{text-align:center;padding:40px 15px 35px}
+.hero{
+  text-align:center;
+  padding:40px 15px 35px;
+}
 
 .hero h1{
   margin:0;
@@ -76,11 +98,16 @@ main{max-width:1150px;margin:auto;padding:35px 20px 70px}
 }
 
 .hero h1 span{color:#a45cff}
-.hero p{color:#929292;margin:13px 0 0;font-size:16px}
+
+.hero p{
+  color:#929292;
+  margin:13px 0 0;
+  font-size:16px;
+}
 
 .stats{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(3,1fr);
   gap:12px;
   margin-bottom:28px;
 }
@@ -94,7 +121,11 @@ main{max-width:1150px;margin:auto;padding:35px 20px 70px}
   box-shadow:0 10px 30px rgba(0,0,0,.2);
 }
 
-.stat-value{font-size:28px;font-weight:950;color:#b86cff}
+.stat-value{
+  font-size:28px;
+  font-weight:950;
+  color:#b86cff;
+}
 
 .stat-label{
   margin-top:5px;
@@ -150,7 +181,6 @@ input:focus,select:focus{
   text-align:center;
   overflow:hidden;
   transition:.25s;
-  cursor:pointer;
 }
 
 .podium-card:hover{transform:translateY(-4px)}
@@ -165,9 +195,25 @@ input:focus,select:focus{
 .podium-card.third{border-color:#874d35}
 
 .medal{font-size:30px}
-.podium-rank{color:#85818c;font-size:12px;font-weight:900;margin-top:5px}
-.podium-name{font-size:20px;font-weight:950;margin:8px 0;word-break:break-word}
-.podium-points{color:#b86cff;font-weight:900}
+
+.podium-rank{
+  color:#85818c;
+  font-size:12px;
+  font-weight:900;
+  margin-top:5px;
+}
+
+.podium-name{
+  font-size:20px;
+  font-weight:950;
+  margin:8px 0;
+  word-break:break-word;
+}
+
+.podium-points{
+  color:#b86cff;
+  font-weight:900;
+}
 
 .card{
   background:rgba(13,13,17,.94);
@@ -201,8 +247,14 @@ td{
   vertical-align:middle;
 }
 
-tr:hover td{background:rgba(155,92,255,.035)}
-.position{color:#777;font-weight:900}
+tr:hover td{
+  background:rgba(155,92,255,.035);
+}
+
+.position{
+  color:#777;
+  font-weight:900;
+}
 
 .player-name{
   font-weight:900;
@@ -211,10 +263,6 @@ tr:hover td{background:rgba(155,92,255,.035)}
 }
 
 .player-name:hover{color:#b978ff}
-
-/* =========================
-   MC TIERS ICONS
-========================= */
 
 .mode-list{
   display:flex;
@@ -246,7 +294,6 @@ tr:hover td{background:rgba(155,92,255,.035)}
     inset 0 0 8px rgba(255,255,255,.025),
     0 3px 12px rgba(0,0,0,.35);
   transition:.2s;
-  overflow:hidden;
 }
 
 .mode-item:hover .mode-icon-wrap{
@@ -258,10 +305,9 @@ tr:hover td{background:rgba(155,92,255,.035)}
 }
 
 .mode-svg{
-  width:34px;
-  height:34px;
-  display:block;
-  object-fit:contain;
+  width:30px;
+  height:30px;
+  overflow:visible;
 }
 
 .mode-tier{
@@ -308,7 +354,10 @@ tr:hover td{background:rgba(155,92,255,.035)}
   box-shadow:0 0 10px rgba(255,70,85,.1);
 }
 
-.points{font-weight:950;color:#fff}
+.points{
+  font-weight:950;
+  color:#fff;
+}
 
 .info{
   padding:25px;
@@ -401,7 +450,9 @@ tr:hover td{background:rgba(155,92,255,.035)}
   gap:12px;
 }
 
-.profile-mode .mode-icon-wrap{flex-shrink:0}
+.profile-mode .mode-icon-wrap{
+  flex-shrink:0;
+}
 
 .profile-mode-name{
   color:#85818c;
@@ -448,7 +499,9 @@ footer{
   main{padding:25px 12px 50px}
 
   .hero h1{font-size:47px}
+
 }
+
 </style>
 </head>
 
@@ -466,7 +519,6 @@ footer{
       class="header-btn discord-btn"
       href="YOUR_DISCORD_INVITE"
       target="_blank"
-      rel="noopener noreferrer"
     >
       💬 Discord
     </a>
@@ -504,6 +556,11 @@ footer{
   </div>
 
   <div class="stat">
+    <div id="statTests" class="stat-value">0</div>
+    <div class="stat-label">Tests</div>
+  </div>
+
+  <div class="stat">
     <div id="statHT1" class="stat-value">0</div>
     <div class="stat-label">HT1 Players</div>
   </div>
@@ -529,12 +586,17 @@ footer{
   <select id="mode">
 
     <option value="ALL">Overall</option>
-
     <option value="AXE PVP">AXE PVP</option>
     <option value="CART PVP">CART PVP</option>
+
+    <!-- CHANGED -->
     <option value="DIA-SMP-KIT">DIA-SMP-KIT</option>
+
     <option value="E-MACE">E-MACE</option>
+
+    <!-- CHANGED -->
     <option value="NETHPOT">NETHPOT</option>
+
     <option value="SMP KIT">SMP KIT</option>
     <option value="SPEAR MACE">SPEAR MACE</option>
     <option value="TANK">TANK</option>
@@ -731,82 +793,360 @@ const TIER_POINTS = {
 
 
 /* =====================================================
-   PHOTO-BASED MC TIERS SVG ICONS
-
-   These SVG files go inside /icons/
+   SVG ICON SYSTEM
+   NETHPOT + DIA-SMP-KIT UPDATED ONLY
 ===================================================== */
-
-const MODE_ICONS = {
-
-  "AXE PVP":
-    "icons/axe-pvp.svg",
-
-  "CART PVP":
-    "icons/minecart.svg",
-
-  "DIA-SMP-KIT":
-    "icons/dia-smp-kit.svg",
-
-  "E-MACE":
-    "icons/emace.svg",
-
-  "NETHPOT":
-    "icons/nethpot.svg",
-
-  "SMP KIT":
-    "icons/smp-kit.svg",
-
-  "SPEAR MACE":
-    "icons/spear-mace.svg",
-
-  "TANK":
-    "icons/tank.svg",
-
-  "UHC":
-    "icons/uhc.svg",
-
-  "VANILLA CRYSTAL":
-    "icons/vanilla-crystal.svg"
-
-};
-
 
 function svgIcon(mode){
 
-  const src = MODE_ICONS[mode];
+  const icons = {
 
-  if(!src){
+    "AXE PVP": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+        <path d="M20 8 L32 20 L20 32 L8 20 Z"
+          fill="#737383"
+          stroke="#d5d5df"
+          stroke-width="2"/>
+        <path d="M10 10 L30 30"
+          stroke="#aeb0bd"
+          stroke-width="4"
+          stroke-linecap="round"/>
+        <path d="M8 7 L16 4 L36 24 L30 31 Z"
+          fill="#656573"
+          stroke="#d7d7df"
+          stroke-width="1.5"/>
+      </svg>
+    `,
 
-    return `
-      <svg
-        class="mode-svg"
-        viewBox="0 0 40 40"
-        aria-hidden="true"
-      >
+    "CART PVP": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+        <path d="M7 12 H33 L30 28 H10 Z"
+          fill="#73737f"
+          stroke="#dedee5"
+          stroke-width="2"/>
+        <path d="M11 17 H30"
+          stroke="#cfcfd8"
+          stroke-width="2"/>
+        <circle cx="14" cy="32" r="3" fill="#363640"/>
+        <circle cx="27" cy="32" r="3" fill="#363640"/>
+      </svg>
+    `,
+
+    /* =================================================
+       YOUR ENDER PEARL
+       DIA-SMP-KIT
+    ================================================= */
+
+    "DIA-SMP-KIT": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+
+        <defs>
+          <radialGradient id="pearlGradient"
+            cx="35%" cy="28%"
+            r="75%">
+            <stop offset="0%"
+              stop-color="#65fff0"/>
+            <stop offset="25%"
+              stop-color="#20d8c5"/>
+            <stop offset="60%"
+              stop-color="#087d72"/>
+            <stop offset="100%"
+              stop-color="#003d3b"/>
+          </radialGradient>
+        </defs>
+
+        <path
+          d="
+          M20 2
+          L27 3
+          L27 5
+          L31 5
+          L31 8
+          L34 8
+          L34 12
+          L37 12
+          L37 20
+          L35 20
+          L35 28
+          L32 28
+          L32 32
+          L28 32
+          L28 35
+          L21 38
+          L14 35
+          L14 33
+          L10 33
+          L10 30
+          L7 30
+          L7 26
+          L4 26
+          L4 19
+          L6 19
+          L6 13
+          L9 13
+          L9 9
+          L13 9
+          L13 6
+          L17 6
+          L17 3
+          Z"
+          fill="url(#pearlGradient)"
+          stroke="#063d3b"
+          stroke-width="1.5"
+        />
+
+        <path
+          d="
+          M12 15
+          Q15 8 22 8
+          Q18 12 16 17
+          Q13 20 11 19
+          Q10 18 12 15
+          Z"
+          fill="#7ffff4"
+          opacity=".75"
+        />
+
+        <path
+          d="
+          M27 26
+          Q30 21 33 19
+          Q33 27 28 31
+          Q25 33 23 31
+          Q24 28 27 26
+          Z"
+          fill="#24d9ca"
+          opacity=".7"
+        />
+
+      </svg>
+    `,
+
+
+    "E-MACE": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+        <path d="M20 9 V32"
+          stroke="#c8c8d2"
+          stroke-width="4"
+          stroke-linecap="round"/>
+        <path d="M11 7 H29 L32 13 H8 Z"
+          fill="#777786"
+          stroke="#e5e5ec"
+          stroke-width="1.5"/>
+        <path d="M12 18 L20 12 L28 18"
+          stroke="#9d9daa"
+          stroke-width="2"/>
+      </svg>
+    `,
+
+
+    /* =================================================
+       YOUR POTION
+       NETHPOT
+    ================================================= */
+
+    "NETHPOT": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+
+        <!-- Bottle neck -->
+        <path
+          d="
+          M13 4
+          H27
+          Q30 4 30 7
+          Q30 10 27 11
+          V14
+          Q34 18 35 27
+          Q35 35 20 36
+          Q5 35 5 27
+          Q6 18 13 14
+          V11
+          Q10 10 10 7
+          Q10 4 13 4
+          Z"
+          fill="none"
+          stroke="#ffffff"
+          stroke-width="3.5"
+          stroke-linejoin="round"
+        />
+
+        <!-- Potion liquid -->
+        <path
+          d="
+          M7 25
+          Q13 23 19 25
+          Q25 27 33 25
+          V28
+          Q32 34 20 35
+          Q8 34 7 28
+          Z"
+          fill="#d54f78"
+        />
+
+        <!-- Liquid highlight -->
+        <path
+          d="
+          M8 25
+          Q14 23 20 25
+          Q26 27 32 25"
+          fill="none"
+          stroke="#e66a8d"
+          stroke-width="1.3"
+        />
+
+        <!-- Bottle neck top -->
+        <path
+          d="M13 5 H27"
+          stroke="#ffffff"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
+
+      </svg>
+    `,
+
+
+    "SMP KIT": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+
+        <path
+          d="M7 15 L20 7 L33 15 V29 L20 35 L7 29 Z"
+          fill="#315f55"
+          stroke="#8be4cc"
+          stroke-width="1.7"
+        />
+
+        <path
+          d="M20 7 V20 M7 15 L20 20 L33 15"
+          stroke="#b8fff0"
+          stroke-width="1.5"
+        />
+
+      </svg>
+    `,
+
+
+    "SPEAR MACE": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+
+        <path
+          d="M20 6 V34"
+          stroke="#b7b7c1"
+          stroke-width="3"
+          stroke-linecap="round"
+        />
+
+        <path
+          d="M20 5 L28 15 L20 12 L12 15 Z"
+          fill="#62d4df"
+          stroke="#d5ffff"
+          stroke-width="1.5"
+        />
+
+        <path
+          d="M16 28 L20 34 L24 28"
+          stroke="#888895"
+          stroke-width="2"
+        />
+
+      </svg>
+    `,
+
+
+    "TANK": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+
+        <path
+          d="M20 5 L34 15 L29 31 L20 35 L11 31 L6 15 Z"
+          fill="#5faed4"
+          stroke="#8ddfff"
+          stroke-width="1.7"
+        />
+
+        <path
+          d="M20 5 V35"
+          stroke="#83ccef"
+          stroke-width="1.5"
+        />
+
+        <path
+          d="M6 15 L20 21 L34 15"
+          stroke="#8ddfff"
+          stroke-width="1.5"
+        />
+
+      </svg>
+    `,
+
+
+    "UHC": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+
+        <path
+          d="
+          M20 4
+          C13 10 7 9 7 16
+          C7 26 13 32 20 36
+          C27 32 33 26 33 16
+          C33 9 27 10 20 4
+          Z"
+          fill="#d9515a"
+        />
+
+        <path
+          d="M13 17
+                   Q17 20 20 23
+                   Q24 18 28 14"
+          fill="none"
+          stroke="#a52027"
+          stroke-width="4"
+          stroke-linecap="round"
+        />
+
+      </svg>
+    `,
+
+
+    "VANILLA CRYSTAL": `
+      <svg class="mode-svg" viewBox="0 0 40 40">
+
+        <path
+          d="M20 3
+             L31 12
+             L27 28
+             L20 36
+             L13 28
+             L9 12 Z"
+          fill="#c875e7"
+          stroke="#f0c0ff"
+          stroke-width="1.5"
+        />
+
+        <path
+          d="M20 4 V35
+                   M10 13 H30
+                   M14 28 H26"
+          stroke="#9852b7"
+          stroke-width="1.5"
+        />
+
         <circle
           cx="20"
           cy="20"
-          r="12"
-          fill="#777"
-          stroke="#ddd"
-          stroke-width="2"
+          r="4"
+          fill="#ffffff"
+          opacity=".55"
         />
+
       </svg>
-    `;
+    `
 
-  }
+  };
 
-  return `
+  /* No generic circle fallback.
+     Unknown icons simply render nothing. */
 
-    <img
-      class="mode-svg"
-      src="${src}"
-      alt="${escapeHTML(mode)}"
-      loading="lazy"
-      draggable="false"
-    >
-
-  `;
+  return icons[mode] || "";
 
 }
 
@@ -834,9 +1174,7 @@ const sb =
 ========================= */
 
 function getPoints(player){
-
   return TIER_POINTS[player.tier] || 0;
-
 }
 
 
@@ -846,20 +1184,12 @@ function getPoints(player){
 
 function getTierClass(tier){
 
-  if(!tier)
-    return "";
+  if(!tier) return "";
 
-  if(tier.includes("1"))
-    return "tier-1";
-
-  if(tier.includes("2"))
-    return "tier-2";
-
-  if(tier.includes("3"))
-    return "tier-3";
-
-  if(tier.includes("4"))
-    return "tier-4";
+  if(tier.includes("1")) return "tier-1";
+  if(tier.includes("2")) return "tier-2";
+  if(tier.includes("3")) return "tier-3";
+  if(tier.includes("4")) return "tier-4";
 
   return "tier-5";
 
@@ -915,9 +1245,7 @@ async function loadPlayers(){
 
 
   updateStats();
-
   renderPodium();
-
   renderLeaderboard();
 
 }
@@ -935,6 +1263,14 @@ function updateStats(){
     ).size;
 
 
+  const tests =
+    players.reduce(
+      (sum,p)=>
+        sum + (Number(p.tests) || 1),
+      0
+    );
+
+
   const ht1 =
     new Set(
       players
@@ -943,16 +1279,14 @@ function updateStats(){
     ).size;
 
 
-  document
-    .getElementById("statPlayers")
-    .textContent =
-      uniquePlayers;
+  document.getElementById("statPlayers").textContent =
+    uniquePlayers;
 
+  document.getElementById("statTests").textContent =
+    tests;
 
-  document
-    .getElementById("statHT1")
-    .textContent =
-      ht1;
+  document.getElementById("statHT1").textContent =
+    ht1;
 
 }
 
@@ -982,16 +1316,11 @@ function buildOverall(){
     }
 
 
-    const p =
-      map.get(player.name);
+    const p = map.get(player.name);
 
-
-    const points =
-      getPoints(player);
-
+    const points = getPoints(player);
 
     p.total += points;
-
 
     p.modes.push({
 
@@ -1006,7 +1335,7 @@ function buildOverall(){
 
   return [...map.values()]
     .sort(
-      (a,b) =>
+      (a,b)=>
         b.total-a.total
     );
 
@@ -1084,7 +1413,7 @@ function createModeIcons(modes){
 
   return modes
     .sort(
-      (a,b) =>
+      (a,b)=>
         b.points-a.points
     )
     .map(x => `
@@ -1302,7 +1631,7 @@ function renderLeaderboard(){
   const list =
     getFiltered()
       .sort(
-        (a,b) =>
+        (a,b)=>
           getPoints(b) -
           getPoints(a)
       );
@@ -1409,7 +1738,7 @@ function openProfile(encodedName){
 
   const total =
     playerModes.reduce(
-      (sum,p) =>
+      (sum,p)=>
         sum + getPoints(p),
       0
     );
@@ -1434,7 +1763,7 @@ function openProfile(encodedName){
 
       playerModes
         .sort(
-          (a,b) =>
+          (a,b)=>
             getPoints(b) -
             getPoints(a)
         )
@@ -1559,4 +1888,4 @@ loadPlayers();
 </script>
 
 </body>
-</html>
+  </html>
