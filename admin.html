@@ -86,6 +86,113 @@ button.gray{
   background:#171d28;
   margin-bottom:10px
 }
+
+
+/* =========================
+   RETIRED TOGGLE
+========================= */
+
+.retired-box{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  background:#181e2a;
+  border:1px solid #2a3241;
+  border-radius:12px;
+  padding:14px;
+  margin:7px 0 15px;
+}
+
+.retired-title{
+  font-weight:900;
+  font-size:15px;
+}
+
+.retired-description{
+  color:#929aaa;
+  font-size:12px;
+  margin-top:4px;
+}
+
+.switch{
+  position:relative;
+  width:52px;
+  height:28px;
+  flex-shrink:0;
+}
+
+.switch input{
+  opacity:0;
+  width:0;
+  height:0;
+  margin:0;
+}
+
+.slider{
+  position:absolute;
+  cursor:pointer;
+  inset:0;
+  background:#303846;
+  border-radius:30px;
+  transition:.2s;
+}
+
+.slider:before{
+  content:"";
+  position:absolute;
+  height:22px;
+  width:22px;
+  left:3px;
+  top:3px;
+  background:white;
+  border-radius:50%;
+  transition:.2s;
+}
+
+.switch input:checked + .slider{
+  background:#7c5cff;
+  box-shadow:0 0 14px rgba(124,92,255,.4);
+}
+
+.switch input:checked + .slider:before{
+  transform:translateX(24px);
+}
+
+
+/* =========================
+   PLAYER RETIRED STATUS
+========================= */
+
+.retired-status{
+  display:inline-block;
+  margin-top:7px;
+  padding:4px 8px;
+  border-radius:6px;
+  font-size:11px;
+  font-weight:900;
+}
+
+.retired-status.active{
+  color:#63e6a4;
+  background:rgba(50,220,130,.08);
+  border:1px solid #26734d;
+}
+
+.retired-status.retired{
+  color:#ff9aa3;
+  background:rgba(255,70,85,.08);
+  border:1px solid #79323a;
+}
+
+.player-card{
+  position:relative;
+}
+
+.player-tier{
+  font-weight:900;
+  color:#b978ff;
+}
 </style>
 </head>
 
@@ -171,7 +278,36 @@ Logout
 
 </select>
 
-<!-- POINTS INPUT REMOVED -->
+
+<!-- RETIRED TOGGLE -->
+
+<div class="retired-box">
+
+  <div>
+
+    <div class="retired-title">
+      🏁 Retired Player
+    </div>
+
+    <div class="retired-description">
+      ON = R-TIER • OFF = Normal Tier
+    </div>
+
+  </div>
+
+  <label class="switch">
+
+    <input
+      type="checkbox"
+      id="retired"
+    >
+
+    <span class="slider"></span>
+
+  </label>
+
+</div>
+
 
 <button onclick="savePlayer()">
 Publish Player
@@ -255,6 +391,10 @@ modes.forEach(m => {
 });
 
 
+/* =========================
+   SIGN UP
+========================= */
+
 async function signup(){
 
   if(!sb)
@@ -291,6 +431,10 @@ async function signup(){
 }
 
 
+/* =========================
+   LOGIN
+========================= */
+
 async function login(){
 
   if(!sb)
@@ -320,6 +464,10 @@ async function login(){
 }
 
 
+/* =========================
+   LOGOUT
+========================= */
+
 async function logout(){
 
   await sb.auth.signOut();
@@ -328,6 +476,10 @@ async function logout(){
 
 }
 
+
+/* =========================
+   INIT
+========================= */
 
 async function init(){
 
@@ -342,6 +494,10 @@ async function init(){
 
 }
 
+
+/* =========================
+   SHOW APP
+========================= */
 
 function showApp(u){
 
@@ -363,6 +519,10 @@ function showApp(u){
 }
 
 
+/* =========================
+   SAVE PLAYER
+========================= */
+
 async function savePlayer(){
 
   const name =
@@ -377,12 +537,10 @@ async function savePlayer(){
     );
 
 
-  /*
-    Points are NOT entered manually.
+  const retired =
+    document.getElementById("retired")
+      .checked;
 
-    The public website calculates the
-    correct fixed points from the tier.
-  */
 
   const row={
 
@@ -393,6 +551,8 @@ async function savePlayer(){
 
     tier:
       document.getElementById("tier").value,
+
+    retired:retired,
 
     icon:"👤"
 
@@ -414,15 +574,27 @@ async function savePlayer(){
     return show(error.message);
 
 
-  show("✅ Player published!");
+  show(
+    retired
+      ? "✅ Player published as RETIRED!"
+      : "✅ Player published!"
+  );
+
 
   document.getElementById("name")
     .value="";
+
+  document.getElementById("retired")
+    .checked=false;
 
   loadPlayers();
 
 }
 
+
+/* =========================
+   LOAD PLAYERS
+========================= */
 
 async function loadPlayers(){
 
@@ -450,7 +622,7 @@ async function loadPlayers(){
       (data || [])
         .map(p => `
 
-          <div class="box">
+          <div class="box player-card">
 
             <b>
               ${esc(p.name)}
@@ -459,10 +631,35 @@ async function loadPlayers(){
             <br>
 
             <span class="muted">
-              ${esc(p.mode)} • ${p.tier}
+              ${esc(p.mode)} •
+              <span class="player-tier">
+                ${displayTier(p)}
+              </span>
             </span>
 
             <br>
+
+            <span class="
+              retired-status
+              ${p.retired ? "retired" : "active"}
+            ">
+
+              ${p.retired
+                ? "🏁 RETIRED"
+                : "● ACTIVE"}
+
+            </span>
+
+            <br>
+
+            <button
+              class="${p.retired ? "gray" : ""}"
+              onclick="toggleRetired('${p.id}',${!p.retired})"
+            >
+              ${p.retired
+                ? "↩️ Set Active"
+                : "🏁 Retire Player"}
+            </button>
 
             <button
               class="red"
@@ -478,6 +675,58 @@ async function loadPlayers(){
 
 }
 
+
+/* =========================
+   DISPLAY TIER
+========================= */
+
+function displayTier(player){
+
+  const tier =
+    String(player.tier || "")
+      .replace(/^R-/i,"");
+
+  return player.retired
+    ? "R-"+tier
+    : tier;
+
+}
+
+
+/* =========================
+   TOGGLE RETIRED
+========================= */
+
+async function toggleRetired(id,status){
+
+  const {error} =
+    await sb
+      .from("players")
+      .update({
+        retired:status
+      })
+      .eq("id",id);
+
+
+  if(error)
+    return show(error.message);
+
+
+  show(
+    status
+      ? "🏁 Player marked as RETIRED!"
+      : "✅ Player set to ACTIVE!"
+  );
+
+
+  loadPlayers();
+
+}
+
+
+/* =========================
+   DELETE
+========================= */
 
 async function del(id){
 
@@ -505,6 +754,10 @@ async function del(id){
 }
 
 
+/* =========================
+   MESSAGE
+========================= */
+
 function show(x){
 
   const m =
@@ -516,6 +769,10 @@ function show(x){
 
 }
 
+
+/* =========================
+   ESCAPE HTML
+========================= */
 
 function esc(s){
 
@@ -534,6 +791,10 @@ function esc(s){
 
 }
 
+
+/* =========================
+   START
+========================= */
 
 init();
 
