@@ -1,8 +1,11 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>VOID MC TIERS</title><style>
+<title>VOID MC TIERS</title>
+
+<style>
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 
@@ -208,23 +211,6 @@ tr:hover td{background:rgba(155,92,255,.035)}
 }
 
 .player-name:hover{color:#b978ff}
-
-/* =========================
-   RETIRED TAG
-========================= */
-
-.retired-tag{
-  display:inline-block;
-  margin-left:4px;
-  font-size:10px;
-  font-weight:950;
-  padding:2px 5px;
-  border-radius:4px;
-  color:#ffb45c;
-  border:1px solid #8a5a25;
-  background:rgba(255,170,70,.08);
-  vertical-align:middle;
-}
 
 /* =========================
    MC TIERS ICONS
@@ -463,151 +449,257 @@ footer{
 
   .hero h1{font-size:47px}
 }
-</style></head><body><header>  <div class="logo">
-    VOID MC <span>TIERS</span>
-  </div>  <div class="header-buttons"><a
-  class="header-btn discord-btn"
-  href="YOUR_DISCORD_INVITE"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  💬 Discord
-</a>
+</style>
+</head>
 
-<a
-  class="header-btn"
-  href="admin.html"
->
-  🔐 Admin
-</a>
+<body>
 
-  </div></header><main><section class="hero">  <h1>
+<header>
+
+  <div class="logo">
     VOID MC <span>TIERS</span>
-  </h1>  <p>
+  </div>
+
+  <div class="header-buttons">
+
+    <a
+      class="header-btn discord-btn"
+      href="YOUR_DISCORD_INVITE"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      💬 Discord
+    </a>
+
+    <a
+      class="header-btn"
+      href="admin.html"
+    >
+      🔐 Admin
+    </a>
+
+  </div>
+
+</header>
+
+<main>
+
+<section class="hero">
+
+  <h1>
+    VOID MC <span>TIERS</span>
+  </h1>
+
+  <p>
     MCPE Tier Testing • S → D • High / Mid / Low
-  </p></section><div class="stats">  <div class="stat">
+  </p>
+
+</section>
+
+<div class="stats">
+
+  <div class="stat">
     <div id="statPlayers" class="stat-value">0</div>
     <div class="stat-label">Players</div>
-  </div>  <div class="stat">
+  </div>
+
+  <div class="stat">
     <div id="statHT1" class="stat-value">0</div>
     <div class="stat-label">HT1 Players</div>
-  </div></div><div class="section-title">
+  </div>
+
+</div>
+
+<div class="section-title">
   🏆 Top Players
-</div><div id="podium" class="podium">
+</div>
+
+<div id="podium" class="podium">
   <div class="empty">Loading...</div>
-</div><div class="controls"><input
-id="search"
-type="text"
-placeholder="🔎 Search player..."
+</div>
 
-«»
+<div class="controls">
 
-  <select id="mode"><option value="ALL">Overall</option>
+  <input
+    id="search"
+    type="text"
+    placeholder="🔎 Search player..."
+  >
 
-<option value="AXE PVP">AXE PVP</option>
-<option value="CART PVP">CART PVP</option>
-<option value="DIA-SMP-KIT">DIA-SMP-KIT</option>
-<option value="E-MACE">E-MACE</option>
-<option value="NETHPOT">NETHPOT</option>
-<option value="SMP KIT">SMP KIT</option>
-<option value="SPEAR MACE">SPEAR MACE</option>
-<option value="TANK">TANK</option>
-<option value="UHC">UHC</option>
-<option value="VANILLA CRYSTAL">VANILLA CRYSTAL</option>
+  <select id="mode">
 
-  </select>  <select id="tierFilter"><option value="ALL">All Tiers</option>
+    <option value="ALL">Overall</option>
 
-<option value="HT1">HT1</option>
-<option value="MT1">MT1</option>
-<option value="LT1">LT1</option>
+    <option value="AXE PVP">AXE PVP</option>
+    <option value="CART PVP">CART PVP</option>
+    <option value="DIA-SMP-KIT">DIA-SMP-KIT</option>
+    <option value="E-MACE">E-MACE</option>
+    <option value="NETHPOT">NETHPOT</option>
+    <option value="SMP KIT">SMP KIT</option>
+    <option value="SPEAR MACE">SPEAR MACE</option>
+    <option value="TANK">TANK</option>
+    <option value="UHC">UHC</option>
+    <option value="VANILLA CRYSTAL">VANILLA CRYSTAL</option>
 
-<option value="HT2">HT2</option>
-<option value="MT2">MT2</option>
-<option value="LT2">LT2</option>
+  </select>
 
-<option value="HT3">HT3</option>
-<option value="MT3">MT3</option>
-<option value="LT3">LT3</option>
+  <select id="tierFilter">
 
-<option value="HT4">HT4</option>
-<option value="MT4">MT4</option>
-<option value="LT4">LT4</option>
+    <option value="ALL">All Tiers</option>
 
-<option value="HT5">HT5</option>
-<option value="MT5">MT5</option>
-<option value="LT5">LT5</option>
+    <option value="HT1">HT1</option>
+    <option value="MT1">MT1</option>
+    <option value="LT1">LT1</option>
 
-  </select></div><div class="section-title">
+    <option value="HT2">HT2</option>
+    <option value="MT2">MT2</option>
+    <option value="LT2">LT2</option>
+
+    <option value="HT3">HT3</option>
+    <option value="MT3">MT3</option>
+    <option value="LT3">LT3</option>
+
+    <option value="HT4">HT4</option>
+    <option value="MT4">MT4</option>
+    <option value="LT4">LT4</option>
+
+    <option value="HT5">HT5</option>
+    <option value="MT5">MT5</option>
+    <option value="LT5">LT5</option>
+
+  </select>
+
+</div>
+
+<div class="section-title">
   📊 Leaderboard
-</div><div class="card table-wrap"><table><thead><tr>
+</div>
+
+<div class="card table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
   <th>#</th>
   <th>Player</th>
   <th>Gamemodes</th>
   <th>Points</th>
-</tr></thead><tbody id="leaderboard"><tr>
+</tr>
+
+</thead>
+
+<tbody id="leaderboard">
+
+<tr>
   <td colspan="4" class="empty">
     Loading...
   </td>
-</tr></tbody></table></div><div class="section-title">
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="section-title">
   📜 Tier Test Information
-</div><div class="card info">  <h3>┃ Tier Test Information</h3>  <p>
+</div>
+
+<div class="card info">
+
+  <h3>┃ Tier Test Information</h3>
+
+  <p>
     This tier testing tests your tier in java combat while being a mcpe player.
-  </p>  <h3>┃ Tier Test Rules</h3>  <h4>In Discord:</h4>  <ul>
+  </p>
+
+  <h3>┃ Tier Test Rules</h3>
+
+  <h4>In Discord:</h4>
+
+  <ul>
     <li>You must read all test rules before requesting.</li>
     <li>Provide complete and correct information.</li>
     <li>Do not ping or annoy testers unnecessarily.</li>
     <li>You are required to confirm a test time within 12 hours.</li>
-  </ul>  <h4>In-Game:</h4>  <ul>
+  </ul>
+
+  <h4>In-Game:</h4>
+
+  <ul>
     <li>Hacking is strictly prohibited.</li>
     <li>Illegal clients are not allowed.</li>
     <li>Follow all tester instructions without question.</li>
     <li>Do not leave during the test for any reason.</li>
     <li>Your ping must be under 135ms.</li>
     <li><strong>KBM strictly BANNED</strong></li>
-  </ul></div></main><footer>
-  VOID MC TIERS • MCPE Tier Testing
-</footer><div
-  id="modal"
-  class="modal-bg"
-  onclick="closeProfile(event)"
->  <div
-    class="profile"
-    onclick="event.stopPropagation()"
-  ><div class="profile-head">
-
-  <div>
-
-    <div
-      id="profileName"
-      class="profile-name"
-    >
-      Player
-    </div>
-
-    <div
-      id="profileTotal"
-      class="profile-total"
-    >
-      0 Points
-    </div>
-
-  </div>
-
-  <button
-    class="close"
-    onclick="closeProfile()"
-  >
-    ×
-  </button>
+  </ul>
 
 </div>
 
-<div
-  id="profileGrid"
-  class="profile-grid"
-></div>
+</main>
 
-  </div></div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="supabase-config.js"></script><script>
+<footer>
+  VOID MC TIERS • MCPE Tier Testing
+</footer>
+
+<div
+  id="modal"
+  class="modal-bg"
+  onclick="closeProfile(event)"
+>
+
+  <div
+    class="profile"
+    onclick="event.stopPropagation()"
+  >
+
+    <div class="profile-head">
+
+      <div>
+
+        <div
+          id="profileName"
+          class="profile-name"
+        >
+          Player
+        </div>
+
+        <div
+          id="profileTotal"
+          class="profile-total"
+        >
+          0 Points
+        </div>
+
+      </div>
+
+      <button
+        class="close"
+        onclick="closeProfile()"
+      >
+        ×
+      </button>
+
+    </div>
+
+    <div
+      id="profileGrid"
+      class="profile-grid"
+    ></div>
+
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script src="supabase-config.js"></script>
+
+<script>
 
 /* =========================
    FIXED POINTS
@@ -640,6 +732,8 @@ const TIER_POINTS = {
 
 /* =====================================================
    PHOTO-BASED MC TIERS SVG ICONS
+
+   These SVG files go inside /icons/
 ===================================================== */
 
 const MODE_ICONS = {
@@ -676,10 +770,6 @@ const MODE_ICONS = {
 
 };
 
-
-/* =========================
-   SVG ICON
-========================= */
 
 function svgIcon(mode){
 
@@ -740,84 +830,12 @@ const sb =
 
 
 /* =========================
-   BASE TIER
-========================= */
-
-/*
-   Retired players still use their
-   original tier for points.
-
-   Example:
-   R-MT2 = MT2 points
-*/
-
-function getBaseTier(player){
-
-  return String(player.tier || "")
-    .replace(/^R-/i,"")
-    .toUpperCase();
-
-}
-
-
-/* =========================
-   DISPLAY TIER
-========================= */
-
-function getDisplayTier(player){
-
-  const tier =
-    getBaseTier(player);
-
-  if(player.retired === true)
-    return "R-" + tier;
-
-  return tier;
-
-}
-
-
-/* =========================
-   DISPLAY TIER HTML
-========================= */
-
-function tierHTML(player){
-
-  const base =
-    getBaseTier(player);
-
-  const display =
-    getDisplayTier(player);
-
-  const retired =
-    player.retired === true;
-
-  return `
-
-    <span
-      class="mode-tier ${getTierClass(base)}"
-    >
-      ${escapeHTML(display)}
-    </span>
-
-    ${retired ? `
-      <span class="retired-tag">
-        RETIRED
-      </span>
-    ` : ""}
-
-  `;
-
-}
-
-
-/* =========================
    POINTS
 ========================= */
 
 function getPoints(player){
 
-  return TIER_POINTS[getBaseTier(player)] || 0;
+  return TIER_POINTS[player.tier] || 0;
 
 }
 
@@ -828,21 +846,19 @@ function getPoints(player){
 
 function getTierClass(tier){
 
-  const base =
-    String(tier || "")
-      .replace(/^R-/i,"")
-      .toUpperCase();
+  if(!tier)
+    return "";
 
-  if(base.includes("1"))
+  if(tier.includes("1"))
     return "tier-1";
 
-  if(base.includes("2"))
+  if(tier.includes("2"))
     return "tier-2";
 
-  if(base.includes("3"))
+  if(tier.includes("3"))
     return "tier-3";
 
-  if(base.includes("4"))
+  if(tier.includes("4"))
     return "tier-4";
 
   return "tier-5";
@@ -861,7 +877,7 @@ async function loadPlayers(){
     error
   } = await sb
     .from("players")
-    .select("name,mode,tier,points,tests,retired");
+    .select("name,mode,tier,points,tests");
 
 
   if(error){
@@ -894,7 +910,7 @@ async function loadPlayers(){
     (data || []).filter(p =>
       p.name &&
       p.mode &&
-      TIER_POINTS[getBaseTier(p)]
+      TIER_POINTS[p.tier]
     );
 
 
@@ -922,9 +938,7 @@ function updateStats(){
   const ht1 =
     new Set(
       players
-        .filter(
-          p => getBaseTier(p) === "HT1"
-        )
+        .filter(p => p.tier === "HT1")
         .map(p => p.name)
     ).size;
 
@@ -983,7 +997,6 @@ function buildOverall(){
 
       mode:player.mode,
       tier:player.tier,
-      retired:player.retired === true,
       points:points
 
     });
@@ -1087,7 +1100,11 @@ function createModeIcons(modes){
 
         </div>
 
-        ${tierHTML(x)}
+        <span
+          class="mode-tier ${getTierClass(x.tier)}"
+        >
+          ${escapeHTML(x.tier)}
+        </span>
 
       </div>
 
@@ -1139,7 +1156,7 @@ function getFiltered(){
 
     const tierOK =
       tier === "ALL" ||
-      getBaseTier(p) === tier;
+      p.tier === tier;
 
 
     return (
@@ -1205,8 +1222,7 @@ function renderLeaderboard(){
         if(
           tier !== "ALL" &&
           !p.modes.some(
-            x =>
-              getBaseTier(x) === tier
+            x => x.tier === tier
           )
         )
           return false;
@@ -1347,7 +1363,11 @@ function renderLeaderboard(){
 
               </div>
 
-              ${tierHTML(p)}
+              <span
+                class="mode-tier ${getTierClass(p.tier)}"
+              >
+                ${escapeHTML(p.tier)}
+              </span>
 
             </div>
 
@@ -1434,7 +1454,11 @@ function openProfile(encodedName){
                 ${escapeHTML(p.mode)}
               </div>
 
-              ${tierHTML(p)}
+              <span
+                class="mode-tier ${getTierClass(p.tier)}"
+              >
+                ${escapeHTML(p.tier)}
+              </span>
 
               <div
                 style="margin-top:5px;font-weight:800"
@@ -1532,5 +1556,7 @@ document.addEventListener(
 
 loadPlayers();
 
-</script></body>
-</html>
+</script>
+
+</body>
+  </html>
